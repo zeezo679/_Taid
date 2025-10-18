@@ -1347,7 +1347,6 @@ C:\Users\PC\RiderProjects\_Taid\demo\obj\Debug\net9.0\compressed\hyy55cnzqs-5ipw
 C:\Users\PC\RiderProjects\_Taid\demo\obj\Debug\net9.0\compressed\z920783baj-5ipweew5fc.gz
 C:\Users\PC\RiderProjects\_Taid\demo\obj\Debug\net9.0\compressed\5ycjt35vux-8j9vzi2cg5.gz
 C:\Users\PC\RiderProjects\_Taid\demo\obj\Debug\net9.0\compressed\lv3omb20w0-5ipweew5fc.gz
-C:\Users\PC\RiderProjects\_Taid\demo\obj\Debug\net9.0\compressed\1dmkcuyrn6-3ga3wjzo63.gz
 C:\Users\PC\RiderProjects\_Taid\demo\obj\Debug\net9.0\compressed\h5wsjba4gz-61n19gt1b8.gz
 C:\Users\PC\RiderProjects\_Taid\demo\obj\Debug\net9.0\compressed\qxluzx2r9a-09xxpyakn3.gz
 C:\Users\PC\RiderProjects\_Taid\demo\obj\Debug\net9.0\compressed\4ypyptd82z-5uw9to74qg.gz
@@ -1423,3 +1422,4 @@ C:\Users\PC\RiderProjects\_Taid\demo\obj\Debug\net9.0\refint\Demo.dll
 C:\Users\PC\RiderProjects\_Taid\demo\obj\Debug\net9.0\Demo.pdb
 C:\Users\PC\RiderProjects\_Taid\demo\obj\Debug\net9.0\Demo.genruntimeconfig.cache
 C:\Users\PC\RiderProjects\_Taid\demo\obj\Debug\net9.0\ref\Demo.dll
+C:\Users\PC\RiderProjects\_Taid\Demo\obj\Debug\net9.0\compressed\1dmkcuyrn6-3ga3wjzo63.gz

@@ -1,6 +1,7 @@
 ﻿using Demo.Infrastructure;
 using Demo.Models.Entities;
 using Demo.Models.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace Demo.Models.Repository
 {
@@ -27,6 +28,13 @@ namespace Demo.Models.Repository
             _context.crsResults.Add(crsResult);
 
             _context.SaveChanges();
+        }
+
+        public bool CheckEnrollStatus(int crsId, string uid)
+        {
+            var row = _context.crsResults.AsNoTracking().Where(crsr => crsr.CourseId == crsId && crsr.UserId == uid);
+            
+            return row.Any();
         }
 
         public void IsEnrolled(string UID)

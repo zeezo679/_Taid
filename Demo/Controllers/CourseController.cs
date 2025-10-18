@@ -189,7 +189,13 @@ public class CourseController : Controller
     [HttpGet]
     public IActionResult ViewCourseDetails(int id)
     {
-        var course = CourseRepository.Get(id); 
+        var course = CourseRepository.Get(id);
+        var uid = User.FindFirstValue(ClaimTypes.NameIdentifier);
+        
+        //check if the courseId is present in the crsResults with the current uid
+        bool isEnrolled = CrsResultRepository.CheckEnrollStatus(id, uid);
+        
+        ViewData["IsEnrolled"] = isEnrolled;
         return View(course);
     }
     
@@ -231,10 +237,7 @@ public class CourseController : Controller
         if (!TraineeRepository.IsAlreadyTrainee(currentLoggedUserId))
             TraineeRepository.InsertTraineeCrsResult(trainee, course.Id);
 
-        //TODO Next:
-        //must check if the current trainee have an enrollment with current course or no
-        //must have a flag or something to indicate the status of enrollment
-        
+       
         CrsResultRepository.Insert(trainee, id);
 
         if(!await _userManager.IsInRoleAsync(user, "Trainee"))

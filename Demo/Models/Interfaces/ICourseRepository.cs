@@ -11,6 +11,7 @@ namespace Demo.Models.Interfaces
          List<Course> FilterByDept(int? deptId);
          void Update(int id, Course newCourse);
          void Delete(int id);
+         
          int Count();
     }
 }

@@ -1,14 +1,30 @@
-﻿@using Demo.Models.Entities
+﻿@using System.Security.Claims
+@using Demo.Models.Entities
 @model Course
 
-
+@{
+    var uid = User.FindFirstValue(ClaimTypes.NameIdentifier);
+}
 <p>
     @Model.CourseDescription
 </p>
 
 <div class="action-buttons single-action">
-    <a asp-action="enroll" asp-route-id="@Model.Id" class="btn-enroll">
-        <i data-feather="user-check" class="btn-icon"></i>
-        Enroll Now
-    </a>
+   
+    @uid
+    @if(ViewData["IsEnrolled"] is true)
+    {
+        <span class="enrolled-badge">
+            <i data-feather="check-circle" class="badge-icon"></i>
+            You are enrolled in this course
+        </span>
+    }
+    else
+    {
+        <a asp-action="enroll" asp-route-id="@Model.Id" class="btn-enroll">
+            <i data-feather="user-check" class="btn-icon"></i>
+            Enroll Now
+        </a>
+    }
+    
 </div>

@@ -54,7 +54,7 @@ namespace Demo.Models.Repository
             _context.Courses.Remove(deletedCourse);
             _context.SaveChanges();
         }
-
+        
         public int Count()
         {
             return _context.Courses.Count();
