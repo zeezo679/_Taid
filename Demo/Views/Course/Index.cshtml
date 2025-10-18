@@ -32,13 +32,16 @@
                 <p class="text-muted mb-0 small">Manage and organize your educational courses</p>
             </div>
         </div>
-        @if(User.IsInRole("Instructor") || User.IsInRole("Admin"))
-        {
+
             <div class="header-actions d-flex align-items-center gap-2 flex-wrap ms-md-auto">
-                <a asp-action="addCourse" asp-controller="Course" class="btn btn-primary d-flex align-items-center">
-                    <i data-feather="plus" class="me-2 icon-sm"></i>
-                    Add New Course
-                </a>
+                @if (User.IsInRole("Instructor") || User.IsInRole("Admin"))
+                {
+                    <a asp-action="addCourse" asp-controller="Course" class="btn btn-primary d-flex align-items-center">
+                        <i data-feather="plus" class="me-2 icon-sm"></i>
+                        Add New Course
+                    </a>
+                }
+               
                 <form asp-action="Index" method="get" class="d-inline-block">
                     <select name="deptId"
                             class="form-select header-select"
@@ -47,7 +50,7 @@
                     </select>
                 </form>
             </div>
-        }
+   
     </div>
 
     <!-- AJAX Details Container with smooth animation -->

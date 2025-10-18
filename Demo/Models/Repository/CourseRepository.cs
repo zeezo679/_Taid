@@ -25,6 +25,7 @@ namespace Demo.Models.Repository
             Course course = _context.Courses
                 .Include(c => c.Department)
                 .Include(c => c.Instructors)
+                    .ThenInclude(i => i.Department)
                 .FirstOrDefault(c => c.Id == id);
             return course;
         }

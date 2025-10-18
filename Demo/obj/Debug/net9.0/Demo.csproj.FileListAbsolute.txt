@@ -1422,4 +1422,4 @@ C:\Users\PC\RiderProjects\_Taid\demo\obj\Debug\net9.0\refint\Demo.dll
 C:\Users\PC\RiderProjects\_Taid\demo\obj\Debug\net9.0\Demo.pdb
 C:\Users\PC\RiderProjects\_Taid\demo\obj\Debug\net9.0\Demo.genruntimeconfig.cache
 C:\Users\PC\RiderProjects\_Taid\demo\obj\Debug\net9.0\ref\Demo.dll
-C:\Users\PC\RiderProjects\_Taid\Demo\obj\Debug\net9.0\compressed\1dmkcuyrn6-3ga3wjzo63.gz
+C:\Users\PC\RiderProjects\_Taid\Demo\obj\Debug\net9.0\compressed\1dmkcuyrn6-rgvjr01rmg.gz

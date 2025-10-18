@@ -3,28 +3,201 @@
 @model Course
 
 @{
+    ViewData["Title"] = $"{Model.Name} - Course Details";
     var uid = User.FindFirstValue(ClaimTypes.NameIdentifier);
+    var isEnrolled = ViewData["IsEnrolled"] is true;
 }
-<p>
-    @Model.CourseDescription
-</p>
 
-<div class="action-buttons single-action">
-   
-    @uid
-    @if(ViewData["IsEnrolled"] is true)
-    {
-        <span class="enrolled-badge">
-            <i data-feather="check-circle" class="badge-icon"></i>
-            You are enrolled in this course
-        </span>
-    }
-    else
-    {
-        <a asp-action="enroll" asp-route-id="@Model.Id" class="btn-enroll">
-            <i data-feather="user-check" class="btn-icon"></i>
-            Enroll Now
+@section Styles {
+    <style>
+        /* Override container restriction for this page only */
+        main.container {
+            max-width: 100% !important;
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+            padding-top: 0 !important;
+            padding-bottom: 0 !important;
+        }
+        
+        main .page-content {
+            max-width: 100% !important;
+            padding: 0 !important;
+        }
+    </style>
+}
+
+<!-- Full Width Hero Section -->
+<div class="course-hero-section">
+    <div class="course-hero-container">
+        <!-- Back Button -->
+        <a asp-action="Index" asp-route-deptId="@Model.DeptId" class="course-back-button">
+            <i data-feather="arrow-left" class="back-icon"></i>
+            <span>Back to Courses</span>
         </a>
-    }
-    
+
+        <!-- Course Header Content -->
+        <div class="course-hero-content">
+            <!-- Left Side - Icon and Course Info -->
+            <div class="course-hero-left">
+                <div class="course-hero-icon">
+                    <i data-feather="book-open"></i>
+                </div>
+                <div class="course-hero-info">
+                    <div class="course-category-badge">@Model.Department.Name</div>
+                    @if(isEnrolled)
+                    {
+                        <div class="course-enrolled-badge">
+                            <i data-feather="check-circle"></i>
+                            <span>Enrolled</span>
+                        </div>
+                    }
+                    <h1 class="course-hero-title">@Model.Name</h1>
+                    <p class="course-hero-description">
+                        @if (!string.IsNullOrEmpty(Model.CourseDescription))
+                        {
+                            @Model.CourseDescription
+                        }
+                        else
+                        {
+                            <span>Explore the fundamental concepts and advanced topics in this comprehensive course.</span>
+                        }
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+
+<!-- Main Content Section - Full Width Background -->
+<div class="course-content-section">
+    <div class="course-content-container">
+        <!-- Main Info Grid -->
+        <div class="course-details-info-grid">
+            <!-- Department Info -->
+            <div class="course-details-info-card">
+                <div class="info-card-header">
+                    <i data-feather="graduation-cap" class="info-card-icon department"></i>
+                    <span class="info-card-label">Department</span>
+                </div>
+                <div class="info-card-value">@Model.Department.Name</div>
+            </div>
+
+            <!-- Max Degree -->
+            <div class="course-details-info-card">
+                <div class="info-card-header">
+                    <i data-feather="trending-up" class="info-card-icon max-degree"></i>
+                    <span class="info-card-label">Maximum Degree</span>
+                </div>
+                <div class="info-card-value degree-value max">@Model.Degree.ToString("F2")</div>
+            </div>
+
+            <!-- Min Degree -->
+            <div class="course-details-info-card">
+                <div class="info-card-header">
+                    <i data-feather="trending-down" class="info-card-icon min-degree"></i>
+                    <span class="info-card-label">Minimum Degree</span>
+                </div>
+                <div class="info-card-value degree-value min">@Model.MinDegree.ToString("F2")</div>
+            </div>
+        </div>
+
+        <!-- Instructors Section -->
+        <div class="instructors-details-section">
+            <div class="section-header">
+                <i data-feather="users" class="section-icon"></i>
+                <h3 class="section-title">Course Instructors</h3>
+                <span class="instructors-count-badge">@Model.Instructors.Count</span>
+            </div>
+            
+            @if (Model.Instructors.Any())
+            {
+                <div class="instructors-grid">
+                    @foreach (var instructor in Model.Instructors)
+                    {
+                        <div class="instructor-card">
+                            <div class="instructor-avatar-container">
+                                @if (!string.IsNullOrEmpty(instructor.Image))
+                                {
+                                    <img src="@instructor.Image" alt="@instructor.Name" class="instructor-avatar-img" />
+                                }
+                                else
+                                {
+                                    <div class="instructor-avatar-placeholder">
+                                        <span>@instructor.Name.Substring(0, 1).ToUpper()</span>
+                                    </div>
+                                }
+                            </div>
+                            <div class="instructor-card-content">
+                                <h4 class="instructor-name">@instructor.Name</h4>
+                                <div class="instructor-meta">
+                                    <div class="instructor-meta-item">
+                                        <i data-feather="briefcase" class="meta-icon"></i>
+                                        <span>@instructor.Department.Name</span>
+                                    </div>
+                                    <div class="instructor-meta-item">
+                                        <i data-feather="map-pin" class="meta-icon"></i>
+                                        <span>@instructor.Address</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            }
+            else
+            {
+                <div class="no-instructors-message">
+                    <i data-feather="user-x" class="no-instructors-icon"></i>
+                    <p>No instructors assigned to this course yet.</p>
+                </div>
+            }
+        </div>
+
+        <!-- Action Footer -->
+        @if(!isEnrolled)
+        {
+            <div class="course-details-actions">
+                <a asp-action="enroll" asp-route-id="@Model.Id" class="btn-course-details-enroll">
+                    <i data-feather="user-check" class="btn-icon"></i>
+                    Enroll Now
+                </a>
+            </div>
+        }
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        // Initialize Feather icons
+        feather.replace();
+        
+        // Add animation on load
+        document.addEventListener('DOMContentLoaded', function() {
+            const heroSection = document.querySelector('.course-hero-section');
+            const contentSection = document.querySelector('.course-content-section');
+            
+            if (heroSection) {
+                heroSection.style.opacity = '0';
+                heroSection.style.transform = 'translateY(-20px)';
+                
+                setTimeout(() => {
+                    heroSection.style.transition = 'all 0.6s ease';
+                    heroSection.style.opacity = '1';
+                    heroSection.style.transform = 'translateY(0)';
+                }, 100);
+            }
+            
+            if (contentSection) {
+                contentSection.style.opacity = '0';
+                contentSection.style.transform = 'translateY(20px)';
+                
+                setTimeout(() => {
+                    contentSection.style.transition = 'all 0.5s ease';
+                    contentSection.style.opacity = '1';
+                    contentSection.style.transform = 'translateY(0)';
+                }, 300);
+            }
+        });
+    </script>
+}
+
