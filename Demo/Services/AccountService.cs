@@ -38,8 +38,7 @@ namespace Demo.Services
             // Verify email , return identity error if null
             if (string.IsNullOrEmpty(email))
                 return IdentityResult.Failed(new IdentityError { Code = "nullEmail", Description = "Email Doesnt Exists in Claims" });
-
-
+            
             // Check if user with this email already exists
             var user = await UserManager.FindByEmailAsync(email);
 

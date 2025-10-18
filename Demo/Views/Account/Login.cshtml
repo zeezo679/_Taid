@@ -31,7 +31,7 @@
                 <p class="auth-form-subtitle">Sign in to manage instructors, trainees, and courses</p>
 
                 <!-- Validation Summary -->
-                <div asp-validation-summary="All" class="auth-alert-danger" style="display: none;"></div>
+                <div asp-validation-summary="All" class="auth-alert-danger" style=""></div>
 
                 <!-- Login Form -->
                 <form asp-action="Login" method="post">
@@ -58,8 +58,8 @@
                     <!-- Form Options -->
                     <div class="auth-form-options">
                         <div class="auth-checkbox-wrapper">
-                            <input type="checkbox" id="remember" name="RememberMe" />
-                            <label for="remember">Remember me</label>
+                            <input asp-for="RememberMe" type="checkbox" id="remember" name="RememberMe" />
+                            <label asp-for="RememberMe">Remember me</label>
                         </div>
                         <a href="#" class="auth-forgot-link">Forgot password?</a>
                     </div>
