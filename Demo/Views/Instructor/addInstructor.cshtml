@@ -1,0 +1,301 @@
+﻿@using Demo.Models.Entities
+@using Demo.ViewModel
+@model InstructorViewModel
+
+<div class="container mt-4">
+    <div class="instructor-form-container">
+        <!-- Modern Header Section -->
+        <div class="form-header">
+            <div class="header-content">
+                <div class="header-icon">
+                    <i data-feather="user-plus" class="icon-lg"></i>
+                </div>
+                <div class="header-text">
+                    <h2 class="header-title">Add New Instructor</h2>
+                    <p class="header-subtitle">Fill in the details to add a new instructor to the system</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Form Body -->
+        <div class="form-body">
+            <form method="post" asp-action="successAdd" asp-controller="instructor">
+                <input asp-for="Id" type="hidden" />
+                
+                <div class="form-grid">
+                    <!-- Instructor Name -->
+                    <div class="form-field">
+                        <label class="field-label" asp-for="Name">
+                            <i data-feather="user" class="label-icon"></i>
+                            Instructor Name
+                        </label>
+                        <input type="text" asp-for="Name" 
+                               class="modern-input" 
+                               placeholder="Enter full name" 
+                               required />
+                        <span asp-validation-for="Name" class="field-validation-error"></span>
+                    </div>
+
+                    <!-- Password -->
+                    <div class="form-field">
+                        <label class="field-label" asp-for="Password">
+                            <i data-feather="lock" class="label-icon"></i>
+                            Password
+                        </label>
+                        <div class="password-input-container">
+                            <input type="password" asp-for="Password"
+                                   class="modern-input"
+                                   placeholder="Enter password"
+                                   required />
+                            <button type="button" class="password-toggle" onclick="togglePassword(this)">
+                                <i data-feather="eye" class="toggle-icon"></i>
+                            </button>
+                        </div>
+                        <span asp-validation-for="Password" class="field-validation-error"></span>
+                    </div>
+
+                    <!-- Confirm Password -->
+                    <div class="form-field">
+                        <label class="field-label" asp-for="ConfirmPassword">
+                            <i data-feather="lock" class="label-icon"></i>
+                            Confirm Password
+                        </label>
+                        <div class="password-input-container">
+                            <input type="password" asp-for="ConfirmPassword"
+                                   class="modern-input"
+                                   placeholder="Re-enter password"
+                                   required />
+                            <button type="button" class="password-toggle" onclick="togglePassword(this)">
+                                <i data-feather="eye" class="toggle-icon"></i>
+                            </button>
+                        </div>
+                        <span asp-validation-for="ConfirmPassword" class="field-validation-error"></span>
+                    </div>
+                    
+                    <!-- Monthly Salary -->
+                    <div class="form-field">
+                        <label class="field-label" asp-for="Salary">
+                            <i data-feather="dollar-sign" class="label-icon"></i>
+                            Monthly Salary
+                        </label>
+                        <div class="salary-input-container">
+                            <span class="currency-symbol">$</span>
+                            <input type="number" asp-for="Salary" 
+                                   class="modern-input salary-input" 
+                                   placeholder="4" 
+                                   min="0" 
+                                   step="100"
+                                   required />
+                        </div>
+                        <span asp-validation-for="Salary" class="field-validation-error"></span>
+                    </div>
+
+                    <!-- Department -->
+                    <div class="form-field full-width">
+                        <label class="field-label" asp-for="DeptId">
+                            <i data-feather="building" class="label-icon"></i>
+                            Department
+                        </label>
+                        <div class="select-container">
+                            <select asp-for="DeptId" class="modern-select" required onchange="ShowCourses(this.value)">
+                                <option value="" disabled selected>Select a department</option>
+                                @foreach (Department dept in Model.departments)
+                                {
+                                    <option value="@dept.Id">@dept.Name</option>
+                                }
+                            </select>
+                            <i data-feather="chevron-down" class="select-arrow"></i>
+                        </div>
+                        <span asp-validation-for="DeptId" class="field-validation-error"></span>
+                    </div>
+                    
+                    <!-- Address -->
+                    <div class="form-field full-width">
+                        <label class="field-label" asp-for="Address">
+                            <i data-feather="map-pin" class="label-icon"></i>
+                            Address
+                        </label>
+                        <textarea asp-for="Address" 
+                                  class="modern-textarea" 
+                                  placeholder="Enter complete address" 
+                                  rows="4"
+                                  required></textarea>
+                        <span asp-validation-for="Address" class="field-validation-error"></span>
+                    </div>
+                    
+                    <!-- Profile Image Upload -->
+                    <div class="form-field full-width">
+                        <label class="field-label" asp-for="Image">
+                            <i data-feather="upload" class="label-icon"></i>
+                            Profile Image
+                        </label>
+                        <div class="file-upload-area">
+                            <div class="upload-icon">
+                                <i data-feather="upload" class="upload-icon-lg"></i>
+                            </div>
+                            <div class="upload-text">
+                                <p class="upload-main-text">Click to upload instructor's profile image</p>
+                                <p class="upload-sub-text">PNG, JPG or JPEG (max. 5MB)</p>
+                            </div>
+                            <input type="text" asp-for="Image" 
+                                   class="modern-input file-input" 
+                                   placeholder="Enter image filename (e.g., instructor1.jpg)" 
+                                   required />
+                        </div>
+                        <span asp-validation-for="Image" class="field-validation-error"></span>
+                    </div>
+                </div>
+                
+                <!-- Department Courses Section -->
+                <div class="courses-section d-none" id="CoursesPerDept">
+                    <div class="courses-header">
+                        <h6 class="courses-title">
+                            <i data-feather="list" class="courses-icon"></i>
+                            Courses in Selected Department
+                        </h6>
+                        <small class="courses-subtitle">View all courses available in this department</small>
+                    </div>
+                    <div class="courses-content" id="selectContainer">
+                        <!-- AJAX content will be loaded here -->
+                    </div>
+                </div>
+                
+                <!-- Action Buttons -->
+                <div class="form-actions">
+                    <button type="submit" class="btn-primary-modern">
+                        <i data-feather="user-plus" class="btn-icon"></i>
+                        Add Instructor
+                    </button>
+                    
+                    <a asp-action="Index" asp-controller="Instructor" class="btn-secondary-modern">
+                        Cancel
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js"></script>
+    
+    <script>
+        function togglePassword(button) {
+            const input = button.previousElementSibling;
+            const icon = button.querySelector('.toggle-icon');
+            
+            if (input.type === 'password') {
+                input.type = 'text';
+                icon.setAttribute('data-feather', 'eye-off');
+            } else {
+                input.type = 'password';
+                icon.setAttribute('data-feather', 'eye');
+            }
+            feather.replace();
+        }
+
+        function ShowCourses(deptId) {
+            console.log("Loading courses for department:", deptId);
+            
+            var container = document.getElementById("CoursesPerDept");
+            var selectContainer = document.getElementById("selectContainer");
+            
+            // Show the container
+            container.classList.remove("d-none");
+            container.classList.add("animate-fade-in");
+            
+            // Show loading state
+            selectContainer.innerHTML = `
+                <div class="text-center p-3">
+                    <div class="spinner-border spinner-border-sm text-primary me-2" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                    <span class="text-muted">Loading courses...</span>
+                </div>
+            `;
+
+            // AJAX call
+            $.ajax({
+                url: "showcoursesperdept/?deptId=" + deptId,
+                type: "GET",
+                success: function(result) {
+                    console.log(result);
+                    console.log("Course details loaded successfully");
+                    selectContainer.innerHTML = result;
+                    
+                    // Re-initialize feather icons
+                    if (typeof feather !== 'undefined') {
+                        feather.replace();
+                    }
+                    
+                    // Smooth scroll to the courses section
+                    setTimeout(() => {
+                        container.scrollIntoView({ 
+                            behavior: 'smooth', 
+                            block: 'nearest' 
+                        });
+                    }, 300);
+                },
+                error: function(xhr, status, error) {
+                    console.error("Error loading courses:", error);
+                    selectContainer.innerHTML = `
+                        <div class="alert alert-danger d-flex align-items-center">
+                            <i data-feather="alert-circle" class="me-2"></i>
+                            <div>Error loading courses. Please try again.</div>
+                        </div>
+                    `;
+                    feather.replace();
+                }
+            });
+        }
+
+        // Initialize feather icons
+        feather.replace();
+        
+        // Enhanced form validation
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add modern validation styling
+            document.querySelectorAll('.modern-input, .modern-select, .modern-textarea').forEach(field => {
+                field.addEventListener('blur', function() {
+                    if (this.checkValidity()) {
+                        this.classList.remove('is-invalid');
+                        this.classList.add('is-valid');
+                    } else {
+                        this.classList.remove('is-valid');
+                        this.classList.add('is-invalid');
+                    }
+                });
+                
+                // Clear validation on focus
+                field.addEventListener('focus', function() {
+                    this.classList.remove('is-invalid', 'is-valid');
+                });
+            });
+            
+            // Form submission loading state
+            document.querySelector('form').addEventListener('submit', function(e) {
+                const submitBtn = this.querySelector('.btn-primary-modern');
+                if (this.checkValidity()) {
+                    submitBtn.innerHTML = `
+                        <span class="spinner-border spinner-border-sm me-2" role="status"></span>
+                        Adding Instructor...
+                    `;
+                    submitBtn.disabled = true;
+                }
+            });
+            
+            // File upload area click handler
+            document.querySelector('.file-upload-area').addEventListener('click', function() {
+                document.querySelector('.file-input').focus();
+            });
+        });
+        
+        // Auto-resize textarea
+        document.querySelector('.modern-textarea').addEventListener('input', function() {
+            this.style.height = 'auto';
+            this.style.height = (this.scrollHeight) + 'px';
+        });
+    </script>
+}

@@ -1,0 +1,171 @@
+﻿@using Demo.Models.Entities
+@model List<Instructor>
+
+<div class="container-fluid px-4 py-4">
+    @if (TempData["Message"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <i data-feather="check-circle" class="me-2 icon-sm"></i>
+            @TempData["Message"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    <!-- Header -->
+    <div class="page-header d-flex flex-column flex-md-row align-items-md-center justify-content-between mb-4">
+        <div class="d-flex align-items-center mb-3 mb-md-0">
+            <div class="header-icon me-3">
+                <i data-feather="users"></i>
+            </div>
+            <div>
+                <h1 class="h3 mb-1 fw-bold">Instructors</h1>
+                <p class="text-muted mb-0 small">Manage your teaching staff</p>
+            </div>
+        </div>
+        <div class="header-actions d-flex align-items-center gap-2 ms-md-auto">
+            <a asp-action="addInstructor" asp-controller="Instructor" class="btn btn-primary d-flex align-items-center">
+                <i data-feather="user-plus" class="me-2 icon-sm"></i>
+                Add New Instructor
+            </a>
+        </div>
+    </div>
+
+    <!-- Instructors Cards using modern design -->
+    @if (Model.Any())
+    {
+        @if(TempData["success"] != null)
+        {
+            <partial name="_ShowSuccessPartial" />
+        }
+        @if(TempData["success-update"] != null)
+        {
+            <partial name="_ShowSuccessPartial" />
+        }
+
+        <div class="row g-4">
+            @foreach(var instructor in Model)
+            {
+                <div class="col-lg-6 col-xl-4">
+                    <div class="modern-course-card h-100">
+                        <div class="card-face card-front">
+                            <!-- Header Section with Dark Gradient -->
+                            <div class="course-header">
+                                <div class="course-header-content">
+                                    <div class="course-icon-container">
+                                        <i data-feather="user" class="course-icon"></i>
+                                    </div>
+                                    <div class="course-title-section">
+                                        <div class="course-label">INSTRUCTOR</div>
+                                        <h3 class="course-title">@instructor.Name</h3>
+                                    </div>
+                                </div>
+                                <div class="course-id-badge">
+                                    <span>ID: @instructor.Id</span>
+                                </div>
+                            </div>
+
+                            <!-- Content Area -->
+                            <div class="course-content">
+                                <!-- Avatar Section -->
+                                <div class="department-section">
+                                    <div class="section-label">PROFILE</div>
+                                    <div class="text-center mb-3">
+                                        <div class="mx-auto rounded-circle overflow-hidden bg-light d-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">
+                                            @if (!string.IsNullOrEmpty(instructor.Image))
+                                            {
+                                                <img src="~/images/@instructor.Image" alt="@instructor.Name" class="w-100 h-100" style="object-fit: cover;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+                                                <div class="w-100 h-100 d-flex align-items-center justify-content-center" style="display: none;">
+                                                    <i data-feather="user" class="icon-sm text-muted"></i>
+                                                </div>
+                                            }
+                                            else
+                                            {
+                                                <div class="rounded-circle bg-primary d-flex align-items-center justify-content-center w-100 h-100">
+                                                    <span class="fw-semibold text-white fs-5">@instructor.Name.Substring(0, 1).ToUpper()</span>
+                                                </div>
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Department Section -->
+                                <div class="department-section">
+                                    <div class="section-label">DEPARTMENT</div>
+                                    <div class="department-info">
+                                        <i data-feather="building" class="department-icon"></i>
+                                        <span class="department-name">@instructor.Department.Name</span>
+                                    </div>
+                                </div>
+
+                                <!-- Metrics Display -->
+                                <div class="degree-section">
+                                    <div class="degree-grid">
+                                        <div class="degree-card">
+                                            <div class="degree-header">
+                                                <i data-feather="dollar-sign" class="degree-icon max-icon"></i>
+                                                <span class="degree-label">Salary</span>
+                                            </div>
+                                            <div class="degree-value max-value">$@instructor.Salary.ToString("N0")</div>
+                                        </div>
+                                        <div class="degree-card">
+                                            <div class="degree-header">
+                                                <i data-feather="map-pin" class="degree-icon min-icon"></i>
+                                                <span class="degree-label">Location</span>
+                                            </div>
+                                            <div class="degree-value min-value" style="font-size: 12px; font-weight: 500;">@instructor.Address.Substring(0, Math.Min(instructor.Address.Length, 15))@(instructor.Address.Length > 15 ? "..." : "")</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Action Buttons Footer -->
+                            <div class="course-actions">
+                                <div class="action-buttons">
+                                    <a asp-action="edit" asp-controller="instructor" asp-route-id="@instructor.Id" class="btn-edit">
+                                        <i data-feather="edit" class="btn-icon"></i>
+                                        Edit
+                                    </a>
+                                    <button type="button" class="btn-delete" data-bs-toggle="modal" data-bs-target="#deleteModel-@instructor.Id">
+                                        <i data-feather="trash-2" class="btn-icon"></i>
+                                        Delete
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @await Html.PartialAsync("_ConfirmDeletePartial", instructor)
+            }
+        </div>
+    }
+    else
+    {
+        <!-- Empty State -->
+        <div class="text-center py-5">
+            <div class="mx-auto mb-4" style="width: 80px; height: 80px;">
+                <div class="bg-light rounded-circle d-flex align-items-center justify-content-center h-100">
+                    <i data-feather="users" class="text-muted" style="width: 40px; height: 40px;"></i>
+                </div>
+            </div>
+            <h3 class="h4 mb-3">No Instructors Found</h3>
+            <p class="text-muted mb-4">Get started by adding your first instructor to the system.</p>
+            <a asp-action="addInstructor" asp-controller="Instructor" class="btn btn-primary btn-lg">
+                <i data-feather="user-plus" class="me-2 icon-sm"></i>
+                Add Your First Instructor
+            </a>
+        </div>
+    }
+</div>
+
+@section Scripts {
+    <script>
+        feather.replace();
+        setTimeout(function () { $('.alert').alert('close'); }, 5000);
+        document.querySelectorAll('.modern-course-card').forEach((card, index) => {
+            card.style.animationDelay = `${index * 0.1}s`;
+        });
+    </script>
+}
+
+
+

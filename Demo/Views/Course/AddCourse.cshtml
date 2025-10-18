@@ -1,0 +1,160 @@
+@using Demo.Models.Entities
+@using Demo.ViewModel
+@model CourseViewModel
+
+<div class="container mt-4">
+    <div class="instructor-form-container">
+        <!-- Modern Header Section -->
+        <div class="form-header">
+            <div class="header-content">
+                <div class="header-icon">
+                    <i data-feather="book-open" class="icon-lg"></i>
+                </div>
+                <div class="header-text">
+                    <h2 class="header-title">Add New Course</h2>
+                    <p class="header-subtitle">Fill in the details to add a new course to the system</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Form Body -->
+        <div class="form-body">
+            <form method="post" asp-action="addCourse" asp-controller="course" asp-route-id="@Model.Id">
+                <input asp-for="Id" type="hidden" />
+                
+                <div asp-validation-summary="All" class="alert alert-danger" role="alert" style="display: none;"></div>
+                
+                <div class="form-grid">
+                    <!-- Course Name -->
+                    <div class="form-field">
+                        <label class="field-label" asp-for="Name">
+                            <i data-feather="type" class="label-icon"></i>
+                            Course Name
+                        </label>
+                        <input type="text" asp-for="Name" 
+                               class="modern-input" 
+                               placeholder="Enter course name" 
+                               required />
+                        <span asp-validation-for="Name" class="field-validation-error"></span>
+                    </div>
+                    
+                    <!-- Maximum Degree -->
+                    <div class="form-field">
+                        <label class="field-label" asp-for="Degree">
+                            <i data-feather="award" class="label-icon"></i>
+                            Maximum Degree
+                        </label>
+                        <input type="number" asp-for="Degree" 
+                               class="modern-input" 
+                               placeholder="Enter maximum degree" 
+                               min="0"
+                               required />
+                        <span asp-validation-for="Degree" class="field-validation-error"></span>
+                    </div>
+                    
+                    <!-- Minimum Degree -->
+                    <div class="form-field">
+                        <label class="field-label" asp-for="MinDegree">
+                            <i data-feather="target" class="label-icon"></i>
+                            Minimum Degree
+                        </label>
+                        <input type="number" asp-for="MinDegree" 
+                               class="modern-input" 
+                               placeholder="Enter minimum degree" 
+                               min="0" 
+                               required />
+                        <span asp-validation-for="MinDegree" class="field-validation-error"></span>
+                    </div>
+
+                    @* Course Description *@
+                    <div class="form-field full-width">
+                        <label class="field-label" asp-for="CourseDescription">
+                            <i data-feather="map-pin" class="label-icon"></i>
+                            Description
+                        </label>
+                        <textarea asp-for="CourseDescription"
+                                  class="modern-textarea"
+                                  placeholder="Describe the course in a short paragragh"
+                                  rows="4"
+                                  ></textarea>
+                        <span asp-validation-for="CourseDescription" class="field-validation-error"></span>
+                    </div>
+                    
+                    <!-- Department -->
+                    <div class="form-field">
+                        <label class="field-label" asp-for="DeptId">
+                            <i data-feather="building" class="label-icon"></i>
+                            Department
+                        </label>
+                        <div class="select-container">
+                            <select asp-for="DeptId" class="modern-select" required>
+                                <option value="" disabled selected>Select a department</option>
+                                @foreach(Department dept in Model.Departments)
+                                {
+                                    <option value="@dept.Id">@dept.Name</option>
+                                }
+                            </select>
+                            <i data-feather="chevron-down" class="select-arrow"></i>
+                        </div>
+                        <span asp-validation-for="DeptId" class="field-validation-error"></span>
+                    </div>
+                </div>
+                
+                <!-- Action Buttons -->
+                <div class="form-actions">
+                    <button type="submit" class="btn-primary-modern">
+                        <i data-feather="book-open" class="btn-icon"></i>
+                        Add Course
+                    </button>
+                    
+                    <a asp-action="Index" asp-controller="Course" class="btn-secondary-modern">
+                        Cancel
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js"></script>
+    
+    <script>
+        // Initialize feather icons
+        feather.replace();
+        
+        // Enhanced form validation
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add modern validation styling
+            document.querySelectorAll('.modern-input, .modern-select, .modern-textarea').forEach(field => {
+                field.addEventListener('blur', function() {
+                    if (this.checkValidity()) {
+                        this.classList.remove('is-invalid');
+                        this.classList.add('is-valid');
+                    } else {
+                        this.classList.remove('is-valid');
+                        this.classList.add('is-invalid');
+                    }
+                });
+                
+                // Clear validation on focus
+                field.addEventListener('focus', function() {
+                    this.classList.remove('is-invalid', 'is-valid');
+                });
+            });
+            
+            // Form submission loading state
+            document.querySelector('form').addEventListener('submit', function(e) {
+                const submitBtn = this.querySelector('.btn-primary-modern');
+                if (this.checkValidity()) {
+                    submitBtn.innerHTML = `
+                        <span class="spinner-border spinner-border-sm me-2" role="status"></span>
+                        Adding Course...
+                    `;
+                    submitBtn.disabled = true;
+                }
+            });
+        });
+    </script>
+}

@@ -1,0 +1,316 @@
+@using Demo.Models.Entities
+@model List<Course>
+
+@{
+    var courses = Model;
+}
+
+<div class="container-fluid px-4 py-4">
+
+    @if (TempData.Peek("EnrollSuccess") != null)
+    {
+        <partial name="_EnrollSuccessPartial" />
+    }
+
+    @if (TempData["Message"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <i data-feather="check-circle" class="me-2 icon-sm"></i>
+            @TempData["Message"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    <!-- Header -->
+    <div class="page-header d-flex flex-column flex-md-row align-items-md-center justify-content-between mb-4">
+        <div class="d-flex align-items-center mb-3 mb-md-0">
+            <div class="header-icon me-3">
+                <i data-feather="book-open"></i>
+            </div>
+            <div>
+                <h1 class="h3 mb-1 fw-bold">Courses</h1>
+                <p class="text-muted mb-0 small">Manage and organize your educational courses</p>
+            </div>
+        </div>
+        @if(User.IsInRole("Instructor") || User.IsInRole("Admin"))
+        {
+            <div class="header-actions d-flex align-items-center gap-2 flex-wrap ms-md-auto">
+                <a asp-action="addCourse" asp-controller="Course" class="btn btn-primary d-flex align-items-center">
+                    <i data-feather="plus" class="me-2 icon-sm"></i>
+                    Add New Course
+                </a>
+                <form asp-action="Index" method="get" class="d-inline-block">
+                    <select name="deptId"
+                            class="form-select header-select"
+                            asp-items="(IEnumerable<SelectListItem>)ViewBag.DeptItems"
+                            onchange="this.form.submit()">
+                    </select>
+                </form>
+            </div>
+        }
+    </div>
+
+    <!-- AJAX Details Container with smooth animation -->
+    <div class="mb-4">
+        <div id="CourseDetails" class="rounded-3">
+            <!-- AJAX content will be loaded here -->
+        </div>
+    </div>
+
+    <!-- Course Cards using new modern design -->
+    <div class="row g-4 justify-content-center">
+        @foreach(var course in courses)
+        {
+            <div class="col-12 col-lg-6 col-xl-6 col-xxl-4 d-flex justify-content-center">
+                <div class="modern-course-card h-100">
+                    <!-- Header Section with Dark Gradient -->
+                    <div class="course-header">
+                        <div class="course-header-content">
+                            <div class="course-icon-container">
+                                <i data-feather="book-open" class="course-icon"></i>
+                            </div>
+                            <div class="course-title-section">
+                                <div class="course-label">COURSE</div>
+                                <h3 class="course-title">@course.Name</h3>
+                            </div>
+                        </div>
+                        <div class="course-id-badge">
+                            <span>ID: @course.Id</span>
+                        </div>
+                    </div>
+
+                    <!-- Content Area -->
+                    <div class="course-content">
+                        <!-- Department Section -->
+                        <div class="department-section">
+                            <div class="section-label">DEPARTMENT</div>
+                            <div class="department-info">
+                                <i data-feather="graduation-cap" class="department-icon"></i>
+                                <span class="department-name">@course.Department.Name</span>
+                            </div>
+                        </div>
+
+                        <!-- Degree Range Display -->
+                        <div class="degree-section">
+                            <div class="degree-grid">
+                                <div class="degree-card max-degree">
+                                    <div class="degree-header">
+                                        <i data-feather="trending-up" class="degree-icon max-icon"></i>
+                                        <span class="degree-label">Max Degree</span>
+                                    </div>
+                                    <div class="degree-value max-value">@course.Degree.ToString("F2")</div>
+                                </div>
+                                <div class="degree-card min-degree">
+                                    <div class="degree-header">
+                                        <i data-feather="trending-down" class="degree-icon min-icon"></i>
+                                        <span class="degree-label">Min Degree</span>
+                                    </div>
+                                    <div class="degree-value min-value">@course.MinDegree.ToString("F2")</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Divider -->
+                        <hr class="content-divider">
+
+                        <!-- Instructors Section -->
+                        <div class="instructors-section">
+                            <div class="instructors-header">
+                                <span class="section-label">INSTRUCTORS</span>
+                                @if (User.IsInRole("Admin"))
+                                {
+                                    <a asp-controller="Instructor" asp-action="Index" class="assign-link">
+                                        <i data-feather="user-plus" class="assign-icon"></i>
+                                        Assign Instructor
+                                    </a>
+
+                                   
+                                }
+                            </div>
+                            
+                            @{
+                                var instructors = (IEnumerable<dynamic>)ViewBag.Instructors ?? Enumerable.Empty<dynamic>();
+                                var filteredInstructors = instructors.Where(i => i.CourseId == course.Id);
+                                var instructorCount = filteredInstructors.Count();
+                            }
+
+                            <div class="instructor-info-card">
+                                <div class="instructor-badge">
+                                    <span class="instructor-count">@instructorCount</span>
+                                </div>
+                                <div class="instructor-text">
+                                    <div class="instructor-status">Total Assigned</div>
+                                    <div class="instructor-description">
+                                        @if (instructorCount == 0)
+                                        {
+                                            <span class="no-instructors">No instructors assigned</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="has-instructors">@instructorCount instructor@(instructorCount == 1 ? "" : "s") assigned</span>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Action Buttons Footer -->
+                    <div class="course-actions">
+                        @if (User.IsInRole("Instructor") || User.IsInRole("Admin"))
+                        {
+                            <div class="action-buttons">
+                                <a asp-action="edit" asp-controller="course" asp-route-id="@course.Id" class="btn-edit">
+                                    <i data-feather="edit" class="btn-icon"></i>
+                                    Edit
+                                </a>
+                                <button type="button" class="btn-delete" data-bs-toggle="modal" data-bs-target="#deleteModel-@course.Id">
+                                    <i data-feather="trash-2" class="btn-icon"></i>
+                                    Delete
+                                </button>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="action-buttons single-action">
+                                <a asp-action="enroll" asp-route-id="@course.Id" class="btn-enroll">
+                                    <i data-feather="user-check" class="btn-icon"></i>
+                                    Enroll Now
+                                </a>
+                            </div>
+                        }
+                        @await Html.PartialAsync("_ConfirmDeletePartial", course)
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+    @if (!courses.Any())
+    {
+        <div class="text-center py-5">
+            <div class="mx-auto mb-4" style="width: 80px; height: 80px;">
+                <div class="bg-light rounded-circle d-flex align-items-center justify-content-center h-100">
+                    <i data-feather="book-open" class="text-muted" style="width: 40px; height: 40px;"></i>
+                </div>
+            </div>
+            <h3 class="h4 mb-3">No courses found</h3>
+            <p class="text-muted mb-4">Get started by adding your first course to the system.</p>
+            <a asp-action="addCourse" asp-controller="Course" 
+               class="btn btn-primary btn-lg">
+                <i data-feather="plus" class="me-2 icon-sm"></i>
+                Add Your First Course
+            </a>
+        </div>
+    }
+</div>
+
+@section Scripts {
+    <script>
+        function GetData(id) {
+            event.preventDefault();
+            console.log("Loading course details for ID:", id);
+
+            const detailsContainer = document.getElementById("CourseDetails");
+            
+            if (detailsContainer.classList.contains('show')) {
+                detailsContainer.classList.remove('show');
+                
+                setTimeout(() => {
+                    loadCourseDetails(id, detailsContainer);
+                }, 200);
+            } else {
+                loadCourseDetails(id, detailsContainer);
+            }
+        }
+
+        function loadCourseDetails(id, container) {
+            container.classList.add('loading');
+            container.innerHTML = `
+                <div class="text-center p-4">
+                    <div class="loading-spinner me-2"></div>
+                    <span class="text-muted">Loading course details...</span>
+                </div>
+            `;
+            
+            container.classList.add('show');
+
+            $.ajax({
+                url: "course/coursedetails/" + id,
+                success: function(result) {
+                    console.log("Course details loaded successfully");
+                    
+                    container.classList.remove('loading');
+                    container.innerHTML = result;
+                    
+                    feather.replace();
+                    
+                },
+                error: function(xhr, status, error) {
+                    console.error("Error loading course details:", error);
+                    container.classList.remove('loading');
+                    container.innerHTML = `
+                        <div class="alert alert-danger text-center">
+                            <i data-feather="alert-circle" class="me-2"></i>
+                            Error loading course details. Please try again.
+                            <button class="btn btn-sm btn-outline-danger ms-2" onclick="hideCourseDetails()">
+                                <i data-feather="x" class="me-1"></i>Close
+                            </button>
+                        </div>
+                    `;
+                    feather.replace();
+                }
+            });
+        }
+
+        function hideCourseDetails() {
+            const detailsContainer = document.getElementById("CourseDetails");
+            detailsContainer.classList.remove('show');
+        }
+
+        function addCloseButton() {
+            const detailsContainer = document.getElementById("CourseDetails");
+            if (detailsContainer.classList.contains('show') && !detailsContainer.querySelector('.close-details-btn')) {
+                const closeBtn = document.createElement('button');
+                closeBtn.className = 'btn btn-sm btn-outline-secondary close-details-btn position-absolute top-0 end-0 m-2';
+                closeBtn.innerHTML = '<i data-feather="x" class="icon-sm"></i>';
+                closeBtn.onclick = hideCourseDetails;
+                detailsContainer.style.position = 'relative';
+                detailsContainer.appendChild(closeBtn);
+                feather.replace();
+            }
+        }
+
+        feather.replace();
+        
+        setTimeout(function() {
+            $('.alert').alert('close');
+        }, 5000);
+        
+        document.querySelectorAll('.modern-course-card').forEach((card, index) => {
+            card.style.animationDelay = `${index * 0.1}s`;
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const observer = new MutationObserver(function(mutations) {
+                mutations.forEach(function(mutation) {
+                    if (mutation.target.id === 'CourseDetails' && 
+                        mutation.target.classList.contains('show')) {
+                        setTimeout(() => {
+                            mutation.target.scrollIntoView({ 
+                                behavior: 'smooth', 
+                                block: 'nearest' 
+                            });
+                            addCloseButton();
+                        }, 300);
+                    }
+                });
+            });
+
+            observer.observe(document.getElementById('CourseDetails'), {
+                attributes: true,
+                attributeFilter: ['class']
+            });
+        });
+    </script>
+}

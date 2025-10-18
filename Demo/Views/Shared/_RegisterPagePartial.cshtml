@@ -1,0 +1,57 @@
+﻿@model Demo.ViewModel.RegisterViewModel
+
+<!-- Username Field -->
+<div class="mb-2">
+    <label asp-for="Username" class="form-label fw-semibold" style="color: #1e293b; font-size: 0.9rem;">Username</label>
+    <input asp-for="Username"
+           class="form-control rounded-3 border-2"
+           placeholder="Enter your username"
+           style="border-color: #e2e8f0; background-color: #ffffff; color: #000000; padding: 0.5rem 0.75rem; font-size: 0.9rem;"
+           autocomplete="off" />
+    <span asp-validation-for="Username" class="text-danger" style="font-size: 0.8rem;"></span>
+</div>
+
+<!-- Email Field -->
+<div class="mb-2">
+    <label asp-for="Email" class="form-label fw-semibold" style="color: #1e293b; font-size: 0.9rem;">Email</label>
+    <input asp-for="Email"
+           class="form-control rounded-3 border-2"
+           placeholder="john@example.com"
+           style="border-color: #e2e8f0; background-color: #ffffff; color: #000000; padding: 0.5rem 0.75rem; font-size: 0.9rem;"
+           autocomplete="off" />
+    <span asp-validation-for="Email" class="text-danger" style="font-size: 0.8rem;"></span>
+</div>
+
+<!-- Password Field -->
+<div class="mb-2">
+    <label asp-for="Password" class="form-label fw-semibold" style="color: #1e293b; font-size: 0.9rem;">Password</label>
+    <input asp-for="Password"
+           class="form-control rounded-3 border-2"
+           placeholder="Enter your password"
+           style="border-color: #e2e8f0; background-color: #ffffff; color: #000000; padding: 0.5rem 0.75rem; font-size: 0.9rem;"
+           autocomplete="off" />
+    <span asp-validation-for="Password" class="text-danger" style="font-size: 0.8rem;"></span>
+</div>
+
+<!-- Confirm Password Field -->
+<div class="mb-2">
+    <label asp-for="ConfirmPassword" class="form-label fw-semibold" style="color: #1e293b; font-size: 0.9rem;">Confirm Password</label>
+    <input asp-for="ConfirmPassword"
+           class="form-control rounded-3 border-2"
+           placeholder="Confirm your password"
+           style="border-color: #e2e8f0; background-color: #ffffff; color: #000000; padding: 0.5rem 0.75rem; font-size: 0.9rem;"
+           autocomplete="off" />
+    <span asp-validation-for="ConfirmPassword" class="text-danger" style="font-size: 0.8rem;"></span>
+</div>
+
+<!-- Address Field -->
+<div class="mb-3">
+    <label asp-for="Address" class="form-label fw-semibold" style="color: #1e293b; font-size: 0.9rem;">Address</label>
+    <input asp-for="Address"
+           class="form-control rounded-3 border-2"
+           placeholder="Enter your address"
+           style="border-color: #e2e8f0; background-color: #ffffff; color: #000000; padding: 0.5rem 0.75rem; font-size: 0.9rem;"
+           autocomplete="off" />
+    <span asp-validation-for="Address" class="text-danger" style="font-size: 0.8rem;"></span>
+</div>
+

@@ -1,0 +1,180 @@
+﻿@model Demo.ViewModel.TraineeViewModel
+
+@{
+    var depts = Model.departments;
+    var deptItems = new SelectList(depts, "Id", "Name");
+}
+
+<div class="container mt-4">
+    <div class="instructor-form-container">
+        <!-- Modern Header Section -->
+        <div class="form-header">
+            <div class="header-content">
+                <div class="header-icon">
+                    <i data-feather="user-plus" class="icon-lg"></i>
+                </div>
+                <div class="header-text">
+                    <h2 class="header-title">Add New Trainee</h2>
+                    <p class="header-subtitle">Fill in the details to add a new trainee to the system</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Form Body -->
+        <div class="form-body">
+            <form asp-action="AddTrainee" method="post">
+                <div asp-validation-summary="All" class="alert alert-danger" role="alert" style="display:none;"></div>
+
+                <div class="form-grid">
+                    <!-- Trainee Name -->
+                    <div class="form-field">
+                        <label class="field-label" asp-for="Name">
+                            <i data-feather="user" class="label-icon"></i>
+                            Trainee Name
+                        </label>
+                        <input asp-for="Name" 
+                               class="modern-input" 
+                               placeholder="Enter trainee name" 
+                               required />
+                        <span asp-validation-for="Name" class="field-validation-error"></span>
+                    </div>
+
+                    <!-- Grade -->
+                    <div class="form-field">
+                        <label class="field-label" asp-for="Grade">
+                            <i data-feather="award" class="label-icon"></i>
+                            Grade
+                        </label>
+                        <input asp-for="Grade" 
+                               class="modern-input" 
+                               placeholder="Enter grade" 
+                               required />
+                        <span asp-validation-for="Grade" class="field-validation-error"></span>
+                    </div>
+
+                    <!-- Department -->
+                    <div class="form-field full-width">
+                        <label class="field-label" asp-for="DeptId">
+                            <i data-feather="building" class="label-icon"></i>
+                            Department
+                        </label>
+                        <div class="select-container">
+                            <select asp-for="DeptId" class="modern-select" asp-items="deptItems" required>
+                                <option value="" disabled selected>Select a department</option>
+                            </select>
+                            <i data-feather="chevron-down" class="select-arrow"></i>
+                        </div>
+                        <span asp-validation-for="DeptId" class="field-validation-error"></span>
+                    </div>
+
+                    <!-- Address -->
+                    <div class="form-field full-width">
+                        <label class="field-label" asp-for="Address">
+                            <i data-feather="map-pin" class="label-icon"></i>
+                            Address
+                        </label>
+                        <textarea asp-for="Address" 
+                                  class="modern-textarea" 
+                                  placeholder="Enter complete address" 
+                                  rows="3"
+                                  required></textarea>
+                        <span asp-validation-for="Address" class="field-validation-error"></span>
+                    </div>
+
+                    <!-- Profile Image Upload -->
+                    <div class="form-field full-width">
+                        <label class="field-label" asp-for="Image">
+                            <i data-feather="upload" class="label-icon"></i>
+                            Profile Image
+                        </label>
+                        <div class="file-upload-area">
+                            <div class="upload-icon">
+                                <i data-feather="upload" class="upload-icon-lg"></i>
+                            </div>
+                            <div class="upload-text">
+                                <p class="upload-main-text">Click to upload trainee's profile image</p>
+                                <p class="upload-sub-text">PNG, JPG or JPEG (max. 5MB)</p>
+                            </div>
+                            <input asp-for="Image" 
+                                   class="modern-input file-input" 
+                                   placeholder="Enter image filename (e.g., trainee1.jpg)" 
+                                   required />
+                        </div>
+                        <span asp-validation-for="Image" class="field-validation-error"></span>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="form-actions">
+                    <button type="submit" class="btn-primary-modern">
+                        <i data-feather="user-plus" class="btn-icon"></i>
+                        Add Trainee
+                    </button>
+
+                    <a asp-action="Index" asp-controller="Trainee" class="btn-secondary-modern">
+                        Cancel
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    
+    <script>
+        // Initialize feather icons
+        feather.replace();
+        
+        // Enhanced form validation
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add modern validation styling
+            document.querySelectorAll('.modern-input, .modern-select, .modern-textarea').forEach(field => {
+                field.addEventListener('blur', function() {
+                    if (this.checkValidity()) {
+                        this.classList.remove('is-invalid');
+                        this.classList.add('is-valid');
+                    } else {
+                        this.classList.remove('is-valid');
+                        this.classList.add('is-invalid');
+                    }
+                });
+                
+                // Clear validation on focus
+                field.addEventListener('focus', function() {
+                    this.classList.remove('is-invalid', 'is-valid');
+                });
+            });
+            
+            // Form submission loading state
+            document.querySelector('form').addEventListener('submit', function(e) {
+                const submitBtn = this.querySelector('.btn-primary-modern');
+                if (this.checkValidity()) {
+                    submitBtn.innerHTML = `
+                        <span class="spinner-border spinner-border-sm me-2" role="status"></span>
+                        Adding Trainee...
+                    `;
+                    submitBtn.disabled = true;
+                }
+            });
+            
+            // File upload area click handler
+            const uploadArea = document.querySelector('.file-upload-area');
+            if (uploadArea) {
+                uploadArea.addEventListener('click', function() {
+                    document.querySelector('.file-input').focus();
+                });
+            }
+        });
+        
+        // Auto-resize textarea
+        const textarea = document.querySelector('.modern-textarea');
+        if (textarea) {
+            textarea.addEventListener('input', function() {
+                this.style.height = 'auto';
+                this.style.height = (this.scrollHeight) + 'px';
+            });
+        }
+    </script>
+}

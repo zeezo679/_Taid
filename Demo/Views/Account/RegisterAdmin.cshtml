@@ -1,0 +1,130 @@
+﻿@model Demo.ViewModel.RegisterViewModel
+
+@{
+    ViewData["Title"] = "Register Admin";
+}
+
+<div class="auth-page-wrapper">
+    <div class="auth-main-section" style="
+    background: white;
+">
+        <div class="auth-layout-container auth-register-container">
+            <!-- Left Section - Image -->
+            <div class="auth-image-section">
+                <img src="~/images/undraw_deep-work_muov.svg" alt="Deep Work" />
+            </div>
+
+            <!-- Right Section - Form -->
+            <div class="auth-form-section register">
+                <!-- Logo -->
+                <div class="auth-logo-container register">
+                    <div class="auth-logo-icon">
+                        <i data-feather="user-plus"></i>
+                    </div>
+                </div>
+
+                <!-- Header -->
+                <h1 class="auth-form-title">Join Admin Portal</h1>
+                <p class="auth-form-subtitle register">Create your account to manage the training system</p>
+
+                <!-- Validation Summary -->
+                <div asp-validation-summary="All" class="auth-alert-danger" style="display: none;"></div>
+
+                <!-- Register Form -->
+                <form asp-action="RegisterAdmin" method="post">
+                    <!-- Username Field -->
+                    <div class="auth-form-group register">
+                        <label asp-for="Username" class="auth-form-label">Username</label>
+                        <div class="auth-input-wrapper">
+                            <i data-feather="user" class="auth-input-icon"></i>
+                            <input asp-for="Username" class="auth-form-input" placeholder="Enter your username" type="text" autocomplete="username" />
+                        </div>
+                        <span asp-validation-for="Username" class="auth-validation-error"></span>
+                    </div>
+
+                    <!-- Email Field -->
+                    <div class="auth-form-group register">
+                        <label asp-for="Email" class="auth-form-label">Email Address</label>
+                        <div class="auth-input-wrapper">
+                            <i data-feather="mail" class="auth-input-icon"></i>
+                            <input asp-for="Email" class="auth-form-input" placeholder="admin@example.com" type="email" autocomplete="email" />
+                        </div>
+                        <span asp-validation-for="Email" class="auth-validation-error"></span>
+                    </div>
+
+                    <!-- Password Fields Row -->
+                    <div class="auth-form-row">
+                        <div class="auth-form-group register">
+                            <label asp-for="Password" class="auth-form-label">Password</label>
+                            <div class="auth-input-wrapper">
+                                <i data-feather="lock" class="auth-input-icon"></i>
+                                <input asp-for="Password" class="auth-form-input" placeholder="Password" type="password" autocomplete="new-password" />
+                            </div>
+                            <span asp-validation-for="Password" class="auth-validation-error"></span>
+                        </div>
+
+                        <div class="auth-form-group register">
+                            <label asp-for="ConfirmPassword" class="auth-form-label">Confirm Password</label>
+                            <div class="auth-input-wrapper">
+                                <i data-feather="lock" class="auth-input-icon"></i>
+                                <input asp-for="ConfirmPassword" class="auth-form-input" placeholder="Confirm" type="password" autocomplete="new-password" />
+                            </div>
+                            <span asp-validation-for="ConfirmPassword" class="auth-validation-error"></span>
+                        </div>
+                    </div>
+
+                    <!-- Address Field -->
+                    <div class="auth-form-group register">
+                        <label asp-for="Address" class="auth-form-label">Address</label>
+                        <div class="auth-input-wrapper">
+                            <i data-feather="map-pin" class="auth-input-icon"></i>
+                            <input asp-for="Address" class="auth-form-input" placeholder="Enter your address" type="text" autocomplete="street-address" />
+                        </div>
+                        <span asp-validation-for="Address" class="auth-validation-error"></span>
+                    </div>
+
+                    <!-- Create Account Button -->
+                    <button type="submit" class="auth-submit-button register">Create Account</button>
+                </form>
+
+                <!-- Help Text -->
+                <div class="auth-help-text">
+                    Already have an account? <a asp-action="Login" asp-controller="Account">Sign in here</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script>
+        // Initialize Feather Icons
+        feather.replace();
+
+        // Handle validation summary display
+        document.addEventListener('DOMContentLoaded', function() {
+            const validationSummary = document.querySelector('[asp-validation-summary]');
+            if (validationSummary) {
+                const validationItems = validationSummary.querySelectorAll('ul li');
+
+                if (validationItems.length > 0) {
+                    validationSummary.style.display = 'block';
+                }
+            }
+
+            // Add smooth focus transitions
+            const inputs = document.querySelectorAll('.auth-form-input');
+            inputs.forEach(input => {
+                input.addEventListener('focus', function() {
+                    this.parentElement.style.transform = 'translateY(-1px)';
+                });
+
+                input.addEventListener('blur', function() {
+                    this.parentElement.style.transform = 'translateY(0)';
+                });
+            });
+        });
+    </script>
+}

@@ -1,0 +1,28 @@
+﻿<div id="instructor-success-alert" class="alert alert-success d-flex align-items-center gap-2" role="alert" aria-live="polite">
+    <i data-feather="check-circle" class="text-success" style="width:20px;height:20px"></i>
+    <div class="flex-grow-1">
+        @if(TempData["success"] != null)
+        {
+            <span>Instructor added successfully.</span>
+        } else if(TempData["success-update"] != null)
+        {
+            <span>Instructor updated successfully.</span>
+        }
+    </div>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+
+<script>
+    // Initialize Feather icons for this partial only and auto-dismiss this specific alert
+    (function () {
+        var alertEl = document.getElementById('instructor-success-alert');
+        if (typeof feather !== 'undefined') {
+            feather.replace();
+        }
+        if (alertEl && typeof bootstrap !== 'undefined' && bootstrap.Alert) {
+            setTimeout(function () {
+                bootstrap.Alert.getOrCreateInstance(alertEl).close();
+            }, 5000);
+        }
+    })();
+</script>

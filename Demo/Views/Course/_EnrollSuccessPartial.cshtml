@@ -1,0 +1,29 @@
+﻿<div id="course-success-alert" class="alert alert-success d-flex align-items-center gap-2" role="alert" aria-live="polite">
+    <i data-feather="check-circle" class="text-success" style="width:20px;height:20px"></i>
+    <div class="flex-grow-1">
+        @if (TempData["EnrollSuccess"] is bool ok && ok)
+        {
+            <span>Enroll Process Completed, Congratulations!.</span>
+        }
+        else if (TempData["EnrollSuccess"] is bool ok2 && !ok2)
+        {
+            <span>An Error Occured While Enrolling</span>
+        }
+    </div>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+
+<script>
+    // Initialize Feather icons for this partial only and auto-dismiss this specific alert
+    (function () {
+        var alertEl = document.getElementById('course-success-alert');
+        if (typeof feather !== 'undefined') {
+            feather.replace();
+        }
+        if (alertEl && typeof bootstrap !== 'undefined' && bootstrap.Alert) {
+            setTimeout(function () {
+                bootstrap.Alert.getOrCreateInstance(alertEl).close();
+            }, 5000);
+        }
+    })();
+</script>

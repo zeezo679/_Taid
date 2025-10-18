@@ -1,0 +1,117 @@
+﻿@model Demo.ViewModel.LoginViewModel
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<!-- Navbar -->
+
+<!-- Main Content -->
+<div class="auth-page-wrapper">
+    <div class="auth-main-section" style="
+    background: white;
+">
+        <div class="auth-layout-container">
+            <!-- Left Section - Image -->
+            <div class="auth-image-section">
+                <img src="~/images/undraw_focused_m9bj.svg" alt="Focused Learning" />
+            </div>
+
+            <!-- Right Section - Form -->
+            <div class="auth-form-section">
+                <!-- Logo -->
+                <div class="auth-logo-container">
+                    <div class="auth-logo-icon">
+                        <i data-feather="graduation-cap"></i>
+                    </div>
+                </div>
+
+                <!-- Header -->
+                <h1 class="auth-form-title">Admin Portal</h1>
+                <p class="auth-form-subtitle">Sign in to manage instructors, trainees, and courses</p>
+
+                <!-- Validation Summary -->
+                <div asp-validation-summary="All" class="auth-alert-danger" style="display: none;"></div>
+
+                <!-- Login Form -->
+                <form asp-action="Login" method="post">
+                    <!-- Username Field -->
+                    <div class="auth-form-group">
+                        <label asp-for="Username" class="auth-form-label">Username</label>
+                        <div class="auth-input-wrapper">
+                            <i data-feather="user" class="auth-input-icon"></i>
+                            <input asp-for="Username" class="auth-form-input" placeholder="Enter your username" type="text" autocomplete="username" />
+                        </div>
+                        <span asp-validation-for="Username" class="auth-validation-error"></span>
+                    </div>
+
+                    <!-- Password Field -->
+                    <div class="auth-form-group">
+                        <label asp-for="Password" class="auth-form-label">Password</label>
+                        <div class="auth-input-wrapper">
+                            <i data-feather="lock" class="auth-input-icon"></i>
+                            <input asp-for="Password" class="auth-form-input" placeholder="Enter your password" type="password" autocomplete="current-password" />
+                        </div>
+                        <span asp-validation-for="Password" class="auth-validation-error"></span>
+                    </div>
+
+                    <!-- Form Options -->
+                    <div class="auth-form-options">
+                        <div class="auth-checkbox-wrapper">
+                            <input type="checkbox" id="remember" name="RememberMe" />
+                            <label for="remember">Remember me</label>
+                        </div>
+                        <a href="#" class="auth-forgot-link">Forgot password?</a>
+                    </div>
+
+                    <a asp-controller="Account" asp-action="ExternalLogin" asp-route-provider="Google" asp-route-returnUrl="@Model.ReturnUrl"
+                       class="btn btn-outline-primary d-flex align-items-center justify-content-center fw-semibold">
+                        <img src="https://img.icons8.com/color/32/000000/google-logo.png" class="me-2" style="width:24px" alt="Google" />
+                        Google
+                    </a>
+                    <!-- Sign In Button -->
+                    <button type="submit" class="auth-submit-button">Sign In</button>
+                </form>
+
+                <!-- Help Text -->
+                <div class="auth-help-text">
+                    Need help? Contact your system administrator
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script>
+        // Initialize Feather Icons
+        feather.replace();
+
+        // Handle validation summary display
+        document.addEventListener('DOMContentLoaded', function() {
+            const validationSummary = document.querySelector('[asp-validation-summary]');
+            if (validationSummary) {
+                const validationItems = validationSummary.querySelectorAll('ul li');
+
+                if (validationItems.length > 0) {
+                    validationSummary.style.display = 'block';
+                }
+            }
+
+            // Add smooth focus transitions
+            const inputs = document.querySelectorAll('.auth-form-input');
+            inputs.forEach(input => {
+                input.addEventListener('focus', function() {
+                    this.parentElement.style.transform = 'translateY(-1px)';
+                });
+
+                input.addEventListener('blur', function() {
+                    this.parentElement.style.transform = 'translateY(0)';
+                });
+            });
+        });
+    </script>
+}

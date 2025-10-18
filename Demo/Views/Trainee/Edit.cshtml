@@ -1,0 +1,121 @@
+﻿@model Demo.ViewModel.TraineeViewModel
+
+@{
+    var depts = Model.departments;
+    var deptItems = new SelectList(depts, "Id", "Name");
+}
+
+@if (Model != null)
+{
+    <div class="container mt-4">
+        <div class="card shadow-sm border-0 rounded-3">
+            <div class="card-header bg-primary text-white p-4">
+                <div class="d-flex align-items-center">
+                    <div class="p-3 bg-white bg-opacity-25 rounded-3 me-3">
+                        <i data-feather="edit-2" class="icon text-white"></i>
+                    </div>
+                    <div>
+                        <h2 class="h3 mb-1 fw-bold text-white">Edit Trainee</h2>
+                        <p class="mb-0 text-white-50">Update the trainee details and save changes</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-body p-4">
+                <form asp-action="Edit" method="post">
+                    <div asp-validation-summary="All" class="alert alert-danger" role="alert" style="display:none;"></div>
+                    <input type="hidden" asp-for="Id" />
+
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="form-label d-flex align-items-center" asp-for="Name">
+                                    <i data-feather="user" class="icon-sm text-primary me-2"></i>
+                                    Trainee Name
+                                </label>
+                                <input asp-for="Name" class="form-control" placeholder="Enter trainee name" />
+                                <span asp-validation-for="Name" class="field-validation-error"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="form-label d-flex align-items-center" asp-for="Image">
+                                    <i data-feather="image" class="icon-sm text-primary me-2"></i>
+                                    Profile Image
+                                </label>
+                                <input asp-for="Image" class="form-control" placeholder="Enter image filename (e.g., trainee1.jpg)" />
+                                <span asp-validation-for="Image" class="field-validation-error"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="form-label d-flex align-items-center" asp-for="Address">
+                                    <i data-feather="map-pin" class="icon-sm text-primary me-2"></i>
+                                    Address
+                                </label>
+                                <input asp-for="Address" class="form-control" placeholder="Enter address" />
+                                <span asp-validation-for="Address" class="field-validation-error"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="form-label d-flex align-items-center" asp-for="Grade">
+                                    <i data-feather="award" class="icon-sm text-primary me-2"></i>
+                                    Grade
+                                </label>
+                                <input asp-for="Grade" class="form-control" placeholder="Enter grade" />
+                                <span asp-validation-for="Grade" class="field-validation-error"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="form-label d-flex align-items-center" asp-for="DeptId">
+                                    <i data-feather="building" class="icon-sm text-primary me-2"></i>
+                                    Department
+                                </label>
+                                <select asp-for="DeptId" class="form-select" asp-items="deptItems">
+                                    <option value="" disabled>Select a department</option>
+                                </select>
+                                <span asp-validation-for="DeptId" class="field-validation-error"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr class="my-4" />
+
+                    <div class="d-flex gap-3">
+                        <button type="submit" class="btn btn-primary d-flex align-items-center">
+                            <i data-feather="save" class="icon-sm me-2"></i>
+                            Save Changes
+                        </button>
+
+                        <a asp-action="Index" asp-controller="Trainee" class="btn btn-outline-secondary d-flex align-items-center">
+                            <i data-feather="arrow-left" class="icon-sm me-2"></i>
+                            Cancel
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <div class="container mt-4">
+        <div class="alert alert-warning">Model error</div>
+        <a asp-action="Index" class="btn btn-outline-secondary">Back to List</a>
+    </div>
+}
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        if (typeof feather !== 'undefined') {
+            feather.replace();
+        }
+    </script>
+}

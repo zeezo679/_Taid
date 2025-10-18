@@ -1,0 +1,287 @@
+﻿@model List<Demo.Models.Entities.Message>
+@{
+    ViewData["Title"] = "Admin Chat";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/admin-chat.css" />
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-header">
+            <h1>Admin Chat Room</h1>
+            <div id="connectionStatus" class="connection-status">Connecting...</div>
+        </div>
+
+        <div class="chat-main">
+            <!-- Online Admins Panel -->
+            <div class="online-admins-panel">
+                <div class="online-admins-header">
+                    <span>🟢 Online Admins</span>
+                    <span id="onlineCountBadge" class="online-count-badge">0</span>
+                </div>
+                <div class="online-admins-list" id="onlineAdminsList">
+                    <!-- Online admins will be populated here -->
+                </div>
+            </div>
+
+            <!-- Chat Area -->
+            <div class="chat-area">
+                <div id="messages" class="messages-container">
+                    @if (Model != null && Model.Any())
+                    {
+                        @foreach (var message in Model)
+                        {
+                            <div class="message-group">
+                                <div class="message-avatar" data-username="@message.UserName">
+                                    <!-- Avatar will be styled by JavaScript -->
+                                </div>
+                                <div class="message-content">
+                                    <div class="message-header">
+                                        <span class="message-sender">@message.UserName</span>
+                                        <span class="message-time">@message.SentAt.ToLocalTime().ToString("hh:mm tt")</span>
+                                    </div>
+                                    <div class="message-bubble">@message.MessageContent</div>
+                                </div>
+                            </div>
+                        }
+                    }
+                    else
+                    {
+                        <div class="welcome-message" id="welcomeMessage">Welcome to the Admin Chat Room</div>
+                    }
+                </div>
+
+                <div class="chat-input-container">
+                    <div class="typing-indicator" id="typingIndicator"></div>
+                    <form id="chatForm" class="chat-form">
+                        <input id="messageInput" autocomplete="off" placeholder="Type your message..." />
+                        <button type="submit">Send</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/8.0.7/signalr.min.js" integrity="sha512-7SRCYIJtR6F8ocwW7UxW6wGKqbSyqREDbfCORCbGLatU0iugBLwyOXpzhkPyHIFdBO0K2VCu57fvP2Twgx1o2A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        const connection = new signalR.HubConnectionBuilder()
+            .withUrl("/chatHub")
+            .withAutomaticReconnect()
+            .build();
+
+        const messagesDiv = document.getElementById('messages');
+        const welcomeMessage = document.getElementById('welcomeMessage');
+        const typingIndicator = document.getElementById('typingIndicator');
+        const messageInput = document.getElementById('messageInput');
+        const form = document.getElementById('chatForm');
+        const connectionStatus = document.getElementById('connectionStatus');
+        const onlineAdminsList = document.getElementById('onlineAdminsList');
+        const onlineCountBadge = document.getElementById('onlineCountBadge');
+
+        // Get initials from username
+        function getInitials(name) {
+            if (!name) return '?';
+            // Replace special chars with space and split
+            const cleanName = name.replace(/[@@._]/g, ' ');
+            const parts = cleanName.trim().split(/\s+/);
+            if (parts.length >= 2) {
+                return (parts[0][0] + parts[1][0]).toUpperCase();
+            }
+            return name.substring(0, 2).toUpperCase();
+        }
+
+        // Generate consistent color for user
+        function getUserColor(name) {
+            const colors = [
+                'linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%)',
+                'linear-gradient(135deg, #10b981 0%, #059669 100%)',
+                'linear-gradient(135deg, #f59e0b 0%, #d97706 100%)',
+                'linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%)',
+                'linear-gradient(135deg, #ec4899 0%, #db2777 100%)',
+                'linear-gradient(135deg, #06b6d4 0%, #0891b2 100%)',
+            ];
+            let hash = 0;
+            for (let i = 0; i < name.length; i++) {
+                hash = name.charCodeAt(i) + ((hash << 5) - hash);
+            }
+            return colors[Math.abs(hash) % colors.length];
+        }
+
+        // Initialize existing message avatars on page load
+        function initializeExistingMessages() {
+            const messageAvatars = document.querySelectorAll('.message-avatar[data-username]');
+            messageAvatars.forEach(avatar => {
+                const username = avatar.getAttribute('data-username');
+                avatar.style.background = getUserColor(username);
+                avatar.textContent = getInitials(username);
+            });
+            
+            // Scroll to bottom to show latest messages
+            messagesDiv.scrollTop = messagesDiv.scrollHeight;
+        }
+
+        // Update online admins list
+        function updateOnlineAdminsList(admins) {
+            onlineAdminsList.innerHTML = '';
+            onlineCountBadge.textContent = admins.length;
+
+            admins.forEach(admin => {
+                const adminItem = document.createElement('div');
+                adminItem.className = 'admin-item';
+                adminItem.innerHTML = `
+                    <div class="status-indicator"></div>
+                    <div class="admin-avatar" style="background: ${getUserColor(admin)}">
+                        ${getInitials(admin)}
+                    </div>
+                    <div class="admin-name">${admin}</div>
+                `;
+                onlineAdminsList.appendChild(adminItem);
+            });
+        }
+
+        // Append message to chat
+        function appendMessage(user, msg, time) {
+            // Hide welcome message when first message arrives
+            if (welcomeMessage) {
+                welcomeMessage.style.display = 'none';
+            }
+
+            const messageGroup = document.createElement('div');
+            messageGroup.className = 'message-group';
+            
+            const timeStr = new Date(time).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+            
+            messageGroup.innerHTML = `
+                <div class="message-avatar" style="background: ${getUserColor(user)}">
+                    ${getInitials(user)}
+                </div>
+                <div class="message-content">
+                    <div class="message-header">
+                        <span class="message-sender">${user}</span>
+                        <span class="message-time">${timeStr}</span>
+                    </div>
+                    <div class="message-bubble">${msg}</div>
+                </div>
+            `;
+            
+            messagesDiv.appendChild(messageGroup);
+            messagesDiv.scrollTop = messagesDiv.scrollHeight;
+        }
+
+        // Append system message
+        function appendSystemMessage(msg) {
+            if (welcomeMessage) {
+                welcomeMessage.style.display = 'none';
+            }
+
+            const systemMsg = document.createElement('div');
+            systemMsg.className = 'system-message';
+            systemMsg.innerHTML = `<em>${msg}</em>`;
+            messagesDiv.appendChild(systemMsg);
+            messagesDiv.scrollTop = messagesDiv.scrollHeight;
+        }
+
+        // SignalR event handlers
+        connection.on("ReceiveMessage", (msg, user, utcIso) => {
+            appendMessage(user, msg, utcIso);
+        });
+
+        connection.on("SystemMessage", (msg) => {
+            appendSystemMessage(msg);
+        });
+
+        connection.on("UpdateOnlineList", (admins) => {
+            updateOnlineAdminsList(admins);
+        });
+
+        connection.on("ReceiveOnlineAdminsList", (admins) => {
+            updateOnlineAdminsList(admins);
+        });
+
+        connection.on("Typing", (isTyping, user) => {
+            if(isTyping){
+                typingIndicator.className = 'typing-indicator active';
+                typingIndicator.innerHTML = `
+                    <span>${user} is typing</span>
+                    <div class="typing-dots">
+                        <span class="typing-dot"></span>
+                        <span class="typing-dot"></span>
+                        <span class="typing-dot"></span>
+                    </div>
+                `;
+                clearTimeout(window.__typingTimeout);
+                window.__typingTimeout = setTimeout(() => {
+                    typingIndicator.className = 'typing-indicator';
+                    typingIndicator.innerHTML = '';
+                }, 2000);
+            }
+            else {
+                typingIndicator.className = 'typing-indicator';
+                typingIndicator.innerHTML = '';
+            }
+        });
+
+        // Connection state management
+        connection.start()
+            .then(() => {
+                console.log('Connected to chat hub');
+                connectionStatus.textContent = 'Connected';
+                connectionStatus.classList.add('connected');
+                connectionStatus.classList.remove('disconnected');
+            })
+            .catch(err => {
+                console.error(err);
+                connectionStatus.textContent = 'Disconnected';
+                connectionStatus.classList.add('disconnected');
+                connectionStatus.classList.remove('connected');
+            });
+
+        connection.onreconnecting(() => {
+            connectionStatus.textContent = 'Reconnecting...';
+            connectionStatus.classList.remove('connected', 'disconnected');
+        });
+
+        connection.onreconnected(() => {
+            connectionStatus.textContent = 'Connected';
+            connectionStatus.classList.add('connected');
+            connectionStatus.classList.remove('disconnected');
+        });
+
+        connection.onclose(() => {
+            connectionStatus.textContent = 'Disconnected';
+            connectionStatus.classList.add('disconnected');
+            connectionStatus.classList.remove('connected');
+        });
+
+        // Form submission
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            const val = messageInput.value.trim();
+            if (!val) return;
+            connection.invoke("SendMessage", val).catch(err => console.error(err));
+            messageInput.value = "";
+        });
+
+        // Typing indicator
+        let lastTypingSent = 0;
+        messageInput.addEventListener('input', () => {
+            const now = Date.now();
+            if (now - lastTypingSent > 800) {
+                lastTypingSent = now;
+                connection.invoke("SendTyper", true).catch(() => { });
+            }
+        });
+
+        // Initialize existing messages on page load
+        initializeExistingMessages();
+    </script>
+</body>
+</html>

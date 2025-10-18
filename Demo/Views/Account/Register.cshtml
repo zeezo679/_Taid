@@ -1,0 +1,139 @@
+﻿@model Demo.ViewModel.RegisterViewModel
+
+@{
+    ViewData["Title"] = "Register";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Portal - Register</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Auth CSS -->
+    <link href="~/css/auth.css" rel="stylesheet" />
+    <!-- Feather Icons -->
+    <script src="~/lib/feather-icons/feather.min.js"></script>
+</head>
+<body>
+    <div class="auth-container register">
+        <div class="auth-card">
+            <!-- Logo -->
+            <div class="logo-container">
+                <div class="logo">
+                    <i data-feather="graduation-cap"></i>
+                </div>
+            </div>
+
+            <!-- Header -->
+            <div class="header">
+                <h1>Join Admin Portal</h1>
+                <p>Create your account to manage the training system</p>
+            </div>
+
+            <!-- Validation Summary -->
+            <div asp-validation-summary="All" class="alert-danger" style="display: none;"></div>
+
+            <!-- Register Form -->
+            <form asp-action="Register" method="post">
+                <!-- Username Field -->
+                <div class="form-group">
+                    <label asp-for="Username" class="form-label">Username</label>
+                    <div class="input-icon">
+                        <i data-feather="user"></i>
+                        <input asp-for="Username" class="form-input" placeholder="Enter your username" type="text" autocomplete="username" />
+                    </div>
+                    <span asp-validation-for="Username" class="validation-error"></span>
+                </div>
+
+                <!-- Email Field -->
+                <div class="form-group">
+                    <label asp-for="Email" class="form-label">Email Address</label>
+                    <div class="input-icon">
+                        <i data-feather="mail"></i>
+                        <input asp-for="Email" class="form-input" placeholder="admin@example.com" type="email" autocomplete="email" />
+                    </div>
+                    <span asp-validation-for="Email" class="validation-error"></span>
+                </div>
+
+                <!-- Password Fields Row -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label asp-for="Password" class="form-label">Password</label>
+                        <div class="input-icon">
+                            <i data-feather="lock"></i>
+                            <input asp-for="Password" class="form-input" placeholder="Password" type="password" autocomplete="new-password" />
+                        </div>
+                        <span asp-validation-for="Password" class="validation-error"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="ConfirmPassword" class="form-label">Confirm Password</label>
+                        <div class="input-icon">
+                            <i data-feather="lock"></i>
+                            <input asp-for="ConfirmPassword" class="form-input" placeholder="Confirm" type="password" autocomplete="new-password" />
+                        </div>
+                        <span asp-validation-for="ConfirmPassword" class="validation-error"></span>
+                    </div>
+                </div>
+
+                <!-- Address Field -->
+                <div class="form-group">
+                    <label asp-for="Address" class="form-label">Address</label>
+                    <div class="input-icon">
+                        <i data-feather="map-pin"></i>
+                        <input asp-for="Address" class="form-input" placeholder="Enter your address" type="text" autocomplete="street-address" />
+                    </div>
+                    <span asp-validation-for="Address" class="validation-error"></span>
+                </div>
+
+                <!-- Create Account Button -->
+                <button type="submit" class="auth-button register">Create Account</button>
+            </form>
+
+            <!-- Help Text -->
+            <div class="help-text">
+                Already have an account? <a asp-action="Login" asp-controller="Account">Sign in here</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Initialize Feather Icons
+        feather.replace();
+
+        // Handle validation summary display
+        document.addEventListener('DOMContentLoaded', function() {
+            const validationSummary = document.querySelector('[asp-validation-summary]');
+            if (validationSummary) {
+                const validationItems = validationSummary.querySelectorAll('ul li');
+
+                if (validationItems.length > 0) {
+                    validationSummary.style.display = 'block';
+                }
+            }
+
+            // Add smooth focus transitions
+            const inputs = document.querySelectorAll('.form-input');
+            inputs.forEach(input => {
+                input.addEventListener('focus', function() {
+                    this.parentElement.style.transform = 'translateY(-1px)';
+                });
+
+                input.addEventListener('blur', function() {
+                    this.parentElement.style.transform = 'translateY(0)';
+                });
+            });
+        });
+    </script>
+
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+</body>
+</html>
