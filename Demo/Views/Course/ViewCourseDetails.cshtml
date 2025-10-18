@@ -1,0 +1,14 @@
+﻿@using Demo.Models.Entities
+@model Course
+
+
+<p>
+    @Model.CourseDescription
+</p>
+
+<div class="action-buttons single-action">
+    <a asp-action="enroll" asp-route-id="@Model.Id" class="btn-enroll">
+        <i data-feather="user-check" class="btn-icon"></i>
+        Enroll Now
+    </a>
+</div>

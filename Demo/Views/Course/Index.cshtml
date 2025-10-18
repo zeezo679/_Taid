@@ -172,12 +172,11 @@
                         }
                         else
                         {
-                            <div class="action-buttons single-action">
-                                <a asp-action="enroll" asp-route-id="@course.Id" class="btn-enroll">
-                                    <i data-feather="user-check" class="btn-icon"></i>
-                                    Enroll Now
-                                </a>
-                            </div>
+                            <a asp-action="ViewCourseDetails" asp-route-id="@course.Id" class="btn-enroll">
+                                <i data-feather="user-check" class="btn-icon"></i>
+                                View Details
+                            </a>
+                            
                         }
                         @await Html.PartialAsync("_ConfirmDeletePartial", course)
                     </div>

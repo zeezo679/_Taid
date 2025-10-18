@@ -187,6 +187,13 @@ public class CourseController : Controller
     }
 
     [HttpGet]
+    public IActionResult ViewCourseDetails(int id)
+    {
+        var course = CourseRepository.Get(id); 
+        return View(course);
+    }
+    
+    [HttpGet]
     public IActionResult CourseDetails(int id)
     {
         var course = CourseRepository.Get(id);
@@ -224,6 +231,10 @@ public class CourseController : Controller
         if (!TraineeRepository.IsAlreadyTrainee(currentLoggedUserId))
             TraineeRepository.InsertTraineeCrsResult(trainee, course.Id);
 
+        //TODO Next:
+        //must check if the current trainee have an enrollment with current course or no
+        //must have a flag or something to indicate the status of enrollment
+        
         CrsResultRepository.Insert(trainee, id);
 
         if(!await _userManager.IsInRoleAsync(user, "Trainee"))
@@ -239,7 +250,7 @@ public class CourseController : Controller
                $"<h3>Hello {user.UserName},</h3><p>Thank you for enrolling in the course 🎉</p>"
            );
 
-        return RedirectToAction("Index");
+        return RedirectToAction("Index", new { deptId = course.DeptId });
     }
 
     [HttpPost]

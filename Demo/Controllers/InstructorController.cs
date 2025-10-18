@@ -77,8 +77,10 @@ namespace Demo.Controllers
             List<Instructor> instructors = InstructorRepository.Load();
             var oldInstructor = InstructorRepository.Get(newInstructor.Id);
             var selectedDept = DepartmentRepository.Get(newInstructor.DeptId);
+            var selectedCourse = CourseRepository.Get(newInstructor.CourseId);
 
             oldInstructor.Department = selectedDept;
+            oldInstructor.Course = selectedCourse;
             if (oldInstructor.Department is null)
                 Console.WriteLine("The department is still null");
             else
