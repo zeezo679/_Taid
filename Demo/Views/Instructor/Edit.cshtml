@@ -1,5 +1,5 @@
 ﻿@using Demo.Models.Entities
-@model Instructor
+@model Demo.ViewModel.EditInstructorViewModel
 
 <div class="card shadow-lg border-0 rounded-lg mb-4 animate__animated animate__fadeIn">
     <div class="card-header bg-gradient-primary-to-secondary text-white py-3">
@@ -19,19 +19,12 @@
         <div class="bg-light rounded-3 p-4 mb-4 border-start border-4 border-primary shadow-sm">
             <div class="d-flex align-items-center">
                 <div class="instructor-avatar rounded-circle me-3 position-relative" style="width: 70px; height: 70px;">
-                    @if (!string.IsNullOrEmpty(Model.Image))
-                    {
-                        <img src="~/images/@Model.Image" 
-                             alt="@Model.Name" 
-                             class="w-100 h-100 object-fit-cover rounded-circle" 
-                             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-                    }
-                    else
-                    {
-                        <div class="w-100 h-100 bg-primary d-flex align-items-center justify-content-center rounded-circle">
-                            <span class="fw-bold text-white fs-3">@Model.Name.Substring(0, 1).ToUpper()</span>
-                        </div>
-                    }
+                    
+                    <img src="/images/@Model.Image.FileName" 
+                         alt="@Model.Name" 
+                         class="w-100 h-100 object-fit-cover rounded-circle" 
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+                    
                 </div>
                 <div>
                     <h3 class="fw-semibold h5 mb-1">@Model.Name</h3>
@@ -64,18 +57,12 @@
                 
                 <div class="col-md-6">
                     <div class="form-floating mb-0">
-                        <input type="text" asp-for="Image" 
-                               class="form-control border-0 bg-light shadow-sm" 
-                               id="instructorImage"
-                               placeholder="Enter image filename" 
-                               style="color: #000 !important;"
-                               required />
-                        <label for="instructorImage" class="d-flex align-items-center gap-2">
-                            <i data-feather="image" class="text-primary" style="width: 16px; height: 16px;"></i>
+                        <label class="form-label d-flex align-items-center" asp-for="Image">
+                            <i data-feather="image" class="icon-sm text-primary me-2"></i>
                             Profile Image
                         </label>
-                        <div class="invalid-feedback">Please provide an image filename.</div>
-                        <span asp-validation-for="Image" class="text-danger small"></span>
+                        <input asp-for="Image" class="form-control" placeholder="Enter image filename (e.g., instructor.jpg)" />
+                        <span asp-validation-for="Image" class="field-validation-error"></span>
                     </div>
                 </div>
                 

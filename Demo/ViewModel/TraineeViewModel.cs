@@ -2,6 +2,7 @@
 using Demo.Models.Interfaces;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Demo.ViewModel
@@ -11,7 +12,17 @@ namespace Demo.ViewModel
         //Trainee
         public int Id { get; set; }
         public string Name { get; set; } = null!;
-        public string? Image { get; set; }
+        
+        [EmailAddress]
+        public string Email { get; set; }
+        
+        [DataType(DataType.Password)]
+        public string Password { get; set; }
+        
+        [DataType(DataType.Password)]
+        [Compare("Password")]
+        public string ConfirmPassword { get; set; }
+        public IFormFile Image { get; set; }
         public string Address { get; set; } = null!;
         public decimal Grade { get; set; }
         public int DeptId { get; set; }

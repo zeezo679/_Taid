@@ -22,7 +22,7 @@
             </div>
 
             <div class="card-body p-4">
-                <form asp-action="Edit" method="post">
+                <form asp-action="Edit" method="post" enctype="multipart/form-data">
                     <div asp-validation-summary="All" class="alert alert-danger" role="alert" style="display:none;"></div>
                     <input type="hidden" asp-for="Id" />
 
@@ -57,6 +57,17 @@
                                 </label>
                                 <input asp-for="Address" class="form-control" placeholder="Enter address" />
                                 <span asp-validation-for="Address" class="field-validation-error"></span>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="form-label d-flex align-items-center" asp-for="Email">
+                                    <i data-feather="map-pin" class="icon-sm text-primary me-2"></i>
+                                    Email
+                                </label>
+                                <input asp-for="Email" class="form-control" placeholder="Enter Email" />
+                                <span asp-validation-for="Email" class="field-validation-error"></span>
                             </div>
                         </div>
 

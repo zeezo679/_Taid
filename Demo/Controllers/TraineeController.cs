@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using Demo.Services;
+using Microsoft.EntityFrameworkCore;
 
 namespace Demo.Controllers
 {
@@ -15,12 +17,16 @@ namespace Demo.Controllers
         private IDepartmentRepository _departmentRepository;
         private ICrsResultRepository _crsResultRepository;
         private UserManager<ApplicationUser> _userManager;
-        public TraineeController(ITraineeRepository traineeRepository, IDepartmentRepository departmentRepository, ICrsResultRepository crsResultRepository, UserManager<ApplicationUser> userManager) 
+        private SignInManager<ApplicationUser> _signInManager;
+        private IAccountService _accountService;
+        public TraineeController(SignInManager<ApplicationUser> signInManager,IAccountService accountService ,ITraineeRepository traineeRepository, IDepartmentRepository departmentRepository, ICrsResultRepository crsResultRepository, UserManager<ApplicationUser> userManager) 
         {
             _traineeRepository = traineeRepository;
             _departmentRepository = departmentRepository;
             _crsResultRepository = crsResultRepository;
             _userManager = userManager;
+            _accountService = accountService;   
+            _signInManager = signInManager;
         }
 
 
@@ -48,20 +54,41 @@ namespace Demo.Controllers
         public async Task<IActionResult> AddTrainee(TraineeViewModel newTrainee)
         {
 
-
             if(!ModelState.IsValid)
                 return RedirectToAction("AddTrainee");
 
 
             Department dept = _departmentRepository.Get(newTrainee.DeptId);
+            
+            var applicationUser = new ApplicationUser
+            {
+                UserName = newTrainee.Name,
+                Address = newTrainee.Address,
+                Email =  newTrainee.Email,
+                PasswordHash = newTrainee.Password
+            };
 
+            //adding trainee to aspnetusers
+            var createResult = await  _userManager.CreateAsync(applicationUser, newTrainee.Password);
+            
+            if(!createResult.Succeeded)
+                return RedirectToAction("AddTrainee");
+            
+            await _userManager.AddToRoleAsync(applicationUser, "Trainee");
+
+            //store image in directory before using it
+            var saveLocation = Path.Combine(Directory.GetCurrentDirectory(), $"wwwroot\\images");
+            ImageService.UploadImageToDirectory(newTrainee.Image, saveLocation, newTrainee.Image.FileName);
+            
+            //adding trainee to trainees table
             Trainee trainee = new Trainee
             {
                 Name = newTrainee.Name,
-                Image = newTrainee.Image,
+                Image = newTrainee.Image.FileName,
                 Address = newTrainee.Address,
                 Grade = newTrainee.Grade,
                 Department = dept,
+                UserId = applicationUser.Id,
             };
 
 
@@ -80,16 +107,19 @@ namespace Demo.Controllers
 
             if (trainee == null || departments == null)
                 ModelState.AddModelError("", "Trainee or Departments Not Found in Database");
-
+            
+            var file = ImageService.ConvertToIFormFile(trainee.Image); 
+            var traineeFromUsers = _userManager.FindByIdAsync(trainee.UserId).Result;
+            
             TraineeViewModel traineeVM = new TraineeViewModel
             {
                 Name = trainee.Name,
-                Image = trainee.Image,
+                Image = file,
+                Email = traineeFromUsers.Email,
                 Address = trainee.Address,
                 Grade = trainee.Grade,
                 departments = departments
             };
-
 
             //dont forget to check for errors in the view
             return View(traineeVM);
@@ -99,14 +129,19 @@ namespace Demo.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Edit(int id, TraineeViewModel newTrainee)
         {
+            ModelState.Remove("Password");
+            ModelState.Remove("ConfirmPassword");   
             if(ModelState.IsValid)
             {
                 Department traineeDept = _departmentRepository.Get(newTrainee.DeptId);
 
+                var saveLocation = Path.Combine(Directory.GetCurrentDirectory(), $"wwwroot\\images");
+                ImageService.UploadImageToDirectory(newTrainee.Image, saveLocation, newTrainee.Image.FileName); //TODO: Dont forget to see if file exists already or no
+                
                 Trainee trainee = new Trainee
                 {
                     Name = newTrainee.Name,
-                    Image = newTrainee.Image,
+                    Image = newTrainee.Image.FileName,
                     Address = newTrainee.Address,
                     Grade = newTrainee.Grade,
                     Department = traineeDept,
@@ -135,10 +170,19 @@ namespace Demo.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult DeleteConfirmed(int id)
+        public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            _traineeRepository.Delete(id);
+            var trainee = _traineeRepository.Get(id);
+            var uid = trainee.UserId;
+            var appUser  = _userManager.FindByIdAsync(uid).Result;
+            
+            if(appUser is null || trainee is null)
+                throw new Exception("Trainee or user not found");
+            
+            await _userManager.DeleteAsync(appUser);  
             return RedirectToAction("Index");
         }
     }
 }
+
+//ui problems in trainee index

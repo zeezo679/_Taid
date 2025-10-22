@@ -10,6 +10,6 @@ namespace Demo.Models.Interfaces
         void Insert(Trainee trainee);
         void InsertTraineeCrsResult(Trainee trainee, int crsId);
         void Update(int id, Trainee trainee);
-        void Delete(int id);
+        Task DeleteAsync(int id);
     }
 }

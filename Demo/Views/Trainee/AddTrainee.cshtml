@@ -22,7 +22,7 @@
 
         <!-- Form Body -->
         <div class="form-body">
-            <form asp-action="AddTrainee" method="post">
+            <form asp-action="AddTrainee" method="post" enctype="multipart/form-data">
                 <div asp-validation-summary="All" class="alert alert-danger" role="alert" style="display:none;"></div>
 
                 <div class="form-grid">
@@ -37,6 +37,55 @@
                                placeholder="Enter trainee name" 
                                required />
                         <span asp-validation-for="Name" class="field-validation-error"></span>
+                    </div>
+                    
+                    <!-- Grade -->
+                    <div class="form-field">
+                        <label class="field-label" asp-for="Email">
+                            <i data-feather="award" class="label-icon"></i>
+                            Email
+                        </label>
+                        <input asp-for="Email" 
+                               class="modern-input" 
+                               placeholder="Enter Email" 
+                               required />
+                        <span asp-validation-for="Email" class="field-validation-error"></span>
+                    </div>
+                    
+                    <!-- Password -->
+                    <div class="form-field">
+                        <label class="field-label" asp-for="Password">
+                            <i data-feather="lock" class="label-icon"></i>
+                            Password
+                        </label>
+                        <div class="password-input-container">
+                            <input type="password" asp-for="Password"
+                                   class="modern-input"
+                                   placeholder="Enter password"
+                                   required />
+                            <button type="button" class="password-toggle">
+                                <i data-feather="eye" class="toggle-icon"></i>
+                            </button>
+                        </div>
+                        <span asp-validation-for="Password" class="field-validation-error"></span>
+                    </div>
+                    
+                    <!-- Confirm Password -->
+                    <div class="form-field">
+                        <label class="field-label" asp-for="ConfirmPassword">
+                            <i data-feather="lock" class="label-icon"></i>
+                            Confirm Password
+                        </label>
+                        <div class="password-input-container">
+                            <input type="password" asp-for="ConfirmPassword"
+                                   class="modern-input"
+                                   placeholder="Re-enter password"
+                                   required />
+                            <button type="button" class="password-toggle">
+                                <i data-feather="eye" class="toggle-icon"></i>
+                            </button>
+                        </div>
+                        <span asp-validation-for="ConfirmPassword" class="field-validation-error"></span>
                     </div>
 
                     <!-- Grade -->
@@ -98,6 +147,7 @@
                             <input asp-for="Image" 
                                    class="modern-input file-input" 
                                    placeholder="Enter image filename (e.g., trainee1.jpg)" 
+                                   accept=".jpg, .jpeg, .png"
                                    required />
                         </div>
                         <span asp-validation-for="Image" class="field-validation-error"></span>

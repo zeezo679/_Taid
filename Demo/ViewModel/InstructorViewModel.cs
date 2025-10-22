@@ -13,7 +13,7 @@ namespace Demo.ViewModel
 
         [Display(Name = "Instructor Name")]
         public string Name { get; set; } = null!;
-        public string? Image { get; set; }
+        public IFormFile Image { get; set; }
         public decimal Salary { get; set; }
         public string Address { get; set; } = null!;
         

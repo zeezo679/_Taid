@@ -63,10 +63,8 @@
                                         <div class="mx-auto rounded-circle overflow-hidden bg-light d-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">
                                             @if (!string.IsNullOrEmpty(trainee.Image))
                                             {
-                                                <img src="@trainee.Image" alt="@trainee.Name" class="w-100 h-100" style="object-fit: cover;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-                                                <div class="w-100 h-100 d-flex align-items-center justify-content-center" style="display:none;">
-                                                    <i data-feather="user" class="icon-sm text-muted"></i>
-                                                </div>
+                                                <img src="/images/@trainee.Image" alt="@trainee.Name" class="w-100 h-100" style="object-fit: cover;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+                                                
                                             }
                                             else
                                             {

@@ -74,9 +74,7 @@
                                             @if (!string.IsNullOrEmpty(instructor.Image))
                                             {
                                                 <img src="~/images/@instructor.Image" alt="@instructor.Name" class="w-100 h-100" style="object-fit: cover;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-                                                <div class="w-100 h-100 d-flex align-items-center justify-content-center" style="display: none;">
-                                                    <i data-feather="user" class="icon-sm text-muted"></i>
-                                                </div>
+                                                
                                             }
                                             else
                                             {

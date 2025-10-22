@@ -74,11 +74,11 @@ namespace Demo.Models.Repository
 
 
 
-        public void Delete(int id)
+        public async Task DeleteAsync(int id)
         {
             var trainee = Get(id);
-            _context.Remove(trainee);
-            _context.SaveChanges();
+             _context.Remove(trainee);
+             await _context.SaveChangesAsync();
         }
 
 

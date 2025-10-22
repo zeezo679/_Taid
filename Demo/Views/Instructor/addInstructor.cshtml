@@ -19,7 +19,7 @@
         
         <!-- Form Body -->
         <div class="form-body">
-            <form method="post" asp-action="successAdd" asp-controller="instructor">
+            <form method="post" asp-action="successAdd" asp-controller="instructor" enctype="multipart/form-data">
                 <input asp-for="Id" type="hidden" />
                 
                 <div class="form-grid">
@@ -134,12 +134,13 @@
                                 <i data-feather="upload" class="upload-icon-lg"></i>
                             </div>
                             <div class="upload-text">
-                                <p class="upload-main-text">Click to upload instructor's profile image</p>
+                                <p class="upload-main-text">Click to upload trainee's profile image</p>
                                 <p class="upload-sub-text">PNG, JPG or JPEG (max. 5MB)</p>
                             </div>
-                            <input type="text" asp-for="Image" 
+                            <input asp-for="Image" 
                                    class="modern-input file-input" 
-                                   placeholder="Enter image filename (e.g., instructor1.jpg)" 
+                                   placeholder="Enter image filename (e.g., trainee1.jpg)" 
+                                   accept=".jpg, .jpeg, .png"
                                    required />
                         </div>
                         <span asp-validation-for="Image" class="field-validation-error"></span>

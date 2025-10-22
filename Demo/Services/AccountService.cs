@@ -107,7 +107,6 @@ namespace Demo.Services
             IdentityResult result = await UserManager.CreateAsync(appUser, new_user.Password);
 
             return result;
-
         }
     }
 }

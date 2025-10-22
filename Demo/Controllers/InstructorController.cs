@@ -2,6 +2,7 @@
 using Demo.Models.Entities;
 using Demo.Models.Interfaces;
 using Demo.Models.Repository;
+using Demo.Services;
 using Demo.ViewModel;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -67,7 +68,23 @@ namespace Demo.Controllers
                          Text = i.Name
                      }).ToList();
 
-            return View(instructor);
+            
+            var file = ImageService.ConvertToIFormFile(instructor.Image); 
+            var instructorFromUsers = UserManager.FindByNameAsync(instructor.Name).Result;
+            
+
+
+            var InstructorToEdit = new EditInstructorViewModel
+            {
+                Name = instructor.Name,
+                Image = file,
+                Salary = instructor.Salary,
+                Address = instructor.Address,
+                Email = instructorFromUsers.Email
+            };
+            
+            
+            return View(InstructorToEdit);
         }
 
         [HttpPost]
@@ -117,12 +134,16 @@ namespace Demo.Controllers
         public async Task<IActionResult> SuccessAdd(InstructorViewModel newInstructorvm)
         {
 
+            //store image in directory before using it
+            var saveLocation = Path.Combine(Directory.GetCurrentDirectory(), $"wwwroot\\images");
+            ImageService.UploadImageToDirectory(newInstructorvm.Image, saveLocation,  newInstructorvm.Image.FileName);
+            
             //adding instructor to instructors table
             var newInstructor = new Instructor
             {
                 Id = newInstructorvm.Id,
                 Name = newInstructorvm.Name,
-                Image = newInstructorvm.Image,
+                Image = newInstructorvm.Image.FileName,
                 Salary = newInstructorvm.Salary,
                 Address = newInstructorvm.Address,
                 CourseId = newInstructorvm.CourseId,
