@@ -69,6 +69,7 @@ namespace Demo.Controllers
 
 
         [HttpGet]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> RegisterAdmin()
         {
             return View();

@@ -197,12 +197,16 @@
                 </div>
             </div>
             <h3 class="h4 mb-3">No courses found</h3>
-            <p class="text-muted mb-4">Get started by adding your first course to the system.</p>
-            <a asp-action="addCourse" asp-controller="Course" 
-               class="btn btn-primary btn-lg">
-                <i data-feather="plus" class="me-2 icon-sm"></i>
-                Add Your First Course
-            </a>
+            @if(User.IsInRole("Admin") || User.IsInRole("Instructor"))
+            {
+                <p class="text-muted mb-4">Get started by adding your first course to the system.</p>
+                <a asp-action="addCourse" asp-controller="Course" 
+                class="btn btn-primary btn-lg">
+                    <i data-feather="plus" class="me-2 icon-sm"></i>
+                    Add Your First Course
+                </a>
+            }
+           
         </div>
     }
 </div>

@@ -2,18 +2,47 @@
     ViewData["Title"] = "Home Page";
 }
 
-<!-- Hero Section with Blue Gradient - Full Width -->
-<div class="hero-section-fullwidth">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-8 text-center">
-                <h1 class="hero-title">Taid Welcomes You</h1>
-                <p class="hero-subtitle">
-                    Streamline your training programs, manage courses, and track trainee progress all in one place
-                </p>
-                <div class="hero-actions">
-                    <a asp-controller="Account" asp-action="Register" 
-                       class="btn btn-hero">Get Started</a>
+<!-- Modern Hero Section - Two Column Layout -->
+<div class="hero-section-modern">
+    <div class="hero-container">
+        <div class="hero-grid">
+            <!-- Left Column - Text Content -->
+            <div class="hero-content">
+    
+                <h1 class="hero-heading">
+                    Taid Welcomes You @User.Identity.Name
+                </h1>
+                <p class="hero-description">
+                    Streamline your training programs, manage courses, and track trainee progress all in one place. Transform the way you deliver education with our comprehensive platform.
+                </p>    
+                <div class="hero-cta-group">
+                    <a asp-controller="Account" asp-action="Register" class="hero-btn-primary">
+                        <span>Get Started</span>
+                        <i data-feather="arrow-right" class="hero-btn-icon"></i>
+                    </a>
+                    @if(User.Identity.IsAuthenticated)
+                    {
+                        <a asp-controller="Course" asp-action="Index" asp-route-deptId="0" class="hero-btn-secondary">
+                            <span>Explore Courses</span>
+                        </a>
+                    } else 
+                    {
+                        <a asp-controller="Account" asp-action="Login" class="hero-btn-secondary">
+                            <span>Explore Courses</span>
+                        </a>
+                    }
+                   
+                </div>
+        
+            </div>
+
+            <!-- Right Column - Illustration -->
+            <div class="hero-image">
+                <div class="hero-image-container">
+                    <img src="~/images/undraw_graduation_u7uc.svg" 
+                         alt="Education Illustration" 
+                         class="hero-illustration">
+                    <div class="hero-image-bg"></div>
                 </div>
             </div>
         </div>
@@ -22,7 +51,11 @@
 
 <div class="container py-5">
     <!-- Features Grid Section -->
-    <div class="row g-4">
+    
+
+    @if(User.IsInRole("Admin"))
+    {
+<div class="row g-4">
         <div class="col-md-6 col-lg-4">
             <div class="card shadow-sm border-0 rounded-3 animate-fade-in feature-card">
                 <div class="card-body text-center p-4 d-flex flex-column">
@@ -86,39 +119,10 @@
             </div>
         </div>
     </div>
+    }
 
     <!-- Statistics Section -->
-    <div class="row g-4 mt-5">
-        <div class="col-12">
-            <div class="card bg-primary text-white border-0 rounded-3">
-                <div class="card-body p-5">
-                    <div class="row text-center">
-                        <div class="col-md-4 mb-4 mb-md-0">
-                            <div class="d-flex flex-column align-items-center">
-                                <i data-feather="book-open" class="mb-2" style="width: 32px; height: 32px;"></i>
-                                <h3 class="h2 fw-bold mb-1">50+</h3>
-                                <p class="mb-0">Active Courses</p>
-                            </div>
-                        </div>
-                        <div class="col-md-4 mb-4 mb-md-0">
-                            <div class="d-flex flex-column align-items-center">
-                                <i data-feather="users" class="mb-2" style="width: 32px; height: 32px;"></i>
-                                <h3 class="h2 fw-bold mb-1">25+</h3>
-                                <p class="mb-0">Expert Instructors</p>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="d-flex flex-column align-items-center">
-                                <i data-feather="building" class="mb-2" style="width: 32px; height: 32px;"></i>
-                                <h3 class="h2 fw-bold mb-1">10+</h3>
-                                <p class="mb-0">Departments</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    
 </div>
 
 @section Scripts {

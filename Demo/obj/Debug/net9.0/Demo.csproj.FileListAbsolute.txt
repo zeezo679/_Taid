@@ -1336,7 +1336,6 @@ C:\Users\PC\RiderProjects\_Taid\demo\obj\Debug\net9.0\rjsmcshtml.dswa.cache.json
 C:\Users\PC\RiderProjects\_Taid\demo\obj\Debug\net9.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 C:\Users\PC\RiderProjects\_Taid\demo\obj\Debug\net9.0\scopedcss\bundle\Demo.styles.css
 C:\Users\PC\RiderProjects\_Taid\demo\obj\Debug\net9.0\scopedcss\projectbundle\Demo.bundle.scp.css
-C:\Users\PC\RiderProjects\_Taid\demo\obj\Debug\net9.0\compressed\sf285lj7em-hui5mz88io.gz
 C:\Users\PC\RiderProjects\_Taid\demo\obj\Debug\net9.0\compressed\n8rqt8opor-gisaaqti8n.gz
 C:\Users\PC\RiderProjects\_Taid\demo\obj\Debug\net9.0\compressed\epde6fgz0w-5ipweew5fc.gz
 C:\Users\PC\RiderProjects\_Taid\demo\obj\Debug\net9.0\compressed\yb0dchg0v4-770c1jkxea.gz
@@ -1348,8 +1347,6 @@ C:\Users\PC\RiderProjects\_Taid\demo\obj\Debug\net9.0\compressed\z920783baj-5ipw
 C:\Users\PC\RiderProjects\_Taid\demo\obj\Debug\net9.0\compressed\5ycjt35vux-8j9vzi2cg5.gz
 C:\Users\PC\RiderProjects\_Taid\demo\obj\Debug\net9.0\compressed\lv3omb20w0-5ipweew5fc.gz
 C:\Users\PC\RiderProjects\_Taid\demo\obj\Debug\net9.0\compressed\h5wsjba4gz-61n19gt1b8.gz
-C:\Users\PC\RiderProjects\_Taid\demo\obj\Debug\net9.0\compressed\qxluzx2r9a-09xxpyakn3.gz
-C:\Users\PC\RiderProjects\_Taid\demo\obj\Debug\net9.0\compressed\4ypyptd82z-5uw9to74qg.gz
 C:\Users\PC\RiderProjects\_Taid\demo\obj\Debug\net9.0\compressed\j8cbwiiea7-0at2h8otv0.gz
 C:\Users\PC\RiderProjects\_Taid\demo\obj\Debug\net9.0\compressed\dqwbbfeg4v-t1cqhe9u97.gz
 C:\Users\PC\RiderProjects\_Taid\demo\obj\Debug\net9.0\compressed\mg55d50379-c2jlpeoesf.gz
@@ -1422,4 +1419,9 @@ C:\Users\PC\RiderProjects\_Taid\demo\obj\Debug\net9.0\refint\Demo.dll
 C:\Users\PC\RiderProjects\_Taid\demo\obj\Debug\net9.0\Demo.pdb
 C:\Users\PC\RiderProjects\_Taid\demo\obj\Debug\net9.0\Demo.genruntimeconfig.cache
 C:\Users\PC\RiderProjects\_Taid\demo\obj\Debug\net9.0\ref\Demo.dll
-C:\Users\PC\RiderProjects\_Taid\Demo\obj\Debug\net9.0\compressed\1dmkcuyrn6-rgvjr01rmg.gz
+C:\Users\PC\RiderProjects\_Taid\Demo\obj\Debug\net9.0\compressed\qxluzx2r9a-dcjs3x2f6z.gz
+C:\Users\PC\RiderProjects\_Taid\Demo\obj\Debug\net9.0\compressed\ll8u47pzk2-moezxo5fub.gz
+C:\Users\PC\RiderProjects\_Taid\Demo\obj\Debug\net9.0\compressed\4ypyptd82z-lqvpm936su.gz
+C:\Users\PC\RiderProjects\_Taid\Demo\obj\Debug\net9.0\compressed\aa42uxqrn0-pr5m1cprrq.gz
+C:\Users\PC\RiderProjects\_Taid\Demo\obj\Debug\net9.0\compressed\sf285lj7em-iy6o0yeoh5.gz
+C:\Users\PC\RiderProjects\_Taid\Demo\obj\Debug\net9.0\compressed\1dmkcuyrn6-dtu25qbdxy.gz
