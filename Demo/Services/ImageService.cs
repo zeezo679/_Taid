@@ -5,6 +5,10 @@ public static class ImageService
 {
     public static IFormFile ConvertToIFormFile(string fileName)
     {
+        
+        if(string.IsNullOrEmpty(fileName))
+            return null;
+        
         //check if file is present or no
         var filePath = Path.Combine(Directory.GetCurrentDirectory(), $"wwwroot\\images\\{fileName}");
         if (!File.Exists(filePath))

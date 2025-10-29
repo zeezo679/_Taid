@@ -64,6 +64,8 @@ namespace Demo.Services
                 Email = email,
                 Address = "No Address",
                 EmailConfirmed = true,
+                RegistrationDate = DateTime.Now,
+                Image = ""
             };
 
             var result = await UserManager.CreateAsync(appUser);
@@ -96,7 +98,9 @@ namespace Demo.Services
             applicationUser.Address = newUserVM.Address;
             applicationUser.PasswordHash = newUserVM.Password;
             applicationUser.Email = newUserVM.Email;
-
+            applicationUser.RegistrationDate = DateTime.Now;
+            applicationUser.Image = null;
+            
             return applicationUser;
         }
 
