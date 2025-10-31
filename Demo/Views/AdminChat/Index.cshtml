@@ -1,20 +1,13 @@
 ﻿@model List<Demo.Models.Entities.Message>
 @{
     ViewData["Title"] = "Admin Chat";
-    Layout = null;
 }
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"]</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+@section Styles {
     <link rel="stylesheet" href="~/css/admin-chat.css" />
-</head>
-<body>
-    <div class="chat-container">
+}
+
+<div class="chat-container">
         <div class="chat-header">
             <h1>Admin Chat Room</h1>
             <div id="connectionStatus" class="connection-status">Connecting...</div>
@@ -69,7 +62,9 @@
             </div>
         </div>
     </div>
+</div>
 
+@section Scripts {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/8.0.7/signalr.min.js" integrity="sha512-7SRCYIJtR6F8ocwW7UxW6wGKqbSyqREDbfCORCbGLatU0iugBLwyOXpzhkPyHIFdBO0K2VCu57fvP2Twgx1o2A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
         const connection = new signalR.HubConnectionBuilder()
@@ -283,5 +278,4 @@
         // Initialize existing messages on page load
         initializeExistingMessages();
     </script>
-</body>
-</html>
+}

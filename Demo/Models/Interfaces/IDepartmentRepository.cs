@@ -10,6 +10,7 @@ namespace Demo.Models.Interfaces
         void Insert(Department department);
         DbSet<Department> LoadDeferred();
         void Update(int id, Department newDepartment);
+        List<(string DeptKey, int CourseCount)> CountCoursesPerDepartment();
         void Delete(int id);
     }
 }

@@ -30,6 +30,12 @@ namespace Demo.Models.Repository
             _context.SaveChanges();
         }
 
+        public List<CrsResult> Load()
+        {
+            var enrollments = _context.crsResults.ToList();
+            return enrollments;
+        }
+
         public bool CheckEnrollStatus(int crsId, string uid)
         {
             if (string.IsNullOrEmpty(uid) || crsId == 0)

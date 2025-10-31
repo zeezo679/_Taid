@@ -55,6 +55,14 @@
                                 Chat
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link d-flex align-items-center smooth-nav @(Context.Request.Path.Value?.ToLower().Contains("/dashboard") == true ? "active" : "")"
+                               data-page="chat"
+                               asp-area="" asp-controller="Dashboard" asp-action="Index">
+                                <i data-feather="message-circle" class="me-2" style="width: 16px; height: 16px;"></i>
+                                Dashboard
+                            </a>
+                        </li>
                     }
                     <li class="nav-item">
                         <a class="nav-link d-flex align-items-center smooth-nav @(Context.Request.Path.Value?.ToLower().Contains("/course") == true ? "active" : "")"
@@ -105,10 +113,13 @@
                         </a>
                     </li>
                     <li class="nav-item d-flex align-items-center px-3">
-                        <div class="d-flex align-items-center">
-                            <i data-feather="user" class="me-2 text-primary" style="width: 16px; height: 16px;"></i>
-                            <span class="text-secondary">Hello, @User.Identity.Name</span>
-                        </div>
+                        <a asp-controller="Profile" asp-action="Index" class="nav-link d-flex align-items-center smooth-nav @(Context.Request.Path.Value?.ToLower().Contains("/profile") == true ? "active" : "")">
+                            <div class="d-flex align-items-center">
+                                <i data-feather="user" class="me-2 text-primary" style="width: 16px; height: 16px;"></i>
+                                <span class="text-secondary">Hello, @User.Identity.Name</span>
+                            </div>
+                        </a>
+                       
                     </li>
                 }
             </ul>

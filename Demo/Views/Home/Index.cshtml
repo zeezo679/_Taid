@@ -13,28 +13,55 @@
             <div class="hero-content">
     
                 <h1 class="hero-heading">
-                    Taid Welcomes You @User.Identity.Name
+                    Taid Welcomes You @(User.Identity?.Name ?? "")
                 </h1>
-                <p class="hero-description">
-                    Streamline your training programs, manage courses, and track trainee progress all in one place. Transform the way you deliver education with our comprehensive platform.
-                </p>    
+                
+                @if (User.IsInRole("Admin"))
+                {
+                    <!-- Admin-focused paragraph -->
+                    <p class="hero-description">
+                        Streamline your training programs, manage courses, and track trainee progress all in one place. Transform the way you deliver education with our comprehensive platform.
+                    </p>
+                }
+                else
+                {
+                    <!-- Trainee-focused paragraph -->
+                    <p class="hero-description">
+                        Join and explore your learning path, track your enrolled courses, and grow your skills with Taid. Discover courses tailored to your goals and achieve excellence.
+                    </p>
+                }
+                
                 <div class="hero-cta-group">
-                    <a asp-controller="Account" asp-action="Register" class="hero-btn-primary">
-                        <span>Get Started</span>
-                        <i data-feather="arrow-right" class="hero-btn-icon"></i>
-                    </a>
-                    @if(User.Identity.IsAuthenticated)
+                    @if (User.IsInRole("Admin"))
                     {
+                        <!-- Admin: Show "View Dashboard" button instead of "Get Started" -->
+                        <a asp-controller="Dashboard" asp-action="Index" class="hero-btn-primary">
+                            <span>View Dashboard</span>
+                            <i data-feather="arrow-right" class="hero-btn-icon"></i>
+                        </a>
                         <a asp-controller="Course" asp-action="Index" asp-route-deptId="0" class="hero-btn-secondary">
                             <span>Explore Courses</span>
                         </a>
-                    } else 
+                    }
+                    else if (User.Identity?.IsAuthenticated == true)
                     {
+                        <!-- Authenticated (non-admin): Hide "Get Started", keep "Explore Courses" -->
+                        <a asp-controller="Course" asp-action="Index" asp-route-deptId="0" class="hero-btn-primary">
+                            <span>Explore Courses</span>
+                            <i data-feather="arrow-right" class="hero-btn-icon"></i>
+                        </a>
+                    }
+                    else
+                    {
+                        <!-- Not authenticated: Show both buttons -->
+                        <a asp-controller="Account" asp-action="Register" class="hero-btn-primary">
+                            <span>Get Started</span>
+                            <i data-feather="arrow-right" class="hero-btn-icon"></i>
+                        </a>
                         <a asp-controller="Account" asp-action="Login" class="hero-btn-secondary">
                             <span>Explore Courses</span>
                         </a>
                     }
-                   
                 </div>
         
             </div>
@@ -142,7 +169,7 @@
                     </div>
                     <h3 class="empty-state-title">No Active Courses Yet</h3>
                     <p class="empty-state-text">You haven't enrolled in any courses. Start your learning journey today!</p>
-                    @if (User.Identity.IsAuthenticated)
+                    @if (User.Identity?.IsAuthenticated == true)
                     {
                         <a asp-controller="Course" asp-action="Index" asp-route-deptId="0" class="empty-state-btn">
                             <i data-feather="compass" class="btn-icon"></i>
@@ -168,9 +195,10 @@
     <!-- Features Grid Section -->
     
 
-    @if(User.IsInRole("Admin"))
+    @if(User.IsInRole("Admin") || User.IsInRole("Instructor"))
     {
-<div class="row g-4">
+    <div class="row g-4">
+        <!-- Manage Courses Card -->
         <div class="col-md-6 col-lg-4">
             <div class="card shadow-sm border-0 rounded-3 animate-fade-in feature-card">
                 <div class="card-body text-center p-4 d-flex flex-column">
@@ -179,11 +207,11 @@
                             <i data-feather="book-open" style="color: #3b82f6; width: 32px; height: 32px;"></i>
                         </div>
                     </div>
-                    <h3 class="h5 fw-bold mb-3">Course Management</h3>
+                    <h3 class="h5 fw-bold mb-3">Manage Courses</h3>
                     <p class="text-muted mb-4 flex-grow-1">
                         Organize courses by departments and manage curriculum efficiently with our comprehensive course management system.
                     </p>
-                    <a asp-controller="Course" asp-action="Index" 
+                    <a asp-controller="Course" asp-action="Index" asp-route-deptId="0"
                        class="btn btn-primary d-flex align-items-center justify-content-center mt-auto">
                         <i data-feather="arrow-right" style="width: 16px; height: 16px;" class="me-2"></i>
                         Manage Courses
@@ -192,47 +220,52 @@
             </div>
         </div>
         
-        <div class="col-md-6 col-lg-4">
-            <div class="card shadow-sm border-0 rounded-3 animate-fade-in feature-card">
-                <div class="card-body text-center p-4 d-flex flex-column">
-                    <div class="d-flex justify-content-center mb-4">
-                        <div class="p-3 rounded-3" style="background-color: rgba(16, 185, 129, 0.1);">
-                            <i data-feather="bar-chart-2" style="color: #10b981; width: 32px; height: 32px;"></i>
+        @if(User.IsInRole("Admin"))
+        {
+            <!-- Manage Instructors Card (Admin only) -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card shadow-sm border-0 rounded-3 animate-fade-in feature-card">
+                    <div class="card-body text-center p-4 d-flex flex-column">
+                        <div class="d-flex justify-content-center mb-4">
+                            <div class="p-3 rounded-3" style="background-color: rgba(245, 158, 11, 0.1);">
+                                <i data-feather="users" style="color: #f59e0b; width: 32px; height: 32px;"></i>
+                            </div>
                         </div>
+                        <h3 class="h5 fw-bold mb-3">Manage Instructors</h3>
+                        <p class="text-muted mb-4 flex-grow-1">
+                            Manage instructors, their courses, and track their performance across different courses and departments.
+                        </p>
+                        <a asp-controller="Instructor" asp-action="Index" 
+                           class="btn btn-warning d-flex align-items-center justify-content-center mt-auto">
+                            <i data-feather="arrow-right" style="width: 16px; height: 16px;" class="me-2"></i>
+                            Manage Instructors
+                        </a>
                     </div>
-                    <h3 class="h5 fw-bold mb-3">Analytics & Reports</h3>
-                    <p class="text-muted mb-4 flex-grow-1">
-                        Get detailed insights into performance metrics and generate comprehensive reports for better decision making.
-                    </p>
-                    <a asp-controller="Results" asp-action="Details" 
-                       class="btn btn-success d-flex align-items-center justify-content-center mt-auto">
-                        <i data-feather="arrow-right" style="width: 16px; height: 16px;" class="me-2"></i>
-                        View Analytics
-                    </a>
                 </div>
             </div>
-        </div>
-        
-        <div class="col-md-6 col-lg-4">
-            <div class="card shadow-sm border-0 rounded-3 animate-fade-in feature-card">
-                <div class="card-body text-center p-4 d-flex flex-column">
-                    <div class="d-flex justify-content-center mb-4">
-                        <div class="p-3 rounded-3" style="background-color: rgba(245, 158, 11, 0.1);">
-                            <i data-feather="users" style="color: #f59e0b; width: 32px; height: 32px;"></i>
+            
+            <!-- Manage Trainees Card (Admin only) -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card shadow-sm border-0 rounded-3 animate-fade-in feature-card">
+                    <div class="card-body text-center p-4 d-flex flex-column">
+                        <div class="d-flex justify-content-center mb-4">
+                            <div class="p-3 rounded-3" style="background-color: rgba(16, 185, 129, 0.1);">
+                                <i data-feather="user-check" style="color: #10b981; width: 32px; height: 32px;"></i>
+                            </div>
                         </div>
+                        <h3 class="h5 fw-bold mb-3">Manage Trainees</h3>
+                        <p class="text-muted mb-4 flex-grow-1">
+                            View and manage trainee enrollments, track progress, and monitor student performance across all courses.
+                        </p>
+                        <a asp-controller="Trainee" asp-action="Index"
+                           class="btn btn-success d-flex align-items-center justify-content-center mt-auto">
+                            <i data-feather="arrow-right" style="width: 16px; height: 16px;" class="me-2"></i>
+                            Manage Trainees
+                        </a>
                     </div>
-                    <h3 class="h5 fw-bold mb-3">Staff Management</h3>
-                    <p class="text-muted mb-4 flex-grow-1">
-                        Manage instructors, their assignments, and track their performance across different courses and departments.
-                    </p>
-                    <a asp-controller="Instructor" asp-action="Index" 
-                       class="btn btn-warning d-flex align-items-center justify-content-center mt-auto">
-                        <i data-feather="arrow-right" style="width: 16px; height: 16px;" class="me-2"></i>
-                        Manage Staff
-                    </a>
                 </div>
             </div>
-        </div>
+        }
     </div>
     }
 
@@ -264,4 +297,3 @@
         });
     </script>
 }
-

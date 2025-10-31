@@ -39,6 +39,24 @@ namespace Demo.Models.Repository
             _context.Entry(oldCrs).CurrentValues.SetValues(newDepartment);
             _context.SaveChanges();
         }
+
+        public List<(string DeptKey, int CourseCount)> CountCoursesPerDepartment()
+        {
+            var result = _context.Courses
+                .AsNoTracking()
+                .GroupBy(crs => crs.Department.Name)
+                .Select(DeptGroup => new
+                {
+                    DeptKey = DeptGroup.Key,
+                    CourseCount = DeptGroup.Count()
+                })
+                .AsEnumerable()
+                .Select(x => (x.DeptKey, x.CourseCount))
+                .ToList();
+
+            return result;
+        }
+
         public void Delete(int id)
         {
             var deletedCourse = Get(id);

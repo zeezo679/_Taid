@@ -1,140 +1,115 @@
 ﻿@using Demo.Models.Entities
 @model Demo.ViewModel.EditInstructorViewModel
 
-<div class="card shadow-lg border-0 rounded-lg mb-4 animate__animated animate__fadeIn">
-    <div class="card-header bg-gradient-primary-to-secondary text-white py-3">
-        <div class="d-flex align-items-center">
-            <div class="p-2 bg-white bg-opacity-25 rounded-circle me-3">
-                <i data-feather="edit-2" class="text-white"></i>
-            </div>
-            <div>
-                <h2 class="h3 fw-bold mb-0">Edit Instructor</h2>
-                <p class="mb-0 opacity-75">Update instructor information</p>
-            </div>
-        </div>
-    </div>
-    
-    <div class="card-body p-4">
-        <!-- Current Instructor Info -->
-        <div class="bg-light rounded-3 p-4 mb-4 border-start border-4 border-primary shadow-sm">
-            <div class="d-flex align-items-center">
-                <div class="instructor-avatar rounded-circle me-3 position-relative" style="width: 70px; height: 70px;">
-                    
-                    <img src="/images/@Model.Image.FileName" 
-                         alt="@Model.Name" 
-                         class="w-100 h-100 object-fit-cover rounded-circle" 
-                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-                    
+<div class="container mt-4">
+    <div class="instructor-form-container">
+        <!-- Modern Header Section -->
+        <div class="form-header">
+            <div class="header-content">
+                <div class="header-icon">
+                    <i data-feather="edit-2" class="icon-lg"></i>
                 </div>
-                <div>
-                    <h3 class="fw-semibold h5 mb-1">@Model.Name</h3>
-                    <p class="text-muted mb-1 small"><span class="fw-medium">ID:</span> @Model.Id</p>
-                    <p class="text-muted mb-0 small"><span class="fw-medium">Current Salary:</span> <span class="badge bg-success bg-opacity-10 text-success">$@Model.Salary.ToString("N0")</span></p>
+                <div class="header-text">
+                    <h2 class="header-title">Edit Instructor</h2>
+                    <p class="header-subtitle">Update instructor information</p>
                 </div>
             </div>
         </div>
-
-        <form method="post" asp-action="save" asp-controller="instructor" class="needs-validation" novalidate>
-            <input asp-for="Id" type="hidden" />
-            
-            <div class="row g-4 mb-4">
-                <div class="col-md-6">
-                    <div class="form-floating mb-0">
-                        <input type="text" asp-for="Name" 
-                               class="form-control border-0 bg-light shadow-sm" 
-                               id="instructorName"
-                               placeholder="Enter instructor's full name" 
-                               style="color: #000 !important;"
-                               required />
-                        <label for="instructorName" class="d-flex align-items-center gap-2">
-                            <i data-feather="user" class="text-primary" style="width: 16px; height: 16px;"></i>
+        
+        <!-- Form Body -->
+        <div class="form-body">
+            <form method="post" asp-action="save" asp-controller="instructor">
+                <input asp-for="Id" type="hidden" />
+                
+                <div class="form-grid">
+                    <!-- Instructor Name -->
+                    <div class="form-field">
+                        <label class="field-label" asp-for="Name">
+                            <i data-feather="user" class="label-icon"></i>
                             Instructor Name
                         </label>
-                        <div class="invalid-feedback">Please enter instructor's name.</div>
-                        <span asp-validation-for="Name" class="text-danger small"></span>
+                        <input type="text" asp-for="Name" 
+                               class="modern-input" 
+                               placeholder="Enter full name" 
+                               required />
+                        <span asp-validation-for="Name" class="field-validation-error"></span>
                     </div>
-                </div>
-                
-                <div class="col-md-6">
-                    <div class="form-floating mb-0">
-                        <label class="form-label d-flex align-items-center" asp-for="Image">
-                            <i data-feather="image" class="icon-sm text-primary me-2"></i>
+
+                    <!-- Monthly Salary -->
+                    <div class="form-field">
+                        <label class="field-label" asp-for="Salary">
+                            <i data-feather="dollar-sign" class="label-icon"></i>
+                            Monthly Salary
+                        </label>
+                        <div class="salary-input-container">
+                            <span class="currency-symbol">$</span>
+                            <input type="number" asp-for="Salary" 
+                                   class="modern-input salary-input" 
+                                   placeholder="0" 
+                                   min="0" 
+                                   step="100"
+                                   required />
+                        </div>
+                        <span asp-validation-for="Salary" class="field-validation-error"></span>
+                    </div>
+
+                    <!-- Department -->
+                    <div class="form-field full-width">
+                        <label class="field-label" asp-for="DeptId">
+                            <i data-feather="building" class="label-icon"></i>
+                            Department
+                        </label>
+                        <div class="select-container">
+                            <select asp-for="DeptId" 
+                                    asp-items="ViewBag.Departments" 
+                                    class="modern-select" 
+                                    required 
+                                    onchange="ShowCourses(this.value)">
+                                <option value="">-- Select Department --</option>
+                            </select>
+                            <i data-feather="chevron-down" class="select-arrow"></i>
+                        </div>
+                        <span asp-validation-for="DeptId" class="field-validation-error"></span>
+                    </div>
+                    
+                    <!-- Address -->
+                    <div class="form-field full-width">
+                        <label class="field-label" asp-for="Address">
+                            <i data-feather="map-pin" class="label-icon"></i>
+                            Address
+                        </label>
+                        <textarea asp-for="Address" 
+                                  class="modern-textarea" 
+                                  placeholder="Enter complete address" 
+                                  rows="4"
+                                  required></textarea>
+                        <span asp-validation-for="Address" class="field-validation-error"></span>
+                    </div>
+                    
+                    <!-- Profile Image Upload -->
+                    <div class="form-field full-width">
+                        <label class="field-label" asp-for="Image">
+                            <i data-feather="upload" class="label-icon"></i>
                             Profile Image
                         </label>
-                        <input asp-for="Image" class="form-control" placeholder="Enter image filename (e.g., instructor.jpg)" />
+                        <div class="file-upload-area">
+                            <div class="upload-icon">
+                                <i data-feather="upload" class="upload-icon-lg"></i>
+                            </div>
+                            <div class="upload-text">
+                                <p class="upload-main-text">Click to upload instructor's profile image</p>
+                                <p class="upload-sub-text">PNG, JPG or JPEG (max. 5MB)</p>
+                            </div>
+                            <input asp-for="Image" 
+                                   class="modern-input file-input" 
+                                   placeholder="Enter image filename (e.g., instructor.jpg)" 
+                                   accept=".jpg, .jpeg, .png" />
+                        </div>
                         <span asp-validation-for="Image" class="field-validation-error"></span>
                     </div>
                 </div>
                 
-                <div class="col-md-6">
-                    <div class="form-floating mb-0">
-                        <input type="number" asp-for="Salary" 
-                               class="form-control border-0 bg-light shadow-sm" 
-                               id="instructorSalary"
-                               placeholder="Enter monthly salary" 
-                               style="color: #000 !important;"
-                               min="0" 
-                               required />
-                        <label for="instructorSalary" class="d-flex align-items-center gap-2">
-                            <i data-feather="dollar-sign" class="text-primary" style="width: 16px; height: 16px;"></i>
-                            Salary
-                        </label>
-                        <div class="invalid-feedback">Please enter a valid salary amount.</div>
-                        <span asp-validation-for="Salary" class="text-danger small"></span>
-                    </div>
-                </div>
-
-                <div class="col-md-6">
-                    <div class="form-floating mb-0">
-                        @* <select asp-for="DeptId" 
-                                class="form-select border-0 bg-light shadow-sm" 
-                                id="instructorDepartment"
-                                style="color: #000 !important;"
-                                required 
-                                onchange="ShowCourses(this.value)"
-                                >
-                            <option value="" disabled selected style="color: #6c757d;">Select a department</option>
-                            @foreach (Department dept in ViewBag.Departments)
-                            {
-                                <option value="@dept.Id" style="color: #000;">@dept.Name</option>
-                            }
-                        </select> *@
-                        <select 
-                            asp-for="DeptId" 
-                            asp-items="ViewBag.Departments" 
-                            id="instructorDepartment"
-                            onchange="ShowCourses(this.value)" 
-                            style="color: #000 !important;" 
-                            class="form-select border-0 bg-light shadow-sm">
-                            <option value="">-- Select Department --</option>
-                        </select>
-                        <label asp-for="DeptId" class="d-flex align-items-center gap-2">
-                            <i data-feather="building" class="text-primary" style="width: 16px; height: 16px;"></i>
-                            Department
-                        </label>
-                        <div class="invalid-feedback">Please select a department.</div>
-                        <span asp-validation-for="DeptId" class="text-danger small"></span>
-                    </div>
-                </div>
-                
-                <div class="col-md-6">
-                    <div class="form-floating mb-0">
-                        <input type="text" asp-for="Address" 
-                               class="form-control border-0 bg-light shadow-sm" 
-                               id="instructorAddress"
-                               placeholder="Enter full address" 
-                               style="color: #000 !important;"
-                               required 
-                               />
-                        <label for="instructorAddress" class="d-flex align-items-center gap-2">
-                            <i data-feather="map-pin" class="text-primary" style="width: 16px; height: 16px;"></i>
-                            Address
-                        </label>
-                        <div class="invalid-feedback">Please enter the instructor's address.</div>
-                        <span asp-validation-for="Address" class="text-danger small"></span>
-                    </div>
-                </div>
-
+                <!-- Department Courses Section -->
                 <div class="courses-section d-none" id="CoursesPerDept">
                     <div class="courses-header">
                         <h6 class="courses-title">
@@ -147,53 +122,39 @@
                         <!-- AJAX content will be loaded here -->
                     </div>
                 </div>
-            </div>
-            
-            <div class="d-flex flex-wrap gap-3 pt-3 border-top">
-                <button type="submit" class="btn btn-primary d-flex align-items-center gap-2 px-4 py-2">
-                    <i data-feather="save" style="width: 18px; height: 18px;"></i>
-                    Save Changes
-                </button>
                 
-                <a asp-action="Index" asp-controller="Instructor" class="btn btn-outline-secondary d-flex align-items-center gap-2 px-4 py-2">
-                    <i data-feather="arrow-left" style="width: 18px; height: 18px;"></i>
-                    Cancel
-                </a>
-            </div>
-        </form>
+                <!-- Action Buttons -->
+                <div class="form-actions">
+                    <button type="submit" class="btn-primary-modern">
+                        <i data-feather="save" class="btn-icon"></i>
+                        Save Changes
+                    </button>
+                    
+                    <a asp-action="Index" asp-controller="Instructor" class="btn-secondary-modern">
+                        Cancel
+                    </a>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
 
-@section Scripts {
+@section Scripts
+{
     <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
     <script src="~/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js"></script>
+    
     <script>
-
-        function showSuccess()
-        {
-             $.ajax({
-                URL: "showsuccess/",
-                type: "GET",
-                success: function(result)
-                {
-                    console.log(result);
-                }
-            });
-        }
-
         function ShowCourses(deptId) {
             console.log("Loading courses for department:", deptId);
-
+            
             var container = document.getElementById("CoursesPerDept");
             var selectContainer = document.getElementById("selectContainer");
-
-            console.log(container)
-            console.log(selectContainer)
-
+            
             // Show the container
             container.classList.remove("d-none");
             container.classList.add("animate-fade-in");
-
+            
             // Show loading state
             selectContainer.innerHTML = `
                 <div class="text-center p-3">
@@ -212,23 +173,22 @@
                     console.log(result);
                     console.log("Course details loaded successfully");
                     selectContainer.innerHTML = result;
-
+                    
                     // Re-initialize feather icons
                     if (typeof feather !== 'undefined') {
                         feather.replace();
                     }
-
+                    
                     // Smooth scroll to the courses section
                     setTimeout(() => {
-                        container.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'nearest'
+                        container.scrollIntoView({ 
+                            behavior: 'smooth', 
+                            block: 'nearest' 
                         });
                     }, 300);
                 },
                 error: function(xhr, status, error) {
                     console.error("Error loading courses:", error);
-                    console.log(deptId)
                     selectContainer.innerHTML = `
                         <div class="alert alert-danger d-flex align-items-center">
                             <i data-feather="alert-circle" class="me-2"></i>
@@ -240,64 +200,57 @@
             });
         }
 
-        // Add form validation feedback
-        document.querySelectorAll('.form-control, .form-select').forEach(input => {
-            input.addEventListener('blur', function() {
-                if (this.value.trim() === '' && this.hasAttribute('required')) {
-                    this.classList.add('is-invalid');
-                    this.classList.remove('is-valid');
-                } else {
-                    this.classList.add('is-valid');
-                    this.classList.remove('is-invalid');
+        // Initialize feather icons
+        feather.replace();
+        
+        // Enhanced form validation
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add modern validation styling
+            document.querySelectorAll('.modern-input, .modern-select, .modern-textarea').forEach(field => {
+                field.addEventListener('blur', function() {
+                    if (this.checkValidity()) {
+                        this.classList.remove('is-invalid');
+                        this.classList.add('is-valid');
+                    } else {
+                        this.classList.remove('is-valid');
+                        this.classList.add('is-invalid');
+                    }
+                });
+                
+                // Clear validation on focus
+                field.addEventListener('focus', function() {
+                    this.classList.remove('is-invalid', 'is-valid');
+                });
+            });
+            
+            // Form submission loading state
+            document.querySelector('form').addEventListener('submit', function(e) {
+                const submitBtn = this.querySelector('.btn-primary-modern');
+                if (this.checkValidity()) {
+                    submitBtn.innerHTML = `
+                        <span class="spinner-border spinner-border-sm me-2" role="status"></span>
+                        Saving Changes...
+                    `;
+                    submitBtn.disabled = true;
                 }
             });
             
-            input.addEventListener('focus', function() {
-                this.classList.remove('is-invalid');
-            });
-        });
-        
-        // Initialize icons after page load
-        feather.replace();
-        
-        // Show unsaved changes warning
-        let formChanged = false;
-        document.querySelectorAll('.form-control, .form-select').forEach(input => {
-            input.addEventListener('input', function() {
-                formChanged = true;
-            });
-        });
-        
-        window.addEventListener('beforeunload', function(e) {
-            if (formChanged) {
-                e.preventDefault();
-                e.returnValue = '';
+            // File upload area click handler
+            const fileUploadArea = document.querySelector('.file-upload-area');
+            if (fileUploadArea) {
+                fileUploadArea.addEventListener('click', function() {
+                    document.querySelector('.file-input').focus();
+                });
             }
         });
         
-        // Remove warning when form is submitted
-        document.querySelector('form').addEventListener('submit', function() {
-            formChanged = false;
-        });
-        
-        // Bootstrap validation
-        (() => {
-          'use strict'
-          
-          // Fetch all forms we want to apply custom Bootstrap validation styles to
-          const forms = document.querySelectorAll('.needs-validation')
-        
-          // Loop over them and prevent submission
-          Array.from(forms).forEach(form => {
-            form.addEventListener('submit', event => {
-              if (!form.checkValidity()) {
-                event.preventDefault()
-                event.stopPropagation()
-              }
-              
-              form.classList.add('was-validated')
-            }, false)
-          })
-        })()
+        // Auto-resize textarea
+        const textarea = document.querySelector('.modern-textarea');
+        if (textarea) {
+            textarea.addEventListener('input', function() {
+                this.style.height = 'auto';
+                this.style.height = (this.scrollHeight) + 'px';
+            });
+        }
     </script>
 }
