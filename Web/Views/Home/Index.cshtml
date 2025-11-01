@@ -1,0 +1,299 @@
+﻿@using System.Security.Claims
+@using Web.Models.Entities
+@{
+    ViewData["Title"] = "Home Page";
+}
+@model List<Web.Models.Entities.CrsResult>
+
+<!-- Modern Hero Section - Two Column Layout -->
+<div class="hero-section-modern">
+    <div class="hero-container">
+        <div class="hero-grid">
+            <!-- Left Column - Text Content -->
+            <div class="hero-content">
+    
+                <h1 class="hero-heading">
+                    Taid Welcomes You @(User.Identity?.Name ?? "")
+                </h1>
+                
+                @if (User.IsInRole("Admin"))
+                {
+                    <!-- Admin-focused paragraph -->
+                    <p class="hero-description">
+                        Streamline your training programs, manage courses, and track trainee progress all in one place. Transform the way you deliver education with our comprehensive platform.
+                    </p>
+                }
+                else
+                {
+                    <!-- Trainee-focused paragraph -->
+                    <p class="hero-description">
+                        Join and explore your learning path, track your enrolled courses, and grow your skills with Taid. Discover courses tailored to your goals and achieve excellence.
+                    </p>
+                }
+                
+                <div class="hero-cta-group">
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <!-- Admin: Show "View Dashboard" button instead of "Get Started" -->
+                        <a asp-controller="Dashboard" asp-action="Index" class="hero-btn-primary">
+                            <span>View Dashboard</span>
+                            <i data-feather="arrow-right" class="hero-btn-icon"></i>
+                        </a>
+                        <a asp-controller="Course" asp-action="Index" asp-route-deptId="0" class="hero-btn-secondary">
+                            <span>Explore Courses</span>
+                        </a>
+                    }
+                    else if (User.Identity?.IsAuthenticated == true)
+                    {
+                        <!-- Authenticated (non-admin): Hide "Get Started", keep "Explore Courses" -->
+                        <a asp-controller="Course" asp-action="Index" asp-route-deptId="0" class="hero-btn-primary">
+                            <span>Explore Courses</span>
+                            <i data-feather="arrow-right" class="hero-btn-icon"></i>
+                        </a>
+                    }
+                    else
+                    {
+                        <!-- Not authenticated: Show both buttons -->
+                        <a asp-controller="Account" asp-action="Register" class="hero-btn-primary">
+                            <span>Get Started</span>
+                            <i data-feather="arrow-right" class="hero-btn-icon"></i>
+                        </a>
+                        <a asp-controller="Account" asp-action="Login" class="hero-btn-secondary">
+                            <span>Explore Courses</span>
+                        </a>
+                    }
+                </div>
+        
+            </div>
+
+            <!-- Right Column - Illustration -->
+            <div class="hero-image">
+                <div class="hero-image-container">
+                    <img src="~/images/undraw_graduation_u7uc.svg" 
+                         alt="Education Illustration" 
+                         class="hero-illustration">
+                    <div class="hero-image-bg"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@if(!User.IsInRole("Admin") && !User.IsInRole("Instructor"))
+{
+    <!-- My Active Courses Section -->
+    <section class="active-courses-section">
+        <!-- Decorative curved path on the right side -->
+        <div class="decorative-path">
+            <svg class="path-curve" viewBox="0 0 200 1000" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+                <defs>
+                    <linearGradient id="curveGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" style="stop-color:rgba(255,255,255,0.12);stop-opacity:1" />
+                        <stop offset="50%" style="stop-color:rgba(255,255,255,0.18);stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:rgba(255,255,255,0.12);stop-opacity:1" />
+                    </linearGradient>
+                </defs>
+                <path d="M 50,0 Q 150,250 50,500 T 50,1000" 
+                      stroke="url(#curveGradient)" 
+                      stroke-width="2" 
+                      fill="none" 
+                      stroke-linecap="round"/>
+            </svg>
+        </div>
+        
+        <div class="container">
+            <h2 class="section-title">My Active Courses</h2>
+            
+            @if (Model.Any())
+            {
+                <div class="courses-list">
+                    @foreach (var crs in Model)
+                    {
+                        <div class="active-course-card">
+                            <!-- Animated shine effect overlay -->
+                            <div class="shine"></div>
+                            
+                            <!-- Animated background tiles -->
+                            <div class="background-tiles">
+                                <div class="tile"></div>
+                                <div class="tile"></div>
+                                <div class="tile"></div>
+                                <div class="tile"></div>
+                                <div class="tile"></div>
+                            </div>
+                            
+                            <!-- Animated border lines -->
+                            <div class="card-border">
+                                <div class="border-line border-top"></div>
+                                <div class="border-line border-right"></div>
+                                <div class="border-line border-bottom"></div>
+                                <div class="border-line border-left"></div>
+                            </div>
+                            
+                            <!-- Card content -->
+                            <div class="card-content">
+                                <div class="course-card-header">
+                                    <div class="course-icon">
+                                        <i data-feather="book-open"></i>
+                                    </div>
+                                    <div class="course-status">
+                                        <span class="status-badge">Active</span>
+                                    </div>
+                                </div>
+                                <div class="course-card-body">
+                                    <h3 class="course-name">@crs.Course.Name</h3>
+                                    <p class="course-meta">
+                                        <i data-feather="calendar" class="meta-icon"></i>
+                                        <span>In Progress</span>
+                                    </p>
+                                </div>
+                                <div class="course-card-footer">
+                                    <a asp-controller="Course" asp-action="ViewCourseDetails" asp-route-id="@crs.Course.Id" 
+                                       class="course-continue-btn">
+                                        <span>Continue Learning</span>
+                                        <i data-feather="arrow-right" class="btn-arrow"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            } 
+            else
+            {
+                <div class="empty-state">
+                    <div class="empty-state-icon">
+                        <i data-feather="inbox"></i>
+                    </div>
+                    <h3 class="empty-state-title">No Active Courses Yet</h3>
+                    <p class="empty-state-text">You haven't enrolled in any courses. Start your learning journey today!</p>
+                    @if (User.Identity?.IsAuthenticated == true)
+                    {
+                        <a asp-controller="Course" asp-action="Index" asp-route-deptId="0" class="empty-state-btn">
+                            <i data-feather="compass" class="btn-icon"></i>
+                            <span>Explore Courses</span>
+                        </a>
+                    }
+                    else
+                    {
+                        <a asp-controller="Account" asp-action="Login" class="empty-state-btn">
+                            <i data-feather="log-in" class="btn-icon"></i>
+                            <span>Sign In to Explore</span>
+                        </a>
+                    }
+                </div>
+            }
+        </div>
+    </section>
+}
+
+
+
+<div class="container py-5">
+    <!-- Features Grid Section -->
+    
+
+    @if(User.IsInRole("Admin") || User.IsInRole("Instructor"))
+    {
+    <div class="row g-4">
+        <!-- Manage Courses Card -->
+        <div class="col-md-6 col-lg-4">
+            <div class="card shadow-sm border-0 rounded-3 animate-fade-in feature-card">
+                <div class="card-body text-center p-4 d-flex flex-column">
+                    <div class="d-flex justify-content-center mb-4">
+                        <div class="p-3 rounded-3" style="background-color: rgba(59, 130, 246, 0.1);">
+                            <i data-feather="book-open" style="color: #3b82f6; width: 32px; height: 32px;"></i>
+                        </div>
+                    </div>
+                    <h3 class="h5 fw-bold mb-3">Manage Courses</h3>
+                    <p class="text-muted mb-4 flex-grow-1">
+                        Organize courses by departments and manage curriculum efficiently with our comprehensive course management system.
+                    </p>
+                    <a asp-controller="Course" asp-action="Index" asp-route-deptId="0"
+                       class="btn btn-primary d-flex align-items-center justify-content-center mt-auto">
+                        <i data-feather="arrow-right" style="width: 16px; height: 16px;" class="me-2"></i>
+                        Manage Courses
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        @if(User.IsInRole("Admin"))
+        {
+            <!-- Manage Instructors Card (Admin only) -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card shadow-sm border-0 rounded-3 animate-fade-in feature-card">
+                    <div class="card-body text-center p-4 d-flex flex-column">
+                        <div class="d-flex justify-content-center mb-4">
+                            <div class="p-3 rounded-3" style="background-color: rgba(245, 158, 11, 0.1);">
+                                <i data-feather="users" style="color: #f59e0b; width: 32px; height: 32px;"></i>
+                            </div>
+                        </div>
+                        <h3 class="h5 fw-bold mb-3">Manage Instructors</h3>
+                        <p class="text-muted mb-4 flex-grow-1">
+                            Manage instructors, their courses, and track their performance across different courses and departments.
+                        </p>
+                        <a asp-controller="Instructor" asp-action="Index" 
+                           class="btn btn-warning d-flex align-items-center justify-content-center mt-auto">
+                            <i data-feather="arrow-right" style="width: 16px; height: 16px;" class="me-2"></i>
+                            Manage Instructors
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Manage Trainees Card (Admin only) -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card shadow-sm border-0 rounded-3 animate-fade-in feature-card">
+                    <div class="card-body text-center p-4 d-flex flex-column">
+                        <div class="d-flex justify-content-center mb-4">
+                            <div class="p-3 rounded-3" style="background-color: rgba(16, 185, 129, 0.1);">
+                                <i data-feather="user-check" style="color: #10b981; width: 32px; height: 32px;"></i>
+                            </div>
+                        </div>
+                        <h3 class="h5 fw-bold mb-3">Manage Trainees</h3>
+                        <p class="text-muted mb-4 flex-grow-1">
+                            View and manage trainee enrollments, track progress, and monitor student performance across all courses.
+                        </p>
+                        <a asp-controller="Trainee" asp-action="Index"
+                           class="btn btn-success d-flex align-items-center justify-content-center mt-auto">
+                            <i data-feather="arrow-right" style="width: 16px; height: 16px;" class="me-2"></i>
+                            Manage Trainees
+                        </a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    }
+
+    <!-- Statistics Section -->
+    
+</div>
+
+@section Scripts {
+    <script>
+        // Initialize icons after page load
+        feather.replace();
+        
+        // Add staggered animations to feature cards
+        const cards = document.querySelectorAll('.card');
+        cards.forEach((card, index) => {
+            card.style.animationDelay = `${index * 0.1}s`;
+        });
+        
+        // Add hover effects to cards
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px)';
+                this.style.transition = 'transform 0.3s ease';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+}

@@ -1,0 +1,209 @@
+﻿@model Web.ViewModel.ProfileViewModel
+
+@{
+    ViewData["Title"] = "My Profile";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/profile.css" />
+}
+
+<!-- Modern CV-Style Profile Page -->
+<div class="profile-page">
+    <div class="profile-container">
+        
+        <!-- Profile Card -->
+        <div class="profile-card">
+            
+            <!-- Header Section - Profile Picture & Basic Info -->
+            <div class="profile-header">
+                <div class="profile-picture-wrapper">
+                    <div class="profile-picture">
+                        @if (!string.IsNullOrEmpty(Model.Image?.FileName))
+                        {
+                            <img src="~/images/@Model.Image.FileName" alt="Profile Picture" class="profile-img">
+                        }
+                        else
+                        {
+                            <div class="profile-placeholder">
+                                <i data-feather="user"></i>
+                            </div>
+                        }
+                    </div>
+                    <button type="button" class="edit-picture-btn" onclick="document.getElementById('imageUpload').click()">
+                        <i data-feather="camera"></i>
+                    </button>
+                </div>
+                
+                <div class="profile-info">
+                    <h1 class="profile-name">@Model.UserName</h1>
+                    <div class="profile-email">
+                        <i data-feather="mail" class="info-icon"></i>
+                        <span>@Model.Email</span>
+                    </div>
+                    @if (Model.JoinDate.HasValue)
+                    {
+                        <div class="profile-joined">
+                            <i data-feather="calendar" class="info-icon"></i>
+                            <span>Member since @Model.JoinDate.Value.ToString("MMMM yyyy")</span>
+                        </div>
+                    }
+                </div>
+            </div>
+            
+            <!-- Divider -->
+            <div class="profile-divider"></div>
+            
+            <!-- Edit Profile Form -->
+            <form method="post" asp-action="updateProfile" asp-controller="Profile" enctype="multipart/form-data" class="profile-form">
+                
+                <!-- Username Edit Section -->
+                <div class="form-section">
+                    <label class="section-label">
+                        <i data-feather="user" class="label-icon"></i>
+                        Personal Information
+                    </label>
+                    
+                    <div class="form-group">
+                        <label asp-for="UserName" class="input-label">Username</label>
+                        <div class="editable-input-wrapper">
+                            <input type="text" 
+                                   asp-for="UserName"
+                                   class="editable-input"
+                                   placeholder="Enter your username"/>
+                            <i data-feather="edit-2" class="edit-icon"></i>
+                        </div>
+                        <span asp-validation-for="UserName" class="validation-message"></span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label asp-for="Email" class="input-label">Email Address</label>
+                        <div class="static-input-wrapper">
+                            <input asp-for="Email" 
+                                   class="static-input" 
+                                   readonly/>
+                            <i data-feather="lock" class="lock-icon"></i>
+                        </div>
+                        <small class="input-hint">Email cannot be changed</small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input asp-for="Image" 
+                               id="imageUpload"
+                               type="file"
+                               accept="image/*"
+                               class="file-input"/>
+                        <span asp-validation-for="Image" class="validation-message"></span>
+                    </div>
+                </div>
+                
+                <!-- Save Button -->
+                <div class="form-actions">
+                    <button type="submit" class="save-btn">
+                        <i data-feather="save" class="btn-icon"></i>
+                        <span>Save Changes</span>
+                    </button>
+                </div>
+                
+            </form>
+            
+            <!-- Divider -->
+            <div class="profile-divider"></div>
+            
+            @if (User.IsInRole("Trainee") || User.IsInRole("User"))
+            {
+                  <!-- Courses Enrolled Section -->
+            <div class="courses-section">
+                <h2 class="section-title">
+                    <i data-feather="book-open" class="title-icon"></i>
+                    Courses Enrolled
+                </h2>
+                
+                @if (Model.EnrolledCourses != null && Model.EnrolledCourses.Any())
+                {
+                    <div class="courses-list">
+                        @foreach (var course in Model.EnrolledCourses)
+                        {
+                            <div class="course-entry">
+                                <div class="course-icon-badge">
+                                    <i data-feather="book"></i>
+                                </div>
+                                <div class="course-details">
+                                    <h3 class="course-title">@course.Course.Name</h3>
+                                    <p class="course-meta">
+                                        <span class="meta-item">
+                                            <i data-feather="calendar"></i>
+                                            In Progress
+                                        </span>
+                                        @if (course.Degree > 0)
+                                        {
+                                            <span class="meta-item">
+                                                <i data-feather="award"></i>
+                                                Score: @course.Degree%
+                                            </span>
+                                        }
+                                    </p>
+                                </div>
+                                <a asp-controller="Course" 
+                                   asp-action="ViewCourseDetails" 
+                                   asp-route-id="@course.CourseId" 
+                                   class="continue-btn">
+                                    <span>Continue</span>
+                                    <i data-feather="arrow-right"></i>
+                                </a>
+                            </div>
+                        }
+                    </div>
+                }
+                else
+                {
+                    <div class="empty-courses">
+                        <div class="empty-icon">
+                            <i data-feather="inbox"></i>
+                        </div>
+                        <p class="empty-text">No courses enrolled yet</p>
+                        <a asp-controller="Course" asp-action="Index" class="explore-btn">
+                            <i data-feather="compass"></i>
+                            <span>Explore Courses</span>
+                        </a>
+                    </div>
+                }
+            </div>
+            }
+          
+            
+        </div>
+        
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        // Initialize Feather icons
+        feather.replace();
+        
+        // Preview image before upload
+        document.getElementById('imageUpload')?.addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    const img = document.querySelector('.profile-img');
+                    const placeholder = document.querySelector('.profile-placeholder');
+                    
+                    if (placeholder) {
+                        placeholder.remove();
+                        const newImg = document.createElement('img');
+                        newImg.src = event.target.result;
+                        newImg.alt = 'Profile Picture';
+                        newImg.className = 'profile-img';
+                        document.querySelector('.profile-picture').appendChild(newImg);
+                    } else if (img) {
+                        img.src = event.target.result;
+                    }
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
+}
