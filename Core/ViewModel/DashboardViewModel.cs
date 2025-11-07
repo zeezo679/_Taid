@@ -12,5 +12,5 @@ public class DashboardViewModel
     
     public List<(string DeptName, int CourseCount)> CoursesByDept =  new List<(string DeptName, int CourseCount)> ();
     public List<Course> RecentAddedCourses { get; set; } = new List<Course>();
-    public List<Course> RecentEnrollements { get; set; } = new List<Course>();
+    public List<EnrollmentViewModel> RecentEnrollements { get; set; } = new List<EnrollmentViewModel>();
 }

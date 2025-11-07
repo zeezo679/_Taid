@@ -10,11 +10,10 @@ public class EditInstructorViewModel
 
     [Display(Name = "Instructor Name")]
     public string Name { get; set; } = null!;
-    public IFormFile Image { get; set; }
+    
+    public IFormFile? Image { get; set; }  
     public decimal Salary { get; set; }
     public string Address { get; set; } = null!;
-    public string Email { get; set; }
-
     public int CourseId { get; set; }
     public int DeptId { get; set; }
 

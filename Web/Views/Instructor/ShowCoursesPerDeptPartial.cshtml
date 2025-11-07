@@ -7,46 +7,71 @@
 
 @if (courses != null && courses.Any())
 {
-    <div class="row g-3">
-        <div class="col-12">
-            <small class="text-muted d-flex align-items-center">
-                <i data-feather="info" class="icon-sm me-1"></i>
-                Found @courses.Count course(s) in this department
-            </small>
+    <div class="assigned-courses-container">
+        <!-- Header Section -->
+        <div class="assigned-courses-header">
+            <div class="header-content-assigned">
+                <div class="header-icon-assigned">
+                    <i data-feather="book-open" class="icon-lg"></i>
+                </div>
+                <div class="header-text-assigned">
+                    <span class="header-label">Available Courses</span>
+                    <h3 class="header-title-assigned">Assigned Courses</h3>
+                </div>
+            </div>
+            <div class="course-count-badge">
+                <i data-feather="layers" class="badge-icon"></i>
+                <span>@courses.Count Course(s)</span>
+            </div>
         </div>
-        <div>
-            <select asp-for="CourseId" asp-items="selectItems">
-                <option value="-1">Select a course from below</option>
-            </select>
+        
+        <!-- Course Selection Dropdown -->
+        <div class="course-selector-section">
+            <label class="selector-label">
+                <i data-feather="check-circle" class="label-icon"></i>
+                Select Course to Assign
+            </label>
+            <div class="select-wrapper-assigned">
+                <select asp-for="CourseId" asp-items="selectItems" class="course-select-assigned">
+                    <option value="-1">Choose a course from the list below</option>
+                </select>
+                <i data-feather="chevron-down" class="select-arrow-assigned"></i>
+            </div>
         </div>
-        @* Display all course details in a nice grid *@
-        <div class="col-12 mt-3">
-            <div class="row g-2">
-                @foreach (var course in courses)
-                {
-                    <div class="col-md-4">
-                        <div class="card border-0 bg-white shadow-sm">
-                            <div class="card-body p-3">
-                                <h6 class="card-title mb-2 text-primary">@course.Name</h6>
-                                <div class="d-flex justify-content-between">
-                                    <small class="text-muted">Max: @course.Degree</small>
-                                    <small class="text-muted">Min: @course.MinDegree</small>
-                                </div>
+        
+        <!-- Course Cards Grid -->
+        <div class="courses-grid-assigned">
+            @foreach (var course in courses)
+            {
+                <div class="course-card-assigned">
+                    <div class="course-card-header-assigned">
+                        <div class="course-icon-badge">
+                            <i data-feather="book" class="course-icon-small"></i>
+                        </div>
+                        <h4 class="course-card-title">@course.Name</h4>
+                    </div>
+                    <div class="course-card-body-assigned">
+                        <div class="degree-info-row">
+                            <div class="degree-info-item">
+                                <span class="degree-label-small">Max Degree</span>
+                                <span class="degree-value-max">@course.Degree</span>
+                            </div>
+                            <div class="degree-divider-vertical"></div>
+                            <div class="degree-info-item">
+                                <span class="degree-label-small">Min Degree</span>
+                                <span class="degree-value-min">@course.MinDegree</span>
                             </div>
                         </div>
                     </div>
-                }
-            </div>
+                </div>
+            }
         </div>
     </div>
 }
 else
 {
-    <div class="alert alert-info d-flex align-items-center">
-        <i data-feather="info" class="me-2"></i>
-        <div>
-            <strong>No courses found</strong><br>
-            <small>This department doesn't have any courses assigned yet.</small>
+    <div class="no-courses-container">
+        <div class="no-courses-icon">
         </div>
     </div>
 }

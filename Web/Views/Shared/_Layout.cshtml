@@ -126,9 +126,6 @@
             // Apply active state to current nav link
            
         });
-
-        // Initialize Feather Icons
-        feather.replace();
         
         function toggleMobileMenu() {
             const menu = document.getElementById('mobileMenu');
@@ -171,5 +168,12 @@
     </script>
 
     @await RenderSectionAsync("Scripts", required: false)
+    
+    @* Admin Notification System *@
+    @if (User.IsInRole("Admin"))
+    {
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/8.0.7/signalr.min.js" integrity="sha512-7SRCYIJtR6F8ocwW7UxW6wGKqbSyqREDbfCORCbGLatU0iugBLwyOXpzhkPyHIFdBO0K2VCu57fvP2Twgx1o2A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="~/js/admin-notifications.js" asp-append-version="true"></script>
+    }
 </body>
 </html>

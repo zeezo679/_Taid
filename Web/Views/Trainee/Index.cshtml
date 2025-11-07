@@ -5,7 +5,7 @@
     @if (TempData["edit_success"] != null)
     {
         <div id="successAlert" class="alert alert-success alert-dismissible fade show" role="alert">
-            <i data-feather="check-circle" class="me-2 icon-sm"></i>
+            <i class="fa-solid fa-circle-check me-2 icon-sm"></i>
             Trainee Updated Successfully
         </div>
     }
@@ -14,7 +14,7 @@
     <div class="page-header d-flex flex-column flex-md-row align-items-md-center justify-content-between mb-4">
         <div class="d-flex align-items-center mb-3 mb-md-0">
             <div class="header-icon me-3">
-                <i data-feather="users"></i>
+                <i class="fa-solid fa-users"></i>
             </div>
             <div>
                 <h1 class="h3 mb-1 fw-bold">Trainees</h1>
@@ -23,7 +23,7 @@
         </div>
         <div class="header-actions d-flex align-items-center gap-2 ms-md-auto">
             <a asp-action="AddTrainee" asp-controller="Trainee" class="btn btn-primary d-flex align-items-center">
-                <i data-feather="user-plus" class="me-2 icon-sm"></i>
+                <i class="fa-solid fa-user-plus me-2 icon-sm"></i>
                 Add New Trainee
             </a>
         </div>
@@ -42,7 +42,7 @@
                             <div class="course-header">
                                 <div class="course-header-content">
                                     <div class="course-icon-container">
-                                        <i data-feather="user-check" class="course-icon"></i>
+                                        <i class="fa-solid fa-user-check course-icon"></i>
                                     </div>
                                     <div class="course-title-section">
                                         <div class="course-label">TRAINEE</div>
@@ -80,7 +80,7 @@
                                 <div class="department-section">
                                     <div class="section-label">DEPARTMENT</div>
                                     <div class="department-info">
-                                        <i data-feather="building" class="department-icon"></i>
+                                        <i class="fa-solid fa-building department-icon"></i>
                                         <span class="department-name">@trainee.Department.Name</span>
                                     </div>
                                 </div>
@@ -90,14 +90,14 @@
                                     <div class="degree-grid">
                                         <div class="degree-card">
                                             <div class="degree-header">
-                                                <i data-feather="award" class="degree-icon max-icon"></i>
+                                                <i class="fa-solid fa-award degree-icon max-icon"></i>
                                                 <span class="degree-label">Grade</span>
                                             </div>
                                             <div class="degree-value max-value">@trainee.Grade%</div>
                                         </div>
                                         <div class="degree-card">
                                             <div class="degree-header">
-                                                <i data-feather="map-pin" class="degree-icon min-icon"></i>
+                                                <i class="fa-solid fa-location-dot degree-icon min-icon"></i>
                                                 <span class="degree-label">Location</span>
                                             </div>
                                             <div class="degree-value min-value" style="font-size: 12px; font-weight: 500;">@trainee.Address.Substring(0, Math.Min(trainee.Address.Length, 15))@(trainee.Address.Length > 15 ? "..." : "")</div>
@@ -110,11 +110,11 @@
                             <div class="course-actions">
                                 <div class="action-buttons">
                                     <a asp-action="Edit" asp-controller="Trainee" asp-route-id="@trainee.Id" class="btn-edit">
-                                        <i data-feather="edit" class="btn-icon"></i>
+                                        <i class="fa-solid fa-pen-to-square btn-icon"></i>
                                         Edit
                                     </a>
                                     <button type="button" class="btn-delete" data-bs-toggle="modal" data-bs-target="#deleteModel-@trainee.Id">
-                                        <i data-feather="trash-2" class="btn-icon"></i>
+                                        <i class="fa-solid fa-trash-can btn-icon"></i>
                                         Delete
                                     </button>
                                 </div>
@@ -132,13 +132,13 @@
         <div class="text-center py-5">
             <div class="mx-auto mb-4" style="width: 80px; height: 80px;">
                 <div class="bg-light rounded-circle d-flex align-items-center justify-content-center h-100">
-                    <i data-feather="users" class="text-muted" style="width: 40px; height: 40px;"></i>
+                    <i class="fa-solid fa-users text-muted" style="width: 40px; height: 40px;"></i>
                 </div>
             </div>
             <h3 class="h4 mb-3">No Trainees Found</h3>
             <p class="text-muted mb-4">Get started by adding your first trainee to the system.</p>
             <a asp-action="AddTrainee" asp-controller="Trainee" class="btn btn-primary btn-lg">
-                <i data-feather="user-plus" class="me-2 icon-sm"></i>
+                <i class="fa-solid fa-user-plus me-2 icon-sm"></i>
                 Add Your First Trainee
             </a>
         </div>
@@ -147,8 +147,6 @@
 
 @section Scripts {
     <script>
-        feather.replace();
-
         if (document.getElementById('successAlert')) {
             const alert = document.getElementById('successAlert');
             const originalHeight = alert.offsetHeight;

@@ -9,6 +9,7 @@ namespace Web.Models.Interfaces
         List<Instructor> Load();
         List<SelectListItem> LoadSelectItems();
         List<Instructor> LoadInstructorsWithTheirCourses(CourseViewModel CourseView, bool save);
+        Task<List<Course>> FilterCoursesByCurrentInstructorAsync(string uid);
         Instructor Get(int id);
         void Insert(Instructor instructor);
         void Update(int id, Instructor newInstructor);

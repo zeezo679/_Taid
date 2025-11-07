@@ -253,8 +253,7 @@ textarea::placeholder {
 }
 
 .course-icon {
-    width: 24px;
-    height: 24px;
+    font-size: 28px;
     color: white;
 }
 
@@ -319,8 +318,7 @@ textarea::placeholder {
 }
 
 .department-icon {
-    width: 16px;
-    height: 16px;
+    font-size: 20px;
     color: #1f2937;
 }
 
@@ -364,8 +362,7 @@ textarea::placeholder {
 }
 
 .degree-icon {
-    width: 16px;
-    height: 16px;
+    font-size: 20px;
 }
 
 .max-icon {
@@ -1223,6 +1220,10 @@ html {
     margin-bottom: var(--space-5);
 }
 
+.auth-logo-icon i {
+    color: white;
+}
+
 .auth-logo-icon svg {
     width: 40px;
     height: 40px;
@@ -1283,6 +1284,8 @@ html {
     color: var(--gray-400);
     width: 20px;
     height: 20px;
+    z-index: 1;
+    pointer-events: none;
 }
 
 .auth-form-input {
@@ -1295,6 +1298,8 @@ html {
     color: #000000;
     transition: all var(--transition-fast);
     outline: none;
+    position: relative;
+    z-index: 0;
 }
 
 .auth-form-input:focus {
@@ -3773,6 +3778,11 @@ section + section {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
+.course-hero-icon i {
+    font-size: 48px;
+    color: white;
+}
+
 .course-hero-icon svg {
     width: 40px;
     height: 40px;
@@ -3810,6 +3820,10 @@ section + section {
     font-size: var(--text-sm);
     font-weight: 600;
     border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.course-enrolled-badge i {
+    font-size: 18px;
 }
 
 .course-enrolled-badge svg {
@@ -4088,8 +4102,7 @@ section + section {
 }
 
 .info-card-icon {
-    width: 20px;
-    height: 20px;
+    font-size: 24px;
 }
 
 .info-card-icon.department {
@@ -4138,8 +4151,7 @@ section + section {
 }
 
 .section-icon {
-    width: 24px;
-    height: 24px;
+    font-size: 28px;
     color: var(--text-primary);
 }
 
@@ -4259,8 +4271,7 @@ section + section {
 }
 
 .meta-icon {
-    width: 14px;
-    height: 14px;
+    font-size: 16px;
     color: var(--gray-400);
     flex-shrink: 0;
 }
@@ -4275,8 +4286,7 @@ section + section {
 }
 
 .no-instructors-icon {
-    width: 48px;
-    height: 48px;
+    font-size: 56px;
     color: var(--gray-400);
     margin-bottom: var(--space-3);
 }
@@ -4897,26 +4907,27 @@ section + section {
     align-items: center;
     gap: 0.625rem;
     padding: 0.875rem 1.75rem;
-    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-    color: #ffffff;
+    background: white;
+    color: #1f2937;
     text-decoration: none;
     border-radius: 12px;
     font-weight: 600;
     font-size: 1rem;
-    border: none;
+    border: 2px solid rgba(255, 255, 255, 0.2);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .empty-state-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.4);
-    color: #ffffff;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    color: #1f2937;
+    background: #f9fafb;
+    border-color: rgba(255, 255, 255, 0.3);
 }
 
 .empty-state-btn .btn-icon {
-    width: 20px;
-    height: 20px;
+    font-size: 20px;
 }
 
 /* Responsive Design for Active Courses */
@@ -4995,4 +5006,5 @@ section + section {
     .empty-state-title {
         font-size: 1.25rem;
     }
-}
+} 
+ 

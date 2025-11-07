@@ -6,7 +6,7 @@
         <!-- Brand -->
         <a class="navbar-brand fw-bold d-flex align-items-center"
            asp-area="" asp-controller="Home" asp-action="Index">
-            <i data-feather="layers" class="me-2 text-primary" style="width: 24px; height: 24px;"></i>
+            <i class="fa-solid fa-layer-group me-2 text-primary" style="width: 24px; height: 24px;"></i>
             Taid
         </a>
 
@@ -23,7 +23,7 @@
                     <a class="nav-link d-flex align-items-center smooth-nav @(Context.Request.Path.Value == "/" || Context.Request.Path.Value?.ToLower().Contains("/home/index") == true ? "active" : "")" 
                        data-page="home"
                        asp-area="" asp-controller="Home" asp-action="Index">
-                        <i data-feather="home" class="me-2" style="width: 16px; height: 16px;"></i>
+                        <i class="fa-solid fa-house me-2" style="width: 16px; height: 16px;"></i>
                         Home
                     </a>
                 </li>
@@ -35,7 +35,7 @@
                             <a class="nav-link d-flex align-items-center smooth-nav @(Context.Request.Path.Value?.ToLower().Contains("/instructor") == true ? "active" : "")"
                                data-page="instructors"
                                asp-area="" asp-controller="Instructor" asp-action="Index">
-                                <i data-feather="users" class="me-2" style="width: 16px; height: 16px;"></i>
+                                <i class="fa-solid fa-chalkboard-user me-2" style="width: 16px; height: 16px;"></i>
                                 Instructors
                             </a>
                         </li>
@@ -43,23 +43,27 @@
                             <a class="nav-link d-flex align-items-center smooth-nav @(Context.Request.Path.Value?.ToLower().Contains("/trainee") == true ? "active" : "")"
                                data-page="trainees"
                                asp-area="" asp-controller="Trainee" asp-action="Index">
-                                <i data-feather="users" class="me-2" style="width: 16px; height: 16px;"></i>
+                                <i class="fa-solid fa-user-graduate me-2" style="width: 16px; height: 16px;"></i>
                                 Trainees
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link d-flex align-items-center smooth-nav @(Context.Request.Path.Value?.ToLower().Contains("/adminchat") == true ? "active" : "")"
+                            <a class="nav-link d-flex align-items-center smooth-nav position-relative @(Context.Request.Path.Value?.ToLower().Contains("/adminchat") == true ? "active" : "")"
                                data-page="chat"
-                               asp-area="" asp-controller="AdminChat" asp-action="Index">
-                                <i data-feather="message-circle" class="me-2" style="width: 16px; height: 16px;"></i>
+                               asp-area="" asp-controller="AdminChat" asp-action="Index"
+                               id="admin-chat-link">
+                                <i class="fa-solid fa-message me-2" style="width: 16px; height: 16px;"></i>
                                 Chat
+                                <span id="message-counter" class="badge bg-danger rounded-pill position-absolute" style="display: none; top: 0; right: -10px; font-size: 0.7rem;">
+                                    0
+                                </span>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link d-flex align-items-center smooth-nav @(Context.Request.Path.Value?.ToLower().Contains("/dashboard") == true ? "active" : "")"
                                data-page="chat"
                                asp-area="" asp-controller="Dashboard" asp-action="Index">
-                                <i data-feather="message-circle" class="me-2" style="width: 16px; height: 16px;"></i>
+                                <i class="fa-solid fa-chart-line me-2" style="width: 16px; height: 16px;"></i>
                                 Dashboard
                             </a>
                         </li>
@@ -68,19 +72,11 @@
                         <a class="nav-link d-flex align-items-center smooth-nav @(Context.Request.Path.Value?.ToLower().Contains("/course") == true ? "active" : "")"
                            data-page="courses"
                            asp-area="" asp-controller="Course" asp-action="Index" asp-route-deptId=0>
-                            <i data-feather="book-open" class="me-2" style="width: 16px; height: 16px;"></i>
+                            <i class="fa-solid fa-book-open me-2" style="width: 16px; height: 16px;"></i>
                             Courses
                         </a>
                     </li>
                 }
-                <li class="nav-item">
-                    <a class="nav-link d-flex align-items-center smooth-nav @(Context.Request.Path.Value?.ToLower().Contains("/home/privacy") == true ? "active" : "")"
-                       data-page="privacy"
-                       asp-area="" asp-controller="Home" asp-action="Privacy">
-                        <i data-feather="shield" class="me-2" style="width: 16px; height: 16px;"></i>
-                        Privacy
-                    </a>
-                </li>
             </ul>
             <ul class="navbar-nav ms-auto">                    
                 @if(User.Identity.IsAuthenticated == false)
@@ -89,7 +85,7 @@
                         <a class="nav-link d-flex align-items-center smooth-nav @(Context.Request.Path.Value?.ToLower().Contains("/account/login") == true ? "active" : "")"
                            data-page="login"
                            asp-area="" asp-controller="Account" asp-action="Login">
-                            <i data-feather="log-in" class="me-2" style="width: 16px; height: 16px;"></i>
+                            <i class="fa-solid fa-right-to-bracket me-2" style="width: 16px; height: 16px;"></i>
                             Login
                         </a>
                     </li>
@@ -97,7 +93,7 @@
                         <a class="nav-link d-flex align-items-center smooth-nav @(Context.Request.Path.Value?.ToLower().Contains("/account/register") == true ? "active" : "")"
                            data-page="register"
                            asp-area="" asp-controller="Account" asp-action="Register">
-                            <i data-feather="user-plus" class="me-2" style="width: 16px; height: 16px;"></i>
+                            <i class="fa-solid fa-user-plus me-2" style="width: 16px; height: 16px;"></i>
                             Register
                         </a>
                     </li>
@@ -108,14 +104,14 @@
                         <a class="nav-link d-flex align-items-center smooth-nav @(Context.Request.Path.Value?.ToLower().Contains("/account/logout") == true ? "active" : "")"
                            data-page="logout"
                            asp-area="" asp-controller="Account" asp-action="Logout">
-                            <i data-feather="log-out" class="me-2" style="width: 16px; height: 16px;"></i>
+                            <i class="fa-solid fa-right-from-bracket me-2" style="width: 16px; height: 16px;"></i>
                             Logout
                         </a>
                     </li>
                     <li class="nav-item d-flex align-items-center px-3">
                         <a asp-controller="Profile" asp-action="Index" class="nav-link d-flex align-items-center smooth-nav @(Context.Request.Path.Value?.ToLower().Contains("/profile") == true ? "active" : "")">
                             <div class="d-flex align-items-center">
-                                <i data-feather="user" class="me-2 text-primary" style="width: 16px; height: 16px;"></i>
+                                <i class="fa-solid fa-user me-2 text-primary" style="width: 16px; height: 16px;"></i>
                                 <span class="text-secondary">Hello, @User.Identity.Name</span>
                             </div>
                         </a>

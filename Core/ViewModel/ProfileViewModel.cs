@@ -19,4 +19,5 @@ public class ProfileViewModel
     public DateTime? JoinDate { get; set; }
     
     public List<CrsResult> EnrolledCourses { get; set; } = new List<CrsResult>();
+    public List<Course> AssignedCourses { get; set; } = new List<Course>();
 }

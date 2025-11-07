@@ -1,0 +1,332 @@
+/* ========================================
+   Font Awesome 6 Icon Alignment & Styling
+   Ensures all icons are properly aligned and sized
+   ======================================== */
+
+/* Global icon alignment */
+i[class*="fa-"] {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+}
+
+/* Icon sizes */
+.icon-sm, i.icon-sm {
+    font-size: 14px;
+    width: 16px;
+    height: 16px;
+}
+
+.icon-md, i.icon-md {
+    font-size: 18px;
+    width: 20px;
+    height: 20px;
+}
+
+.icon-lg, i.icon-lg {
+    font-size: 22px;
+    width: 24px;
+    height: 24px;
+}
+
+.icon-xl, i.icon-xl {
+    font-size: 28px;
+    width: 32px;
+    height: 32px;
+}
+
+/* Button icons */
+.btn-icon {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+}
+
+.btn i[class*="fa-"] {
+    vertical-align: middle;
+    margin-top: -2px;
+}
+
+/* Label/Form icons */
+.label-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+}
+
+/* Auth input icons */
+.auth-input-icon {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+}
+
+.auth-input-icon i[class*="fa-"] {
+    width: 20px;
+    height: 20px;
+    font-size: 16px;
+}
+
+/* Logo icons */
+.auth-logo-icon i[class*="fa-"] {
+    font-size: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white !important;
+}
+
+/* Meta/info icons */
+.meta-icon, .info-icon {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 14px;
+    height: 14px;
+    vertical-align: middle;
+}
+
+/* Nav icons */
+.nav-link i[class*="fa-"] {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+}
+
+/* Course/Department/Degree icons */
+.course-icon, .department-icon, .degree-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+}
+
+/* Chart icons */
+.chart-title-icon, .title-icon, .activity-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+}
+
+/* Empty state icons */
+.empty-icon {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+/* Upload icons */
+.upload-icon-lg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+}
+
+/* Select arrow icons */
+.select-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+}
+
+/* Toggle icons (password visibility) */
+.toggle-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+}
+
+/* Flexbox alignment helpers for icons with text */
+.d-flex i[class*="fa-"],
+.d-inline-flex i[class*="fa-"] {
+    flex-shrink: 0;
+}
+
+/* Stat card icons in dashboard */
+.stat-icon i[class*="fa-"] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Activity item icons */
+.activity-item-icon i[class*="fa-"] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Fix for inline icons with text */
+a i[class*="fa-"],
+button i[class*="fa-"],
+span i[class*="fa-"],
+p i[class*="fa-"],
+label i[class*="fa-"],
+h1 i[class*="fa-"],
+h2 i[class*="fa-"],
+h3 i[class*="fa-"],
+h4 i[class*="fa-"],
+h5 i[class*="fa-"],
+h6 i[class*="fa-"] {
+    vertical-align: middle;
+    line-height: 1;
+}
+
+/* Ensure consistent spacing */
+i[class*="fa-"].me-1 { margin-right: 0.25rem !important; }
+i[class*="fa-"].me-2 { margin-right: 0.5rem !important; }
+i[class*="fa-"].me-3 { margin-right: 0.75rem !important; }
+i[class*="fa-"].ms-1 { margin-left: 0.25rem !important; }
+i[class*="fa-"].ms-2 { margin-left: 0.5rem !important; }
+i[class*="fa-"].ms-3 { margin-left: 0.75rem !important; }
+
+/* Brand/logo specific */
+.navbar-brand i[class*="fa-"] {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Footer icons */
+footer i[class*="fa-"] {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+}
+
+/* Success/Error icons */
+.text-success i[class*="fa-"],
+.text-danger i[class*="fa-"],
+.text-warning i[class*="fa-"],
+.text-info i[class*="fa-"],
+.text-primary i[class*="fa-"] {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+}
+
+/* Card icons */
+.card i[class*="fa-"] {
+    vertical-align: middle;
+}
+
+/* List icons */
+.list-inline-item i[class*="fa-"] {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+}
+
+/* Remove old Feather icon styles */
+[data-feather] {
+    display: none !important;
+}
+
+/* Fix icon baseline alignment in buttons */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn i[class*="fa-"] {
+    line-height: 1;
+}
+
+/* View button arrow animation */
+.btn-arrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease;
+}
+
+/* Alert icons */
+.alert i[class*="fa-"] {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+}
+
+/* Badge icons */
+.badge i[class*="fa-"] {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+    font-size: 0.875em;
+}
+
+/* Dropdown icons */
+.dropdown-item i[class*="fa-"] {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+}
+
+/* Table icons */
+table i[class*="fa-"] {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+}
+
+/* Modal icons */
+.modal i[class*="fa-"] {
+    vertical-align: middle;
+}
+
+/* Breadcrumb icons */
+.breadcrumb-item i[class*="fa-"] {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+}
+
+/* Pagination icons */
+.page-link i[class*="fa-"] {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+}
+
+/* Ensure icons don't break layout */
+i[class*="fa-"] {
+    flex-shrink: 0;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+/* Color inheritance */
+i[class*="fa-"] {
+    color: inherit;
+}
+
+/* Hover effects maintain alignment */
+a:hover i[class*="fa-"],
+button:hover i[class*="fa-"] {
+    vertical-align: middle;
+}

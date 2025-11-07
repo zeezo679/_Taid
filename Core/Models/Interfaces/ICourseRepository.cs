@@ -7,6 +7,8 @@ namespace Web.Models.Interfaces
          List<Course> Load();
          Course Get(int id);
          void Insert(Course course);
+        
+         List<Course> LoadRecent();
 
          List<Course> FilterByDept(int? deptId);
          void Update(int id, Course newCourse);

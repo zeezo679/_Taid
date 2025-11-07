@@ -37,7 +37,7 @@
                         <!-- Admin: Show "View Dashboard" button instead of "Get Started" -->
                         <a asp-controller="Dashboard" asp-action="Index" class="hero-btn-primary">
                             <span>View Dashboard</span>
-                            <i data-feather="arrow-right" class="hero-btn-icon"></i>
+                            <i class="fa-solid fa-arrow-right hero-btn-icon"></i>
                         </a>
                         <a asp-controller="Course" asp-action="Index" asp-route-deptId="0" class="hero-btn-secondary">
                             <span>Explore Courses</span>
@@ -48,7 +48,7 @@
                         <!-- Authenticated (non-admin): Hide "Get Started", keep "Explore Courses" -->
                         <a asp-controller="Course" asp-action="Index" asp-route-deptId="0" class="hero-btn-primary">
                             <span>Explore Courses</span>
-                            <i data-feather="arrow-right" class="hero-btn-icon"></i>
+                            <i class="fa-solid fa-arrow-right hero-btn-icon"></i>
                         </a>
                     }
                     else
@@ -56,7 +56,7 @@
                         <!-- Not authenticated: Show both buttons -->
                         <a asp-controller="Account" asp-action="Register" class="hero-btn-primary">
                             <span>Get Started</span>
-                            <i data-feather="arrow-right" class="hero-btn-icon"></i>
+                            <i class="fa-solid fa-arrow-right hero-btn-icon"></i>
                         </a>
                         <a asp-controller="Account" asp-action="Login" class="hero-btn-secondary">
                             <span>Explore Courses</span>
@@ -136,7 +136,7 @@
                             <div class="card-content">
                                 <div class="course-card-header">
                                     <div class="course-icon">
-                                        <i data-feather="book-open"></i>
+                                        <i class="fa-solid fa-book-open" style="font-size: 32px;"></i>
                                     </div>
                                     <div class="course-status">
                                         <span class="status-badge">Active</span>
@@ -145,7 +145,7 @@
                                 <div class="course-card-body">
                                     <h3 class="course-name">@crs.Course.Name</h3>
                                     <p class="course-meta">
-                                        <i data-feather="calendar" class="meta-icon"></i>
+                                        <i class="fa-solid fa-calendar meta-icon"></i>
                                         <span>In Progress</span>
                                     </p>
                                 </div>
@@ -153,7 +153,7 @@
                                     <a asp-controller="Course" asp-action="ViewCourseDetails" asp-route-id="@crs.Course.Id" 
                                        class="course-continue-btn">
                                         <span>Continue Learning</span>
-                                        <i data-feather="arrow-right" class="btn-arrow"></i>
+                                        <i class="fa-solid fa-arrow-right btn-arrow"></i>
                                     </a>
                                 </div>
                             </div>
@@ -165,21 +165,21 @@
             {
                 <div class="empty-state">
                     <div class="empty-state-icon">
-                        <i data-feather="inbox"></i>
+                        <i class="fa-solid fa-inbox"></i>
                     </div>
                     <h3 class="empty-state-title">No Active Courses Yet</h3>
                     <p class="empty-state-text">You haven't enrolled in any courses. Start your learning journey today!</p>
                     @if (User.Identity?.IsAuthenticated == true)
                     {
                         <a asp-controller="Course" asp-action="Index" asp-route-deptId="0" class="empty-state-btn">
-                            <i data-feather="compass" class="btn-icon"></i>
+                            <i class="fa-solid fa-compass btn-icon"></i>
                             <span>Explore Courses</span>
                         </a>
                     }
                     else
                     {
                         <a asp-controller="Account" asp-action="Login" class="empty-state-btn">
-                            <i data-feather="log-in" class="btn-icon"></i>
+                            <i class="fa-solid fa-right-to-bracket btn-icon"></i>
                             <span>Sign In to Explore</span>
                         </a>
                     }
@@ -204,7 +204,7 @@
                 <div class="card-body text-center p-4 d-flex flex-column">
                     <div class="d-flex justify-content-center mb-4">
                         <div class="p-3 rounded-3" style="background-color: rgba(59, 130, 246, 0.1);">
-                            <i data-feather="book-open" style="color: #3b82f6; width: 32px; height: 32px;"></i>
+                            <i class="fa-solid fa-book-open" style="color: #3b82f6; font-size: 48px;"></i>
                         </div>
                     </div>
                     <h3 class="h5 fw-bold mb-3">Manage Courses</h3>
@@ -213,7 +213,7 @@
                     </p>
                     <a asp-controller="Course" asp-action="Index" asp-route-deptId="0"
                        class="btn btn-primary d-flex align-items-center justify-content-center mt-auto">
-                        <i data-feather="arrow-right" style="width: 16px; height: 16px;" class="me-2"></i>
+                        <i class="fa-solid fa-arrow-right me-2" style="width: 16px; height: 16px;"></i>
                         Manage Courses
                     </a>
                 </div>
@@ -228,7 +228,7 @@
                     <div class="card-body text-center p-4 d-flex flex-column">
                         <div class="d-flex justify-content-center mb-4">
                             <div class="p-3 rounded-3" style="background-color: rgba(245, 158, 11, 0.1);">
-                                <i data-feather="users" style="color: #f59e0b; width: 32px; height: 32px;"></i>
+                                <i class="fa-solid fa-users" style="color: #f59e0b; font-size: 48px;"></i>
                             </div>
                         </div>
                         <h3 class="h5 fw-bold mb-3">Manage Instructors</h3>
@@ -237,7 +237,7 @@
                         </p>
                         <a asp-controller="Instructor" asp-action="Index" 
                            class="btn btn-warning d-flex align-items-center justify-content-center mt-auto">
-                            <i data-feather="arrow-right" style="width: 16px; height: 16px;" class="me-2"></i>
+                            <i class="fa-solid fa-arrow-right me-2" style="width: 16px; height: 16px;"></i>
                             Manage Instructors
                         </a>
                     </div>
@@ -250,7 +250,7 @@
                     <div class="card-body text-center p-4 d-flex flex-column">
                         <div class="d-flex justify-content-center mb-4">
                             <div class="p-3 rounded-3" style="background-color: rgba(16, 185, 129, 0.1);">
-                                <i data-feather="user-check" style="color: #10b981; width: 32px; height: 32px;"></i>
+                                <i class="fa-solid fa-user-check" style="color: #10b981; font-size: 48px;"></i>
                             </div>
                         </div>
                         <h3 class="h5 fw-bold mb-3">Manage Trainees</h3>
@@ -259,7 +259,7 @@
                         </p>
                         <a asp-controller="Trainee" asp-action="Index"
                            class="btn btn-success d-flex align-items-center justify-content-center mt-auto">
-                            <i data-feather="arrow-right" style="width: 16px; height: 16px;" class="me-2"></i>
+                            <i class="fa-solid fa-arrow-right me-2" style="width: 16px; height: 16px;"></i>
                             Manage Trainees
                         </a>
                     </div>
@@ -275,9 +275,6 @@
 
 @section Scripts {
     <script>
-        // Initialize icons after page load
-        feather.replace();
-        
         // Add staggered animations to feature cards
         const cards = document.querySelectorAll('.card');
         cards.forEach((card, index) => {

@@ -1,6 +1,6 @@
 /* ========================================
    Dashboard Page Styles
-   Modern, Clean Design System
+   Modern, Clean Design System - Black & White Theme
    ======================================== */
 
 /* Dashboard Page Container */
@@ -17,11 +17,11 @@
    ======================================== */
 .dashboard-header {
     background: #ffffff;
-    border-radius: 16px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 10px 30px rgba(0, 0, 0, 0.08);
+    border-radius: 12px;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
     padding: 2rem 2.5rem;
     margin-bottom: 2.5rem;
-    border: 1px solid rgba(0, 0, 0, 0.05);
+    border: 1px solid #e2e8f0;
 }
 
 .header-content {
@@ -48,7 +48,7 @@
 .title-icon {
     width: 32px;
     height: 32px;
-    color: #667eea;
+    color: #1f2937;
 }
 
 .dashboard-subtitle {
@@ -77,7 +77,7 @@
 .update-icon {
     width: 16px;
     height: 16px;
-    color: #667eea;
+    color: #1f2937;
 }
 
 /* ========================================
@@ -93,18 +93,18 @@
 .stat-card {
     position: relative;
     background: #ffffff;
-    border-radius: 16px;
+    border-radius: 12px;
     padding: 2rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 10px 30px rgba(0, 0, 0, 0.08);
-    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e2e8f0;
     overflow: hidden;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
     cursor: pointer;
 }
 
 .stat-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1), 0 20px 40px rgba(0, 0, 0, 0.12);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
 }
 
 .stat-card-inner {
@@ -126,7 +126,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
+}
+
+.stat-icon i {
+    font-size: 32px;
 }
 
 .stat-icon svg {
@@ -170,59 +174,64 @@
     width: 150px;
     height: 150px;
     border-radius: 50%;
-    opacity: 0.1;
-    transition: all 0.3s ease;
+    opacity: 0.05;
+    transition: all 0.2s ease;
 }
 
 .stat-card:hover .stat-card-decoration {
-    opacity: 0.15;
-    transform: scale(1.1);
+    opacity: 0.08;
+    transform: scale(1.05);
 }
 
-/* Color Variants */
+/* Color Variants - Monochrome Palette */
 .stat-card-blue .stat-icon {
-    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(59, 130, 246, 0.2) 100%);
-    color: #3b82f6;
+    background: #f8fafc;
+    color: #1f2937;
+    border: 1px solid #e2e8f0;
 }
 
 .stat-card-blue .stat-card-decoration {
-    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    background: #1f2937;
 }
 
 .stat-card-purple .stat-icon {
-    background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(139, 92, 246, 0.2) 100%);
-    color: #8b5cf6;
+    background: #f8fafc;
+    color: #374151;
+    border: 1px solid #e2e8f0;
 }
 
 .stat-card-purple .stat-card-decoration {
-    background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+    background: #374151;
 }
 
 .stat-card-green .stat-icon {
-    background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(16, 185, 129, 0.2) 100%);
+    background: #f8fafc;
     color: #10b981;
+    border: 1px solid #e2e8f0;
 }
 
 .stat-card-green .stat-card-decoration {
-    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    background: #10b981;
 }
 
 .stat-card-orange .stat-icon {
-    background: linear-gradient(135deg, rgba(245, 158, 11, 0.1) 0%, rgba(245, 158, 11, 0.2) 100%);
-    color: #f59e0b;
+    background: #f8fafc;
+    color: #64748b;
+    border: 1px solid #e2e8f0;
 }
 
 .stat-card-orange .stat-card-decoration {
-    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+    background: #64748b;
 }
 
 .stat-card-pink .stat-icon {
-    background: linear-gradient(135deg, rgba(236, 72, 153, 0.1) 0%, rgba(236, 72, 153, 0.2) 100%);
-    color: #ec4899;
+    background: #f8fafc;
+    color: #475569;
+    border: 1px solid #e2e8f0;
 }
 
 .stat-card-pink .stat-card-decoration {
-    background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);
+    background: #475569;
 }
 
 /* ========================================
@@ -237,9 +246,9 @@
 
 .chart-card {
     background: #ffffff;
-    border-radius: 16px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 10px 30px rgba(0, 0, 0, 0.08);
-    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 12px;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e2e8f0;
     overflow: hidden;
 }
 
@@ -267,7 +276,7 @@
 .chart-title-icon {
     width: 24px;
     height: 24px;
-    color: #667eea;
+    color: #1f2937;
 }
 
 .chart-subtitle {
@@ -306,12 +315,13 @@
     padding: 0.75rem 1rem;
     background: #f8fafc;
     border-radius: 8px;
+    border: 1px solid #e2e8f0;
     transition: all 0.2s ease;
 }
 
 .legend-item:hover {
     background: #f1f5f9;
-    transform: translateX(4px);
+    transform: translateX(2px);
 }
 
 .legend-color {
@@ -319,6 +329,7 @@
     height: 16px;
     border-radius: 4px;
     flex-shrink: 0;
+    border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .legend-label {
@@ -367,9 +378,9 @@
 
 .activity-card {
     background: #ffffff;
-    border-radius: 16px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 10px 30px rgba(0, 0, 0, 0.08);
-    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 12px;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e2e8f0;
     overflow: hidden;
 }
 
@@ -391,7 +402,7 @@
 .activity-icon {
     width: 22px;
     height: 22px;
-    color: #667eea;
+    color: #1f2937;
 }
 
 .activity-card-body {
@@ -412,21 +423,22 @@
     background: #f8fafc;
     border: 1px solid #e2e8f0;
     border-radius: 12px;
-    transition: all 0.3s ease;
+    transition: none;
 }
 
 .activity-item:hover {
-    background: #f1f5f9;
-    border-color: #cbd5e1;
-    transform: translateX(4px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    background: #f8fafc;
+    border-color: #e2e8f0;
+    transform: none;
+    box-shadow: none;
 }
 
 .activity-item-icon {
     width: 44px;
     height: 44px;
     border-radius: 10px;
-    background: linear-gradient(135deg, rgba(103, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+    background: #f1f5f9;
+    border: 1px solid #e2e8f0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -436,7 +448,7 @@
 .activity-item-icon svg {
     width: 22px;
     height: 22px;
-    color: #667eea;
+    color: #1f2937;
 }
 
 .activity-item-content {
@@ -446,7 +458,7 @@
 
 .activity-item-title {
     font-size: 1rem;
-    font-weight: 600;
+    font-weight: 700;
     color: #1e293b;
     margin: 0 0 0.25rem 0;
     white-space: nowrap;
@@ -483,30 +495,30 @@
     align-items: center;
     gap: 0.5rem;
     padding: 0.5rem 1rem;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
     color: #ffffff;
     font-size: 0.875rem;
     font-weight: 500;
     border-radius: 8px;
     text-decoration: none;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
 }
 
 .view-btn:hover {
-    background: linear-gradient(135deg, #5568d3 0%, #6a3f8c 100%);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(103, 126, 234, 0.3);
+    background: linear-gradient(135deg, #111827 0%, #000000 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 6px rgba(31, 41, 55, 0.3);
     color: #ffffff;
 }
 
 .btn-arrow {
     width: 16px;
     height: 16px;
-    transition: transform 0.3s ease;
+    transition: transform 0.2s ease;
 }
 
 .view-btn:hover .btn-arrow {
-    transform: translateX(4px);
+    transform: translateX(3px);
 }
 
 /* Activity Empty State */
@@ -690,6 +702,34 @@
         width: 20px;
         height: 20px;
     }
+}
+
+/* ========================================
+   Enhanced Enrollment Items Styles
+   ======================================== */
+.enrollment-item {
+    position: relative;
+}
+
+.enrollment-icon {
+    background: #f1f5f9;
+    border: 1px solid #e2e8f0;
+}
+
+.enrollment-icon svg {
+    color: #10b981;
+}
+
+.activity-item-secondary {
+    margin-top: 0.5rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid #e2e8f0;
+    opacity: 0.8;
+}
+
+.activity-item-meta strong {
+    color: #1e293b;
+    font-weight: 600;
 }
 
 /* Large Desktop (1200px and above) */

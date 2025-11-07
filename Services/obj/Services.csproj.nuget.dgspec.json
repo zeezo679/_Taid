@@ -140,6 +140,22 @@
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
               "version": "[9.0.8, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[9.0.8, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[9.0.8, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[9.0.8, )"
             }
           },
           "imports": [
@@ -218,10 +234,6 @@
             "MailKit": {
               "target": "Package",
               "version": "[4.14.1, )"
-            },
-            "Microsoft.CodeAnalysis.CSharp": {
-              "target": "Package",
-              "version": "[5.0.0-2.final, )"
             },
             "Newtonsoft.Json": {
               "target": "Package",

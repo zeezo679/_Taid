@@ -19,7 +19,7 @@
                 <!-- Logo -->
                 <div class="auth-logo-container register">
                     <div class="auth-logo-icon">
-                        <i data-feather="user-plus"></i>
+                        <i class="fa-solid fa-user-plus"></i>
                     </div>
                 </div>
 
@@ -36,7 +36,7 @@
                     <div class="auth-form-group register">
                         <label asp-for="Username" class="auth-form-label">Username</label>
                         <div class="auth-input-wrapper">
-                            <i data-feather="user" class="auth-input-icon"></i>
+                            <i class="fa-solid fa-user auth-input-icon"></i>
                             <input asp-for="Username" class="auth-form-input" placeholder="Enter your username" type="text" autocomplete="username" />
                         </div>
                         <span asp-validation-for="Username" class="auth-validation-error"></span>
@@ -46,7 +46,7 @@
                     <div class="auth-form-group register">
                         <label asp-for="Email" class="auth-form-label">Email Address</label>
                         <div class="auth-input-wrapper">
-                            <i data-feather="mail" class="auth-input-icon"></i>
+                            <i class="fa-solid fa-envelope auth-input-icon"></i>
                             <input asp-for="Email" class="auth-form-input" placeholder="admin@example.com" type="email" autocomplete="email" />
                         </div>
                         <span asp-validation-for="Email" class="auth-validation-error"></span>
@@ -57,7 +57,7 @@
                         <div class="auth-form-group register">
                             <label asp-for="Password" class="auth-form-label">Password</label>
                             <div class="auth-input-wrapper">
-                                <i data-feather="lock" class="auth-input-icon"></i>
+                                <i class="fa-solid fa-lock auth-input-icon"></i>
                                 <input asp-for="Password" class="auth-form-input" placeholder="Password" type="password" autocomplete="new-password" />
                             </div>
                             <span asp-validation-for="Password" class="auth-validation-error"></span>
@@ -66,7 +66,7 @@
                         <div class="auth-form-group register">
                             <label asp-for="ConfirmPassword" class="auth-form-label">Confirm Password</label>
                             <div class="auth-input-wrapper">
-                                <i data-feather="lock" class="auth-input-icon"></i>
+                                <i class="fa-solid fa-lock auth-input-icon"></i>
                                 <input asp-for="ConfirmPassword" class="auth-form-input" placeholder="Confirm" type="password" autocomplete="new-password" />
                             </div>
                             <span asp-validation-for="ConfirmPassword" class="auth-validation-error"></span>
@@ -77,7 +77,7 @@
                     <div class="auth-form-group register">
                         <label asp-for="Address" class="auth-form-label">Address</label>
                         <div class="auth-input-wrapper">
-                            <i data-feather="map-pin" class="auth-input-icon"></i>
+                            <i class="fa-solid fa-location-dot auth-input-icon"></i>
                             <input asp-for="Address" class="auth-form-input" placeholder="Enter your address" type="text" autocomplete="street-address" />
                         </div>
                         <span asp-validation-for="Address" class="auth-validation-error"></span>
@@ -100,9 +100,6 @@
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 
     <script>
-        // Initialize Feather Icons
-        feather.replace();
-
         // Handle validation summary display
         document.addEventListener('DOMContentLoaded', function() {
             const validationSummary = document.querySelector('[asp-validation-summary]');

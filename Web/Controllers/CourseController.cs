@@ -175,7 +175,7 @@ public class CourseController : Controller
 
         CourseRepository.Update(id, oldCourse);
 
-        return RedirectToAction("Index");
+        return RedirectToAction("Index", new { deptId = 0 });
     }
 
     public JsonResult IsValidMinDegree(decimal minDegree, decimal degree)

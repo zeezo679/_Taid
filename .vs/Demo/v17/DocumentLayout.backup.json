@@ -3,192 +3,52 @@
   "WorkspaceRootPath": "C:\\Users\\PC\\RiderProjects\\_Taid\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{109407DB-BFE3-44CB-8E1A-B5691E4D3C82}|Web\\Web.csproj|c:\\users\\pc\\riderprojects\\_taid\\web\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{109407DB-BFE3-44CB-8E1A-B5691E4D3C82}|Web\\Web.csproj|solutionrelative:web\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{109407DB-BFE3-44CB-8E1A-B5691E4D3C82}|Web\\Web.csproj|c:\\users\\pc\\riderprojects\\_taid\\web\\web.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{109407DB-BFE3-44CB-8E1A-B5691E4D3C82}|Web\\Web.csproj|solutionrelative:web\\web.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{109407DB-BFE3-44CB-8E1A-B5691E4D3C82}|Web\\Web.csproj|c:\\users\\pc\\riderprojects\\_taid\\web\\controllers\\traineecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{109407DB-BFE3-44CB-8E1A-B5691E4D3C82}|Web\\Web.csproj|solutionrelative:web\\controllers\\traineecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{40B40B2A-1490-4E1F-99F8-CC4AB7E48B86}|Infrastructure\\Infrastructure.csproj|c:\\users\\pc\\riderprojects\\_taid\\infrastructure\\repository\\instructorrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{40B40B2A-1490-4E1F-99F8-CC4AB7E48B86}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\repository\\instructorrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{109407DB-BFE3-44CB-8E1A-B5691E4D3C82}|Web\\Web.csproj|c:\\users\\pc\\riderprojects\\_taid\\web\\controllers\\profilecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{109407DB-BFE3-44CB-8E1A-B5691E4D3C82}|Web\\Web.csproj|solutionrelative:web\\controllers\\profilecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{109407DB-BFE3-44CB-8E1A-B5691E4D3C82}|Web\\Web.csproj|c:\\users\\pc\\riderprojects\\_taid\\web\\controllers\\instructorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{109407DB-BFE3-44CB-8E1A-B5691E4D3C82}|Web\\Web.csproj|solutionrelative:web\\controllers\\instructorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{109407DB-BFE3-44CB-8E1A-B5691E4D3C82}|Web\\Web.csproj|c:\\users\\pc\\riderprojects\\_taid\\web\\controllers\\coursecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{109407DB-BFE3-44CB-8E1A-B5691E4D3C82}|Web\\Web.csproj|solutionrelative:web\\controllers\\coursecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{40B40B2A-1490-4E1F-99F8-CC4AB7E48B86}|Infrastructure\\Infrastructure.csproj|c:\\users\\pc\\riderprojects\\_taid\\infrastructure\\infrastructure\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{40B40B2A-1490-4E1F-99F8-CC4AB7E48B86}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\infrastructure\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BC28DC81-D747-4D36-BF6B-ABED994CB4D5}|Core\\Core.csproj|c:\\users\\pc\\riderprojects\\_taid\\core\\viewmodel\\traineeviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BC28DC81-D747-4D36-BF6B-ABED994CB4D5}|Core\\Core.csproj|solutionrelative:core\\viewmodel\\traineeviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BC28DC81-D747-4D36-BF6B-ABED994CB4D5}|Core\\Core.csproj|c:\\users\\pc\\riderprojects\\_taid\\core\\viewmodel\\instructorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BC28DC81-D747-4D36-BF6B-ABED994CB4D5}|Core\\Core.csproj|solutionrelative:core\\viewmodel\\instructorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{792153E8-2036-4B6D-934A-662F2EC58C8C}|Services\\Services.csproj|c:\\users\\pc\\riderprojects\\_taid\\services\\services\\messagesaverservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{792153E8-2036-4B6D-934A-662F2EC58C8C}|Services\\Services.csproj|solutionrelative:services\\services\\messagesaverservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{792153E8-2036-4B6D-934A-662F2EC58C8C}|Services\\Services.csproj|c:\\users\\pc\\riderprojects\\_taid\\services\\services\\accountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{792153E8-2036-4B6D-934A-662F2EC58C8C}|Services\\Services.csproj|solutionrelative:services\\services\\accountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BC28DC81-D747-4D36-BF6B-ABED994CB4D5}|Core\\Core.csproj|c:\\users\\pc\\riderprojects\\_taid\\core\\models\\interfaces\\itraineerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BC28DC81-D747-4D36-BF6B-ABED994CB4D5}|Core\\Core.csproj|solutionrelative:core\\models\\interfaces\\itraineerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BC28DC81-D747-4D36-BF6B-ABED994CB4D5}|Core\\Core.csproj|c:\\users\\pc\\riderprojects\\_taid\\core\\models\\interfaces\\imessagerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BC28DC81-D747-4D36-BF6B-ABED994CB4D5}|Core\\Core.csproj|solutionrelative:core\\models\\interfaces\\imessagerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BC28DC81-D747-4D36-BF6B-ABED994CB4D5}|Core\\Core.csproj|c:\\users\\pc\\riderprojects\\_taid\\core\\models\\interfaces\\imessagequeue.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BC28DC81-D747-4D36-BF6B-ABED994CB4D5}|Core\\Core.csproj|solutionrelative:core\\models\\interfaces\\imessagequeue.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{BC28DC81-D747-4D36-BF6B-ABED994CB4D5}|Core\\Core.csproj|c:\\users\\pc\\riderprojects\\_taid\\core\\models\\interfaces\\iinstructorrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BC28DC81-D747-4D36-BF6B-ABED994CB4D5}|Core\\Core.csproj|solutionrelative:core\\models\\interfaces\\iinstructorrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BC28DC81-D747-4D36-BF6B-ABED994CB4D5}|Core\\Core.csproj|c:\\users\\pc\\riderprojects\\_taid\\core\\models\\interfaces\\idepartmentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BC28DC81-D747-4D36-BF6B-ABED994CB4D5}|Core\\Core.csproj|solutionrelative:core\\models\\interfaces\\idepartmentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BC28DC81-D747-4D36-BF6B-ABED994CB4D5}|Core\\Core.csproj|c:\\users\\pc\\riderprojects\\_taid\\core\\models\\interfaces\\ideletable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BC28DC81-D747-4D36-BF6B-ABED994CB4D5}|Core\\Core.csproj|solutionrelative:core\\models\\interfaces\\ideletable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BC28DC81-D747-4D36-BF6B-ABED994CB4D5}|Core\\Core.csproj|c:\\users\\pc\\riderprojects\\_taid\\core\\models\\interfaces\\icrsresultrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BC28DC81-D747-4D36-BF6B-ABED994CB4D5}|Core\\Core.csproj|solutionrelative:core\\models\\interfaces\\icrsresultrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BC28DC81-D747-4D36-BF6B-ABED994CB4D5}|Core\\Core.csproj|c:\\users\\pc\\riderprojects\\_taid\\core\\models\\interfaces\\icourserepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BC28DC81-D747-4D36-BF6B-ABED994CB4D5}|Core\\Core.csproj|solutionrelative:core\\models\\interfaces\\icourserepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BC28DC81-D747-4D36-BF6B-ABED994CB4D5}|Core\\Core.csproj|c:\\users\\pc\\riderprojects\\_taid\\core\\models\\interfaces\\iaccountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BC28DC81-D747-4D36-BF6B-ABED994CB4D5}|Core\\Core.csproj|solutionrelative:core\\models\\interfaces\\iaccountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BC28DC81-D747-4D36-BF6B-ABED994CB4D5}|Core\\Core.csproj|c:\\users\\pc\\riderprojects\\_taid\\core\\models\\emailoptions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BC28DC81-D747-4D36-BF6B-ABED994CB4D5}|Core\\Core.csproj|solutionrelative:core\\models\\emailoptions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BC28DC81-D747-4D36-BF6B-ABED994CB4D5}|Core\\Core.csproj|c:\\users\\pc\\riderprojects\\_taid\\core\\models\\entities\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BC28DC81-D747-4D36-BF6B-ABED994CB4D5}|Core\\Core.csproj|solutionrelative:core\\models\\entities\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BC28DC81-D747-4D36-BF6B-ABED994CB4D5}|Core\\Core.csproj|c:\\users\\pc\\riderprojects\\_taid\\core\\models\\messagequeue.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BC28DC81-D747-4D36-BF6B-ABED994CB4D5}|Core\\Core.csproj|solutionrelative:core\\models\\messagequeue.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BC28DC81-D747-4D36-BF6B-ABED994CB4D5}|Core\\Core.csproj|c:\\users\\pc\\riderprojects\\_taid\\core\\models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BC28DC81-D747-4D36-BF6B-ABED994CB4D5}|Core\\Core.csproj|solutionrelative:core\\models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{40B40B2A-1490-4E1F-99F8-CC4AB7E48B86}|Infrastructure\\Infrastructure.csproj|c:\\users\\pc\\riderprojects\\_taid\\infrastructure\\repository\\courserepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{40B40B2A-1490-4E1F-99F8-CC4AB7E48B86}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\repository\\courserepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{792153E8-2036-4B6D-934A-662F2EC58C8C}|Services\\Services.csproj|c:\\users\\pc\\riderprojects\\_taid\\services\\services\\imageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{792153E8-2036-4B6D-934A-662F2EC58C8C}|Services\\Services.csproj|solutionrelative:services\\services\\imageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{792153E8-2036-4B6D-934A-662F2EC58C8C}|Services\\Services.csproj|c:\\users\\pc\\riderprojects\\_taid\\services\\services\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{792153E8-2036-4B6D-934A-662F2EC58C8C}|Services\\Services.csproj|solutionrelative:services\\services\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{792153E8-2036-4B6D-934A-662F2EC58C8C}|Services\\Services.csproj|c:\\users\\pc\\riderprojects\\_taid\\services\\services.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{792153E8-2036-4B6D-934A-662F2EC58C8C}|Services\\Services.csproj|solutionrelative:services\\services.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BC28DC81-D747-4D36-BF6B-ABED994CB4D5}|Core\\Core.csproj|c:\\users\\pc\\riderprojects\\_taid\\core\\viewmodel\\registerviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BC28DC81-D747-4D36-BF6B-ABED994CB4D5}|Core\\Core.csproj|solutionrelative:core\\viewmodel\\registerviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{109407DB-BFE3-44CB-8E1A-B5691E4D3C82}|Web\\Web.csproj|c:\\users\\pc\\riderprojects\\_taid\\web\\wwwroot\\css\\profile.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{109407DB-BFE3-44CB-8E1A-B5691E4D3C82}|Web\\Web.csproj|solutionrelative:web\\wwwroot\\css\\profile.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BC28DC81-D747-4D36-BF6B-ABED994CB4D5}|Core\\Core.csproj|c:\\users\\pc\\riderprojects\\_taid\\core\\viewmodel\\profileviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BC28DC81-D747-4D36-BF6B-ABED994CB4D5}|Core\\Core.csproj|solutionrelative:core\\viewmodel\\profileviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BC28DC81-D747-4D36-BF6B-ABED994CB4D5}|Core\\Core.csproj|c:\\users\\pc\\riderprojects\\_taid\\core\\viewmodel\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BC28DC81-D747-4D36-BF6B-ABED994CB4D5}|Core\\Core.csproj|solutionrelative:core\\viewmodel\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BC28DC81-D747-4D36-BF6B-ABED994CB4D5}|Core\\Core.csproj|c:\\users\\pc\\riderprojects\\_taid\\core\\viewmodel\\editinstructorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BC28DC81-D747-4D36-BF6B-ABED994CB4D5}|Core\\Core.csproj|solutionrelative:core\\viewmodel\\editinstructorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BC28DC81-D747-4D36-BF6B-ABED994CB4D5}|Core\\Core.csproj|c:\\users\\pc\\riderprojects\\_taid\\core\\viewmodel\\courseviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BC28DC81-D747-4D36-BF6B-ABED994CB4D5}|Core\\Core.csproj|solutionrelative:core\\viewmodel\\courseviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BC28DC81-D747-4D36-BF6B-ABED994CB4D5}|Core\\Core.csproj|c:\\users\\pc\\riderprojects\\_taid\\core\\models\\entities\\trainee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BC28DC81-D747-4D36-BF6B-ABED994CB4D5}|Core\\Core.csproj|solutionrelative:core\\models\\entities\\trainee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BC28DC81-D747-4D36-BF6B-ABED994CB4D5}|Core\\Core.csproj|c:\\users\\pc\\riderprojects\\_taid\\core\\models\\entities\\degreevaluevalidationattribute.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BC28DC81-D747-4D36-BF6B-ABED994CB4D5}|Core\\Core.csproj|solutionrelative:core\\models\\entities\\degreevaluevalidationattribute.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BC28DC81-D747-4D36-BF6B-ABED994CB4D5}|Core\\Core.csproj|c:\\users\\pc\\riderprojects\\_taid\\core\\models\\entities\\message.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BC28DC81-D747-4D36-BF6B-ABED994CB4D5}|Core\\Core.csproj|solutionrelative:core\\models\\entities\\message.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{109407DB-BFE3-44CB-8E1A-B5691E4D3C82}|Web\\Web.csproj|c:\\users\\pc\\riderprojects\\_taid\\web\\controllers\\instructorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{109407DB-BFE3-44CB-8E1A-B5691E4D3C82}|Web\\Web.csproj|solutionrelative:web\\controllers\\instructorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BC28DC81-D747-4D36-BF6B-ABED994CB4D5}|Core\\Core.csproj|c:\\users\\pc\\riderprojects\\_taid\\core\\models\\entities\\instructor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BC28DC81-D747-4D36-BF6B-ABED994CB4D5}|Core\\Core.csproj|solutionrelative:core\\models\\entities\\instructor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BC28DC81-D747-4D36-BF6B-ABED994CB4D5}|Core\\Core.csproj|c:\\users\\pc\\riderprojects\\_taid\\core\\models\\entities\\department.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BC28DC81-D747-4D36-BF6B-ABED994CB4D5}|Core\\Core.csproj|solutionrelative:core\\models\\entities\\department.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BC28DC81-D747-4D36-BF6B-ABED994CB4D5}|Core\\Core.csproj|c:\\users\\pc\\riderprojects\\_taid\\core\\models\\entities\\trainee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BC28DC81-D747-4D36-BF6B-ABED994CB4D5}|Core\\Core.csproj|solutionrelative:core\\models\\entities\\trainee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BC28DC81-D747-4D36-BF6B-ABED994CB4D5}|Core\\Core.csproj|c:\\users\\pc\\riderprojects\\_taid\\core\\models\\entities\\crsresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BC28DC81-D747-4D36-BF6B-ABED994CB4D5}|Core\\Core.csproj|solutionrelative:core\\models\\entities\\crsresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{109407DB-BFE3-44CB-8E1A-B5691E4D3C82}|Web\\Web.csproj|c:\\users\\pc\\riderprojects\\_taid\\web\\views\\profile\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{109407DB-BFE3-44CB-8E1A-B5691E4D3C82}|Web\\Web.csproj|solutionrelative:web\\views\\profile\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BC28DC81-D747-4D36-BF6B-ABED994CB4D5}|Core\\Core.csproj|c:\\users\\pc\\riderprojects\\_taid\\core\\models\\entities\\course.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BC28DC81-D747-4D36-BF6B-ABED994CB4D5}|Core\\Core.csproj|solutionrelative:core\\models\\entities\\course.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{109407DB-BFE3-44CB-8E1A-B5691E4D3C82}|Web\\Web.csproj|c:\\users\\pc\\riderprojects\\_taid\\web\\views\\instructor\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{109407DB-BFE3-44CB-8E1A-B5691E4D3C82}|Web\\Web.csproj|solutionrelative:web\\views\\instructor\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BC28DC81-D747-4D36-BF6B-ABED994CB4D5}|Core\\Core.csproj|c:\\users\\pc\\riderprojects\\_taid\\core\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BC28DC81-D747-4D36-BF6B-ABED994CB4D5}|Core\\Core.csproj|solutionrelative:core\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{109407DB-BFE3-44CB-8E1A-B5691E4D3C82}|Web\\Web.csproj|c:\\users\\pc\\riderprojects\\_taid\\web\\views\\trainee\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{109407DB-BFE3-44CB-8E1A-B5691E4D3C82}|Web\\Web.csproj|solutionrelative:web\\views\\trainee\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{109407DB-BFE3-44CB-8E1A-B5691E4D3C82}|Web\\Web.csproj|c:\\users\\pc\\riderprojects\\_taid\\web\\dependencyinjection\\services.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{109407DB-BFE3-44CB-8E1A-B5691E4D3C82}|Web\\Web.csproj|solutionrelative:web\\dependencyinjection\\services.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{109407DB-BFE3-44CB-8E1A-B5691E4D3C82}|Web\\Web.csproj|c:\\users\\pc\\riderprojects\\_taid\\web\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{109407DB-BFE3-44CB-8E1A-B5691E4D3C82}|Web\\Web.csproj|solutionrelative:web\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C1184C99-52A9-47C0-A5CF-6917F82093A0}|Shared\\Shared.csproj|c:\\users\\pc\\riderprojects\\_taid\\shared\\shared.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{C1184C99-52A9-47C0-A5CF-6917F82093A0}|Shared\\Shared.csproj|solutionrelative:shared\\shared.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{792153E8-2036-4B6D-934A-662F2EC58C8C}|Services\\Services.csproj|c:\\users\\pc\\riderprojects\\_taid\\services\\services.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
-      "RelativeMoniker": "D:0:0:{792153E8-2036-4B6D-934A-662F2EC58C8C}|Services\\Services.csproj|solutionrelative:services\\services.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{792153E8-2036-4B6D-934A-662F2EC58C8C}|Services\\Services.csproj|c:\\users\\pc\\riderprojects\\_taid\\services\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{792153E8-2036-4B6D-934A-662F2EC58C8C}|Services\\Services.csproj|solutionrelative:services\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C1184C99-52A9-47C0-A5CF-6917F82093A0}|Shared\\Shared.csproj|c:\\users\\pc\\riderprojects\\_taid\\shared\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C1184C99-52A9-47C0-A5CF-6917F82093A0}|Shared\\Shared.csproj|solutionrelative:shared\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{109407DB-BFE3-44CB-8E1A-B5691E4D3C82}|Web\\Web.csproj|c:\\users\\pc\\riderprojects\\_taid\\web\\views\\trainee\\addtrainee.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{109407DB-BFE3-44CB-8E1A-B5691E4D3C82}|Web\\Web.csproj|solutionrelative:web\\views\\trainee\\addtrainee.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -198,7 +58,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 224,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -206,612 +66,158 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\RiderProjects\\_Taid\\Web\\Program.cs",
-              "RelativeDocumentMoniker": "Web\\Program.cs",
-              "ToolTip": "C:\\Users\\PC\\RiderProjects\\_Taid\\Web\\Program.cs",
-              "RelativeToolTip": "Web\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAsAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-01T17:04:50.044Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "AppDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\RiderProjects\\_Taid\\Infrastructure\\Infrastructure\\AppDbContext.cs",
-              "RelativeDocumentMoniker": "Infrastructure\\Infrastructure\\AppDbContext.cs",
-              "ToolTip": "C:\\Users\\PC\\RiderProjects\\_Taid\\Infrastructure\\Infrastructure\\AppDbContext.cs",
-              "RelativeToolTip": "Infrastructure\\Infrastructure\\AppDbContext.cs",
-              "ViewState": "AgIAABEAAAAAAAAAAIA8wB4AAAAsAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-01T17:00:47.695Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "CourseController.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\RiderProjects\\_Taid\\Web\\Controllers\\CourseController.cs",
-              "RelativeDocumentMoniker": "Web\\Controllers\\CourseController.cs",
-              "ToolTip": "C:\\Users\\PC\\RiderProjects\\_Taid\\Web\\Controllers\\CourseController.cs",
-              "RelativeToolTip": "Web\\Controllers\\CourseController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAGAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-01T16:30:30.926Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "InstructorController.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\RiderProjects\\_Taid\\Web\\Controllers\\InstructorController.cs",
-              "RelativeDocumentMoniker": "Web\\Controllers\\InstructorController.cs",
-              "ToolTip": "C:\\Users\\PC\\RiderProjects\\_Taid\\Web\\Controllers\\InstructorController.cs",
-              "RelativeToolTip": "Web\\Controllers\\InstructorController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAADgvwsAAAAGAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-01T16:30:49.658Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "ProfileController.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\RiderProjects\\_Taid\\Web\\Controllers\\ProfileController.cs",
-              "RelativeDocumentMoniker": "Web\\Controllers\\ProfileController.cs",
-              "ToolTip": "C:\\Users\\PC\\RiderProjects\\_Taid\\Web\\Controllers\\ProfileController.cs",
-              "RelativeToolTip": "Web\\Controllers\\ProfileController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAGAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-01T16:31:06.062Z",
+              "Title": "profile.css",
+              "DocumentMoniker": "C:\\Users\\PC\\RiderProjects\\_Taid\\Web\\wwwroot\\css\\profile.css",
+              "RelativeDocumentMoniker": "Web\\wwwroot\\css\\profile.css",
+              "ToolTip": "C:\\Users\\PC\\RiderProjects\\_Taid\\Web\\wwwroot\\css\\profile.css",
+              "RelativeToolTip": "Web\\wwwroot\\css\\profile.css",
+              "ViewState": "AgIAADoCAAAAAAAAAIAwwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-11-07T19:53:08.175Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "TraineeController.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\RiderProjects\\_Taid\\Web\\Controllers\\TraineeController.cs",
-              "RelativeDocumentMoniker": "Web\\Controllers\\TraineeController.cs",
-              "ToolTip": "C:\\Users\\PC\\RiderProjects\\_Taid\\Web\\Controllers\\TraineeController.cs",
-              "RelativeToolTip": "Web\\Controllers\\TraineeController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-01T16:31:27.86Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Web",
-              "DocumentMoniker": "C:\\Users\\PC\\RiderProjects\\_Taid\\Web\\Web.csproj",
-              "RelativeDocumentMoniker": "Web\\Web.csproj",
-              "ToolTip": "C:\\Users\\PC\\RiderProjects\\_Taid\\Web\\Web.csproj",
-              "RelativeToolTip": "Web\\Web.csproj",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABAAAAAXAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-11-01T16:35:29.238Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "TraineeViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\RiderProjects\\_Taid\\Core\\ViewModel\\TraineeViewModel.cs",
-              "RelativeDocumentMoniker": "Core\\ViewModel\\TraineeViewModel.cs",
-              "ToolTip": "C:\\Users\\PC\\RiderProjects\\_Taid\\Core\\ViewModel\\TraineeViewModel.cs",
-              "RelativeToolTip": "Core\\ViewModel\\TraineeViewModel.cs",
-              "ViewState": "AgIAABEAAAAAAAAAAAAjwBkAAAAUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-01T16:53:24.895Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "InstructorViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\RiderProjects\\_Taid\\Core\\ViewModel\\InstructorViewModel.cs",
-              "RelativeDocumentMoniker": "Core\\ViewModel\\InstructorViewModel.cs",
-              "ToolTip": "C:\\Users\\PC\\RiderProjects\\_Taid\\Core\\ViewModel\\InstructorViewModel.cs",
-              "RelativeToolTip": "Core\\ViewModel\\InstructorViewModel.cs",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAIwAgAAAAnAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-01T16:53:00.852Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "MessageSaverService.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\RiderProjects\\_Taid\\Services\\Services\\MessageSaverService.cs",
-              "RelativeDocumentMoniker": "Services\\Services\\MessageSaverService.cs",
-              "ToolTip": "C:\\Users\\PC\\RiderProjects\\_Taid\\Services\\Services\\MessageSaverService.cs",
-              "RelativeToolTip": "Services\\Services\\MessageSaverService.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAQwCEAAAA2AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-01T16:33:49.01Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "AccountService.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\RiderProjects\\_Taid\\Services\\Services\\AccountService.cs",
-              "RelativeDocumentMoniker": "Services\\Services\\AccountService.cs",
-              "ToolTip": "C:\\Users\\PC\\RiderProjects\\_Taid\\Services\\Services\\AccountService.cs",
-              "RelativeToolTip": "Services\\Services\\AccountService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAYAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-01T16:33:30.545Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "ITraineeRepository.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\RiderProjects\\_Taid\\Core\\Models\\Interfaces\\ITraineeRepository.cs",
-              "RelativeDocumentMoniker": "Core\\Models\\Interfaces\\ITraineeRepository.cs",
-              "ToolTip": "C:\\Users\\PC\\RiderProjects\\_Taid\\Core\\Models\\Interfaces\\ITraineeRepository.cs",
-              "RelativeToolTip": "Core\\Models\\Interfaces\\ITraineeRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-01T16:52:37.148Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "IMessageRepository.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\RiderProjects\\_Taid\\Core\\Models\\Interfaces\\IMessageRepository.cs",
-              "RelativeDocumentMoniker": "Core\\Models\\Interfaces\\IMessageRepository.cs",
-              "ToolTip": "C:\\Users\\PC\\RiderProjects\\_Taid\\Core\\Models\\Interfaces\\IMessageRepository.cs",
-              "RelativeToolTip": "Core\\Models\\Interfaces\\IMessageRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-01T16:52:35.638Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "IMessageQueue.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\RiderProjects\\_Taid\\Core\\Models\\Interfaces\\IMessageQueue.cs",
-              "RelativeDocumentMoniker": "Core\\Models\\Interfaces\\IMessageQueue.cs",
-              "ToolTip": "C:\\Users\\PC\\RiderProjects\\_Taid\\Core\\Models\\Interfaces\\IMessageQueue.cs",
-              "RelativeToolTip": "Core\\Models\\Interfaces\\IMessageQueue.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-01T16:52:34.288Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
               "Title": "IInstructorRepository.cs",
               "DocumentMoniker": "C:\\Users\\PC\\RiderProjects\\_Taid\\Core\\Models\\Interfaces\\IInstructorRepository.cs",
               "RelativeDocumentMoniker": "Core\\Models\\Interfaces\\IInstructorRepository.cs",
               "ToolTip": "C:\\Users\\PC\\RiderProjects\\_Taid\\Core\\Models\\Interfaces\\IInstructorRepository.cs",
               "RelativeToolTip": "Core\\Models\\Interfaces\\IInstructorRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAAwAYAAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-01T16:52:12.722Z",
+              "WhenOpened": "2025-11-07T19:41:52.17Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "IDepartmentRepository.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\RiderProjects\\_Taid\\Core\\Models\\Interfaces\\IDepartmentRepository.cs",
-              "RelativeDocumentMoniker": "Core\\Models\\Interfaces\\IDepartmentRepository.cs",
-              "ToolTip": "C:\\Users\\PC\\RiderProjects\\_Taid\\Core\\Models\\Interfaces\\IDepartmentRepository.cs",
-              "RelativeToolTip": "Core\\Models\\Interfaces\\IDepartmentRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAqAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "InstructorRepository.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\RiderProjects\\_Taid\\Infrastructure\\Repository\\InstructorRepository.cs",
+              "RelativeDocumentMoniker": "Infrastructure\\Repository\\InstructorRepository.cs",
+              "ToolTip": "C:\\Users\\PC\\RiderProjects\\_Taid\\Infrastructure\\Repository\\InstructorRepository.cs",
+              "RelativeToolTip": "Infrastructure\\Repository\\InstructorRepository.cs",
+              "ViewState": "AgIAAEwAAAAAAAAAAAA9wF8AAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-01T16:52:11.975Z",
+              "WhenOpened": "2025-11-07T19:41:43.589Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "IDeletable.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\RiderProjects\\_Taid\\Core\\Models\\Interfaces\\IDeletable.cs",
-              "RelativeDocumentMoniker": "Core\\Models\\Interfaces\\IDeletable.cs",
-              "ToolTip": "C:\\Users\\PC\\RiderProjects\\_Taid\\Core\\Models\\Interfaces\\IDeletable.cs",
-              "RelativeToolTip": "Core\\Models\\Interfaces\\IDeletable.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-01T16:52:10.115Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "ICrsResultRepository.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\RiderProjects\\_Taid\\Core\\Models\\Interfaces\\ICrsResultRepository.cs",
-              "RelativeDocumentMoniker": "Core\\Models\\Interfaces\\ICrsResultRepository.cs",
-              "ToolTip": "C:\\Users\\PC\\RiderProjects\\_Taid\\Core\\Models\\Interfaces\\ICrsResultRepository.cs",
-              "RelativeToolTip": "Core\\Models\\Interfaces\\ICrsResultRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-01T16:52:10.989Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "ICourseRepository.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\RiderProjects\\_Taid\\Core\\Models\\Interfaces\\ICourseRepository.cs",
-              "RelativeDocumentMoniker": "Core\\Models\\Interfaces\\ICourseRepository.cs",
-              "ToolTip": "C:\\Users\\PC\\RiderProjects\\_Taid\\Core\\Models\\Interfaces\\ICourseRepository.cs",
-              "RelativeToolTip": "Core\\Models\\Interfaces\\ICourseRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-01T16:52:08.852Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "IAccountService.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\RiderProjects\\_Taid\\Core\\Models\\Interfaces\\IAccountService.cs",
-              "RelativeDocumentMoniker": "Core\\Models\\Interfaces\\IAccountService.cs",
-              "ToolTip": "C:\\Users\\PC\\RiderProjects\\_Taid\\Core\\Models\\Interfaces\\IAccountService.cs",
-              "RelativeToolTip": "Core\\Models\\Interfaces\\IAccountService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-01T16:51:59.544Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "EmailOptions.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\RiderProjects\\_Taid\\Core\\Models\\EmailOptions.cs",
-              "RelativeDocumentMoniker": "Core\\Models\\EmailOptions.cs",
-              "ToolTip": "C:\\Users\\PC\\RiderProjects\\_Taid\\Core\\Models\\EmailOptions.cs",
-              "RelativeToolTip": "Core\\Models\\EmailOptions.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-01T16:52:50.311Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "ApplicationUser.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\RiderProjects\\_Taid\\Core\\Models\\Entities\\ApplicationUser.cs",
-              "RelativeDocumentMoniker": "Core\\Models\\Entities\\ApplicationUser.cs",
-              "ToolTip": "C:\\Users\\PC\\RiderProjects\\_Taid\\Core\\Models\\Entities\\ApplicationUser.cs",
-              "RelativeToolTip": "Core\\Models\\Entities\\ApplicationUser.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAoAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-01T16:50:31.002Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "MessageQueue.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\RiderProjects\\_Taid\\Core\\Models\\MessageQueue.cs",
-              "RelativeDocumentMoniker": "Core\\Models\\MessageQueue.cs",
-              "ToolTip": "C:\\Users\\PC\\RiderProjects\\_Taid\\Core\\Models\\MessageQueue.cs",
-              "RelativeToolTip": "Core\\Models\\MessageQueue.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-01T16:52:52.327Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "ErrorViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\RiderProjects\\_Taid\\Core\\Models\\ErrorViewModel.cs",
-              "RelativeDocumentMoniker": "Core\\Models\\ErrorViewModel.cs",
-              "ToolTip": "C:\\Users\\PC\\RiderProjects\\_Taid\\Core\\Models\\ErrorViewModel.cs",
-              "RelativeToolTip": "Core\\Models\\ErrorViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-01T16:52:51.362Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 24,
-              "Title": "CourseRepository.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\RiderProjects\\_Taid\\Infrastructure\\Repository\\CourseRepository.cs",
-              "RelativeDocumentMoniker": "Infrastructure\\Repository\\CourseRepository.cs",
-              "ToolTip": "C:\\Users\\PC\\RiderProjects\\_Taid\\Infrastructure\\Repository\\CourseRepository.cs",
-              "RelativeToolTip": "Infrastructure\\Repository\\CourseRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-01T16:55:44.997Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 26,
-              "Title": "EmailService.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\RiderProjects\\_Taid\\Services\\Services\\EmailService.cs",
-              "RelativeDocumentMoniker": "Services\\Services\\EmailService.cs",
-              "ToolTip": "C:\\Users\\PC\\RiderProjects\\_Taid\\Services\\Services\\EmailService.cs",
-              "RelativeToolTip": "Services\\Services\\EmailService.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAxwAYAAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-01T16:33:40.017Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 27,
-              "Title": "Services",
-              "DocumentMoniker": "C:\\Users\\PC\\RiderProjects\\_Taid\\Services\\Services.csproj",
-              "RelativeDocumentMoniker": "Services\\Services.csproj",
-              "ToolTip": "C:\\Users\\PC\\RiderProjects\\_Taid\\Services\\Services.csproj",
-              "RelativeToolTip": "Services\\Services.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-11-01T16:36:43.013Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 25,
-              "Title": "ImageService.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\RiderProjects\\_Taid\\Services\\Services\\ImageService.cs",
-              "RelativeDocumentMoniker": "Services\\Services\\ImageService.cs",
-              "ToolTip": "C:\\Users\\PC\\RiderProjects\\_Taid\\Services\\Services\\ImageService.cs",
-              "RelativeToolTip": "Services\\Services\\ImageService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAgAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-01T16:33:43.647Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 28,
-              "Title": "RegisterViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\RiderProjects\\_Taid\\Core\\ViewModel\\RegisterViewModel.cs",
-              "RelativeDocumentMoniker": "Core\\ViewModel\\RegisterViewModel.cs",
-              "ToolTip": "C:\\Users\\PC\\RiderProjects\\_Taid\\Core\\ViewModel\\RegisterViewModel.cs",
-              "RelativeToolTip": "Core\\ViewModel\\RegisterViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-01T16:53:23.522Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 29,
-              "Title": "ProfileViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\RiderProjects\\_Taid\\Core\\ViewModel\\ProfileViewModel.cs",
-              "RelativeDocumentMoniker": "Core\\ViewModel\\ProfileViewModel.cs",
-              "ToolTip": "C:\\Users\\PC\\RiderProjects\\_Taid\\Core\\ViewModel\\ProfileViewModel.cs",
-              "RelativeToolTip": "Core\\ViewModel\\ProfileViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-01T16:53:18.692Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 30,
-              "Title": "LoginViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\RiderProjects\\_Taid\\Core\\ViewModel\\LoginViewModel.cs",
-              "RelativeDocumentMoniker": "Core\\ViewModel\\LoginViewModel.cs",
-              "ToolTip": "C:\\Users\\PC\\RiderProjects\\_Taid\\Core\\ViewModel\\LoginViewModel.cs",
-              "RelativeToolTip": "Core\\ViewModel\\LoginViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-01T16:53:17.031Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 31,
-              "Title": "EditInstructorViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\RiderProjects\\_Taid\\Core\\ViewModel\\EditInstructorViewModel.cs",
-              "RelativeDocumentMoniker": "Core\\ViewModel\\EditInstructorViewModel.cs",
-              "ToolTip": "C:\\Users\\PC\\RiderProjects\\_Taid\\Core\\ViewModel\\EditInstructorViewModel.cs",
-              "RelativeToolTip": "Core\\ViewModel\\EditInstructorViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAoAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-01T16:52:59.911Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 32,
-              "Title": "CourseViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\RiderProjects\\_Taid\\Core\\ViewModel\\CourseViewModel.cs",
-              "RelativeDocumentMoniker": "Core\\ViewModel\\CourseViewModel.cs",
-              "ToolTip": "C:\\Users\\PC\\RiderProjects\\_Taid\\Core\\ViewModel\\CourseViewModel.cs",
-              "RelativeToolTip": "Core\\ViewModel\\CourseViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-01T16:52:55.205Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 7,
               "Title": "Trainee.cs",
               "DocumentMoniker": "C:\\Users\\PC\\RiderProjects\\_Taid\\Core\\Models\\Entities\\Trainee.cs",
               "RelativeDocumentMoniker": "Core\\Models\\Entities\\Trainee.cs",
               "ToolTip": "C:\\Users\\PC\\RiderProjects\\_Taid\\Core\\Models\\Entities\\Trainee.cs",
               "RelativeToolTip": "Core\\Models\\Entities\\Trainee.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-01T16:51:07.856Z",
+              "WhenOpened": "2025-11-07T19:30:32.124Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
-              "Title": "Message.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\RiderProjects\\_Taid\\Core\\Models\\Entities\\Message.cs",
-              "RelativeDocumentMoniker": "Core\\Models\\Entities\\Message.cs",
-              "ToolTip": "C:\\Users\\PC\\RiderProjects\\_Taid\\Core\\Models\\Entities\\Message.cs",
-              "RelativeToolTip": "Core\\Models\\Entities\\Message.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-01T16:51:07.289Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 6,
               "Title": "Instructor.cs",
               "DocumentMoniker": "C:\\Users\\PC\\RiderProjects\\_Taid\\Core\\Models\\Entities\\Instructor.cs",
               "RelativeDocumentMoniker": "Core\\Models\\Entities\\Instructor.cs",
               "ToolTip": "C:\\Users\\PC\\RiderProjects\\_Taid\\Core\\Models\\Entities\\Instructor.cs",
               "RelativeToolTip": "Core\\Models\\Entities\\Instructor.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAAwBIAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-01T16:51:06.544Z",
+              "WhenOpened": "2025-11-07T19:29:56.093Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
-              "Title": "Department.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\RiderProjects\\_Taid\\Core\\Models\\Entities\\Department.cs",
-              "RelativeDocumentMoniker": "Core\\Models\\Entities\\Department.cs",
-              "ToolTip": "C:\\Users\\PC\\RiderProjects\\_Taid\\Core\\Models\\Entities\\Department.cs",
-              "RelativeToolTip": "Core\\Models\\Entities\\Department.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "ProfileController.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\RiderProjects\\_Taid\\Web\\Controllers\\ProfileController.cs",
+              "RelativeDocumentMoniker": "Web\\Controllers\\ProfileController.cs",
+              "ToolTip": "C:\\Users\\PC\\RiderProjects\\_Taid\\Web\\Controllers\\ProfileController.cs",
+              "RelativeToolTip": "Web\\Controllers\\ProfileController.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAQwCIAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-01T16:51:05.88Z",
+              "WhenOpened": "2025-11-07T19:25:19.257Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
-              "Title": "DegreeValueValidationAttribute.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\RiderProjects\\_Taid\\Core\\Models\\Entities\\DegreeValueValidationAttribute.cs",
-              "RelativeDocumentMoniker": "Core\\Models\\Entities\\DegreeValueValidationAttribute.cs",
-              "ToolTip": "C:\\Users\\PC\\RiderProjects\\_Taid\\Core\\Models\\Entities\\DegreeValueValidationAttribute.cs",
-              "RelativeToolTip": "Core\\Models\\Entities\\DegreeValueValidationAttribute.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 4,
+              "Title": "ProfileViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\RiderProjects\\_Taid\\Core\\ViewModel\\ProfileViewModel.cs",
+              "RelativeDocumentMoniker": "Core\\ViewModel\\ProfileViewModel.cs",
+              "ToolTip": "C:\\Users\\PC\\RiderProjects\\_Taid\\Core\\ViewModel\\ProfileViewModel.cs",
+              "RelativeToolTip": "Core\\ViewModel\\ProfileViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-01T16:51:04.778Z",
+              "WhenOpened": "2025-11-07T19:24:29.891Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
-              "Title": "CrsResult.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\RiderProjects\\_Taid\\Core\\Models\\Entities\\CrsResult.cs",
-              "RelativeDocumentMoniker": "Core\\Models\\Entities\\CrsResult.cs",
-              "ToolTip": "C:\\Users\\PC\\RiderProjects\\_Taid\\Core\\Models\\Entities\\CrsResult.cs",
-              "RelativeToolTip": "Core\\Models\\Entities\\CrsResult.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 8,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\PC\\RiderProjects\\_Taid\\Web\\Views\\Profile\\Index.cshtml",
+              "RelativeDocumentMoniker": "Web\\Views\\Profile\\Index.cshtml",
+              "ToolTip": "C:\\Users\\PC\\RiderProjects\\_Taid\\Web\\Views\\Profile\\Index.cshtml",
+              "RelativeToolTip": "Web\\Views\\Profile\\Index.cshtml",
+              "ViewState": "AgIAAOwAAAAAAAAAAAAYwA4AAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-07T19:23:59.106Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\PC\\RiderProjects\\_Taid\\Web\\Views\\Trainee\\Edit.cshtml",
+              "RelativeDocumentMoniker": "Web\\Views\\Trainee\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\PC\\RiderProjects\\_Taid\\Web\\Views\\Trainee\\Edit.cshtml",
+              "RelativeToolTip": "Web\\Views\\Trainee\\Edit.cshtml",
+              "ViewState": "AgIAAI0BAAAAAAAAAIBJwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-07T19:16:47.559Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\PC\\RiderProjects\\_Taid\\Web\\Views\\Instructor\\Edit.cshtml",
+              "RelativeDocumentMoniker": "Web\\Views\\Instructor\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\PC\\RiderProjects\\_Taid\\Web\\Views\\Instructor\\Edit.cshtml",
+              "RelativeToolTip": "Web\\Views\\Instructor\\Edit.cshtml",
+              "ViewState": "AgIAAKYBAAAAAAAAAAAmwLYBAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-07T18:41:39.132Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "InstructorController.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\RiderProjects\\_Taid\\Web\\Controllers\\InstructorController.cs",
+              "RelativeDocumentMoniker": "Web\\Controllers\\InstructorController.cs",
+              "ToolTip": "C:\\Users\\PC\\RiderProjects\\_Taid\\Web\\Controllers\\InstructorController.cs",
+              "RelativeToolTip": "Web\\Controllers\\InstructorController.cs",
+              "ViewState": "AgIAALEAAAAAAAAAAAAcwMQAAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-01T16:51:03.864Z",
+              "WhenOpened": "2025-11-07T18:35:49.713Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 39,
-              "Title": "Course.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\RiderProjects\\_Taid\\Core\\Models\\Entities\\Course.cs",
-              "RelativeDocumentMoniker": "Core\\Models\\Entities\\Course.cs",
-              "ToolTip": "C:\\Users\\PC\\RiderProjects\\_Taid\\Core\\Models\\Entities\\Course.cs",
-              "RelativeToolTip": "Core\\Models\\Entities\\Course.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-01T16:51:02.439Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 40,
-              "Title": "Class1.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\RiderProjects\\_Taid\\Core\\Class1.cs",
-              "RelativeDocumentMoniker": "Core\\Class1.cs",
-              "ToolTip": "C:\\Users\\PC\\RiderProjects\\_Taid\\Core\\Class1.cs",
-              "RelativeToolTip": "Core\\Class1.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-01T16:49:10.09Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 43,
-              "Title": "Shared",
-              "DocumentMoniker": "C:\\Users\\PC\\RiderProjects\\_Taid\\Shared\\Shared.csproj",
-              "RelativeDocumentMoniker": "Shared\\Shared.csproj",
-              "ToolTip": "C:\\Users\\PC\\RiderProjects\\_Taid\\Shared\\Shared.csproj",
-              "RelativeToolTip": "Shared\\Shared.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-11-01T16:46:05.536Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 44,
-              "Title": "Services",
-              "DocumentMoniker": "C:\\Users\\PC\\RiderProjects\\_Taid\\Services\\Services.csproj",
-              "RelativeDocumentMoniker": "Services\\Services.csproj",
-              "ToolTip": "C:\\Users\\PC\\RiderProjects\\_Taid\\Services\\Services.csproj",
-              "RelativeToolTip": "Services\\Services.csproj",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-11-01T16:43:21.713Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 41,
-              "Title": "Services.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\RiderProjects\\_Taid\\Web\\DependencyInjection\\Services.cs",
-              "RelativeDocumentMoniker": "Web\\DependencyInjection\\Services.cs",
-              "ToolTip": "C:\\Users\\PC\\RiderProjects\\_Taid\\Web\\DependencyInjection\\Services.cs",
-              "RelativeToolTip": "Web\\DependencyInjection\\Services.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAQwB8AAAAtAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-01T16:39:26.416Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 42,
-              "Title": "AccountController.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\RiderProjects\\_Taid\\Web\\Controllers\\AccountController.cs",
-              "RelativeDocumentMoniker": "Web\\Controllers\\AccountController.cs",
-              "ToolTip": "C:\\Users\\PC\\RiderProjects\\_Taid\\Web\\Controllers\\AccountController.cs",
-              "RelativeToolTip": "Web\\Controllers\\AccountController.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-01T16:30:17.51Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 45,
-              "Title": "Class1.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\RiderProjects\\_Taid\\Services\\Class1.cs",
-              "RelativeDocumentMoniker": "Services\\Class1.cs",
-              "ToolTip": "C:\\Users\\PC\\RiderProjects\\_Taid\\Services\\Class1.cs",
-              "RelativeToolTip": "Services\\Class1.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-01T16:32:47.631Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 46,
-              "Title": "Class1.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\RiderProjects\\_Taid\\Shared\\Class1.cs",
-              "RelativeDocumentMoniker": "Shared\\Class1.cs",
-              "ToolTip": "C:\\Users\\PC\\RiderProjects\\_Taid\\Shared\\Class1.cs",
-              "RelativeToolTip": "Shared\\Class1.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-01T16:27:51.576Z",
+              "DocumentIndex": 11,
+              "Title": "AddTrainee.cshtml",
+              "DocumentMoniker": "C:\\Users\\PC\\RiderProjects\\_Taid\\Web\\Views\\Trainee\\AddTrainee.cshtml",
+              "RelativeDocumentMoniker": "Web\\Views\\Trainee\\AddTrainee.cshtml",
+              "ToolTip": "C:\\Users\\PC\\RiderProjects\\_Taid\\Web\\Views\\Trainee\\AddTrainee.cshtml",
+              "RelativeToolTip": "Web\\Views\\Trainee\\AddTrainee.cshtml",
+              "ViewState": "AgIAAKwBAAAAAAAAAABRwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-07T19:17:42.61Z",
               "EditorCaption": ""
             }
           ]

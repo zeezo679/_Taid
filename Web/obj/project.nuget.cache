@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "xjzdx4mMKkk=",
+  "dgSpecHash": "DW/W+0zqQOM=",
   "success": true,
   "projectFilePath": "C:\\Users\\PC\\RiderProjects\\_Taid\\Web\\Web.csproj",
   "expectedPackageFiles": [
@@ -68,10 +68,10 @@
     "C:\\Users\\PC\\.nuget\\packages\\microsoft.build\\17.10.4\\microsoft.build.17.10.4.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\microsoft.build.framework\\17.10.4\\microsoft.build.framework.17.10.4.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\microsoft.build.locator\\1.7.8\\microsoft.build.locator.1.7.8.nupkg.sha512",
-    "C:\\Users\\PC\\.nuget\\packages\\microsoft.codeanalysis.analyzers\\3.11.0\\microsoft.codeanalysis.analyzers.3.11.0.nupkg.sha512",
+    "C:\\Users\\PC\\.nuget\\packages\\microsoft.codeanalysis.analyzers\\3.3.4\\microsoft.codeanalysis.analyzers.3.3.4.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\microsoft.codeanalysis.analyzerutilities\\3.3.0\\microsoft.codeanalysis.analyzerutilities.3.3.0.nupkg.sha512",
-    "C:\\Users\\PC\\.nuget\\packages\\microsoft.codeanalysis.common\\5.0.0-2.final\\microsoft.codeanalysis.common.5.0.0-2.final.nupkg.sha512",
-    "C:\\Users\\PC\\.nuget\\packages\\microsoft.codeanalysis.csharp\\5.0.0-2.final\\microsoft.codeanalysis.csharp.5.0.0-2.final.nupkg.sha512",
+    "C:\\Users\\PC\\.nuget\\packages\\microsoft.codeanalysis.common\\4.8.0\\microsoft.codeanalysis.common.4.8.0.nupkg.sha512",
+    "C:\\Users\\PC\\.nuget\\packages\\microsoft.codeanalysis.csharp\\4.8.0\\microsoft.codeanalysis.csharp.4.8.0.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\microsoft.codeanalysis.csharp.features\\4.8.0\\microsoft.codeanalysis.csharp.features.4.8.0.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\microsoft.codeanalysis.csharp.workspaces\\4.8.0\\microsoft.codeanalysis.csharp.workspaces.4.8.0.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\microsoft.codeanalysis.elfie\\1.0.0\\microsoft.codeanalysis.elfie.1.0.0.nupkg.sha512",
@@ -80,6 +80,7 @@
     "C:\\Users\\PC\\.nuget\\packages\\microsoft.codeanalysis.scripting.common\\4.8.0\\microsoft.codeanalysis.scripting.common.4.8.0.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\microsoft.codeanalysis.workspaces.common\\4.8.0\\microsoft.codeanalysis.workspaces.common.4.8.0.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\microsoft.codeanalysis.workspaces.msbuild\\4.8.0\\microsoft.codeanalysis.workspaces.msbuild.4.8.0.nupkg.sha512",
+    "C:\\Users\\PC\\.nuget\\packages\\microsoft.codedom.providers.dotnetcompilerplatform\\4.1.0\\microsoft.codedom.providers.dotnetcompilerplatform.4.1.0.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\microsoft.data.sqlclient\\5.1.6\\microsoft.data.sqlclient.5.1.6.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\5.1.1\\microsoft.data.sqlclient.sni.runtime.5.1.1.nupkg.sha512",
@@ -174,97 +175,13 @@
   ],
   "logs": [
     {
-      "code": "NU1608",
+      "code": "NU1701",
       "level": "Warning",
-      "message": "Detected package version outside of dependency constraint: Microsoft.CodeAnalysis.CSharp.Workspaces 4.8.0 requires Microsoft.CodeAnalysis.Common (= 4.8.0) but version Microsoft.CodeAnalysis.Common 5.0.0-2.final was resolved.",
+      "message": "Package 'Microsoft.CodeDom.Providers.DotNetCompilerPlatform 4.1.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net9.0'. This package may not be fully compatible with your project.",
       "projectPath": "C:\\Users\\PC\\RiderProjects\\_Taid\\Web\\Web.csproj",
       "warningLevel": 1,
       "filePath": "C:\\Users\\PC\\RiderProjects\\_Taid\\Web\\Web.csproj",
-      "libraryId": "Microsoft.CodeAnalysis.Common",
-      "targetGraphs": [
-        "net9.0"
-      ]
-    },
-    {
-      "code": "NU1608",
-      "level": "Warning",
-      "message": "Detected package version outside of dependency constraint: Microsoft.CodeAnalysis.CSharp.Workspaces 4.8.0 requires Microsoft.CodeAnalysis.CSharp (= 4.8.0) but version Microsoft.CodeAnalysis.CSharp 5.0.0-2.final was resolved.",
-      "projectPath": "C:\\Users\\PC\\RiderProjects\\_Taid\\Web\\Web.csproj",
-      "warningLevel": 1,
-      "filePath": "C:\\Users\\PC\\RiderProjects\\_Taid\\Web\\Web.csproj",
-      "libraryId": "Microsoft.CodeAnalysis.CSharp",
-      "targetGraphs": [
-        "net9.0"
-      ]
-    },
-    {
-      "code": "NU1608",
-      "level": "Warning",
-      "message": "Detected package version outside of dependency constraint: Microsoft.CodeAnalysis.Workspaces.MSBuild 4.8.0 requires Microsoft.CodeAnalysis.Common (= 4.8.0) but version Microsoft.CodeAnalysis.Common 5.0.0-2.final was resolved.",
-      "projectPath": "C:\\Users\\PC\\RiderProjects\\_Taid\\Web\\Web.csproj",
-      "warningLevel": 1,
-      "filePath": "C:\\Users\\PC\\RiderProjects\\_Taid\\Web\\Web.csproj",
-      "libraryId": "Microsoft.CodeAnalysis.Common",
-      "targetGraphs": [
-        "net9.0"
-      ]
-    },
-    {
-      "code": "NU1608",
-      "level": "Warning",
-      "message": "Detected package version outside of dependency constraint: Microsoft.CodeAnalysis.CSharp.Features 4.8.0 requires Microsoft.CodeAnalysis.Common (= 4.8.0) but version Microsoft.CodeAnalysis.Common 5.0.0-2.final was resolved.",
-      "projectPath": "C:\\Users\\PC\\RiderProjects\\_Taid\\Web\\Web.csproj",
-      "warningLevel": 1,
-      "filePath": "C:\\Users\\PC\\RiderProjects\\_Taid\\Web\\Web.csproj",
-      "libraryId": "Microsoft.CodeAnalysis.Common",
-      "targetGraphs": [
-        "net9.0"
-      ]
-    },
-    {
-      "code": "NU1608",
-      "level": "Warning",
-      "message": "Detected package version outside of dependency constraint: Microsoft.CodeAnalysis.CSharp.Features 4.8.0 requires Microsoft.CodeAnalysis.CSharp (= 4.8.0) but version Microsoft.CodeAnalysis.CSharp 5.0.0-2.final was resolved.",
-      "projectPath": "C:\\Users\\PC\\RiderProjects\\_Taid\\Web\\Web.csproj",
-      "warningLevel": 1,
-      "filePath": "C:\\Users\\PC\\RiderProjects\\_Taid\\Web\\Web.csproj",
-      "libraryId": "Microsoft.CodeAnalysis.CSharp",
-      "targetGraphs": [
-        "net9.0"
-      ]
-    },
-    {
-      "code": "NU1608",
-      "level": "Warning",
-      "message": "Detected package version outside of dependency constraint: Microsoft.CodeAnalysis.Features 4.8.0 requires Microsoft.CodeAnalysis.Common (= 4.8.0) but version Microsoft.CodeAnalysis.Common 5.0.0-2.final was resolved.",
-      "projectPath": "C:\\Users\\PC\\RiderProjects\\_Taid\\Web\\Web.csproj",
-      "warningLevel": 1,
-      "filePath": "C:\\Users\\PC\\RiderProjects\\_Taid\\Web\\Web.csproj",
-      "libraryId": "Microsoft.CodeAnalysis.Common",
-      "targetGraphs": [
-        "net9.0"
-      ]
-    },
-    {
-      "code": "NU1608",
-      "level": "Warning",
-      "message": "Detected package version outside of dependency constraint: Microsoft.CodeAnalysis.Workspaces.Common 4.8.0 requires Microsoft.CodeAnalysis.Common (= 4.8.0) but version Microsoft.CodeAnalysis.Common 5.0.0-2.final was resolved.",
-      "projectPath": "C:\\Users\\PC\\RiderProjects\\_Taid\\Web\\Web.csproj",
-      "warningLevel": 1,
-      "filePath": "C:\\Users\\PC\\RiderProjects\\_Taid\\Web\\Web.csproj",
-      "libraryId": "Microsoft.CodeAnalysis.Common",
-      "targetGraphs": [
-        "net9.0"
-      ]
-    },
-    {
-      "code": "NU1608",
-      "level": "Warning",
-      "message": "Detected package version outside of dependency constraint: Microsoft.CodeAnalysis.Scripting.Common 4.8.0 requires Microsoft.CodeAnalysis.Common (= 4.8.0) but version Microsoft.CodeAnalysis.Common 5.0.0-2.final was resolved.",
-      "projectPath": "C:\\Users\\PC\\RiderProjects\\_Taid\\Web\\Web.csproj",
-      "warningLevel": 1,
-      "filePath": "C:\\Users\\PC\\RiderProjects\\_Taid\\Web\\Web.csproj",
-      "libraryId": "Microsoft.CodeAnalysis.Common",
+      "libraryId": "Microsoft.CodeDom.Providers.DotNetCompilerPlatform",
       "targetGraphs": [
         "net9.0"
       ]

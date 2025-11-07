@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "XmALMJsVit0=",
+  "dgSpecHash": "SjWS/1X47V4=",
   "success": true,
   "projectFilePath": "C:\\Users\\PC\\RiderProjects\\_Taid\\Services\\Services.csproj",
   "expectedPackageFiles": [
@@ -13,9 +13,6 @@
     "C:\\Users\\PC\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\9.0.8\\microsoft.aspnetcore.cryptography.keyderivation.9.0.8.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\microsoft.aspnetcore.identity.entityframeworkcore\\9.0.8\\microsoft.aspnetcore.identity.entityframeworkcore.9.0.8.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
-    "C:\\Users\\PC\\.nuget\\packages\\microsoft.codeanalysis.analyzers\\3.11.0\\microsoft.codeanalysis.analyzers.3.11.0.nupkg.sha512",
-    "C:\\Users\\PC\\.nuget\\packages\\microsoft.codeanalysis.common\\5.0.0-2.final\\microsoft.codeanalysis.common.5.0.0-2.final.nupkg.sha512",
-    "C:\\Users\\PC\\.nuget\\packages\\microsoft.codeanalysis.csharp\\5.0.0-2.final\\microsoft.codeanalysis.csharp.5.0.0-2.final.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\microsoft.data.sqlclient\\5.1.6\\microsoft.data.sqlclient.5.1.6.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\5.1.1\\microsoft.data.sqlclient.sni.runtime.5.1.1.nupkg.sha512",

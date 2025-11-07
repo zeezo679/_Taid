@@ -81,6 +81,23 @@ namespace Web.Models.Repository
             _context.SaveChanges();
         }
 
-        
+        public async Task<List<Course>> FilterCoursesByCurrentInstructorAsync(string uid)
+        {
+
+            var instructor = await _context.Instructors
+                                  .AsNoTracking()
+                                  .FirstOrDefaultAsync(i => i.UserId == uid);
+
+            var courseId = instructor.CourseId; //storing in memory to avoid exception
+
+            var courses = await _context.Courses
+                .AsNoTracking()
+                .Include(c => c.Department)
+                .Where(c => c.Id == courseId)
+                .ToListAsync();
+           
+
+            return courses;
+        }
     }
 }

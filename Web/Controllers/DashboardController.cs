@@ -36,6 +36,9 @@ public class DashboardController : Controller
         var totalEnrollments = _crsResultRepository.Load().Count;
 
         var CountCoursesPerDept = _departmentRepository.CountCoursesPerDepartment();
+
+        var recentEnrolls = _crsResultRepository.GetRecentEnrollments();
+        var recentCourses = _courseRepository.LoadRecent();
         
         var model = new DashboardViewModel
         {
@@ -44,7 +47,9 @@ public class DashboardController : Controller
             TotalTrainees = totalTrainees,
             TotalDepartments = totalDepartments,
             TotalEnrollements = totalEnrollments,
-            CoursesByDept = CountCoursesPerDept
+            CoursesByDept = CountCoursesPerDept,
+            RecentEnrollements = recentEnrolls,
+            RecentAddedCourses = recentCourses,
         };
         
         return View(model);

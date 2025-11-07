@@ -30,6 +30,16 @@ namespace Web.Models.Repository
             return course;
         }
 
+        public List<Course> LoadRecent()
+        {
+            var recent = _context.Courses
+                .OrderByDescending(c => c.Id)
+                .Take(3)
+                .ToList();
+            
+            return recent;
+        }
+
         public List<Course> FilterByDept(int? deptId)
         {
             if(deptId==0)

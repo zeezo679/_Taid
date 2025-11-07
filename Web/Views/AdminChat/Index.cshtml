@@ -187,6 +187,9 @@
         // SignalR event handlers
         connection.on("ReceiveMessage", (msg, user, utcIso) => {
             appendMessage(user, msg, utcIso);
+            
+            // Reset notification counter when receiving messages on this page
+            resetNotificationCounter();
         });
 
         connection.on("SystemMessage", (msg) => {
@@ -223,6 +226,15 @@
                 typingIndicator.innerHTML = '';
             }
         });
+        
+        // Helper function to reset notification counter in navbar
+        function resetNotificationCounter() {
+            const badge = document.getElementById('message-counter');
+            if (badge) {
+                badge.style.display = 'none';
+                badge.textContent = '0';
+            }
+        }
 
         // Connection state management
         connection.start()

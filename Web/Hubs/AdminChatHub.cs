@@ -73,6 +73,9 @@ namespace Web.Hubs
 
             //currently send to everyone, later make the admin group
             await Clients.All.SendAsync("ReceiveMessage",message, user, currentTime);
+            
+            // Notify others (exclude sender) to increment counter
+            await Clients.Others.SendAsync("NewMessageAlert");
 
             var messageModel = new Message
             {

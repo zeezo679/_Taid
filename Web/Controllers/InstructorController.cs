@@ -22,13 +22,15 @@ namespace Web.Controllers
         private IDepartmentRepository DepartmentRepository;
         private UserManager<ApplicationUser> UserManager;
         private RoleManager<IdentityRole> RoleManager;
+        private AppDbContext _context;
 
         public InstructorController(
             ICourseRepository courseRepository, 
             IInstructorRepository instructorRepository,
             IDepartmentRepository departmentRepository,
             UserManager<ApplicationUser> userManager,
-            RoleManager<IdentityRole> roleManager
+            RoleManager<IdentityRole> roleManager,
+            AppDbContext context
             )
         {
             CourseRepository = courseRepository;
@@ -36,6 +38,7 @@ namespace Web.Controllers
             DepartmentRepository = departmentRepository;
             UserManager = userManager;
             RoleManager = roleManager;
+            _context = context;
         }
 
         public IActionResult Index()
@@ -65,7 +68,8 @@ namespace Web.Controllers
                      .Select(i => new SelectListItem
                      {
                          Value = i.Id.ToString(),
-                         Text = i.Name
+                         Text = i.Name,
+                         Selected = i.Id == instructor.DeptId // Set selected department
                      }).ToList();
 
             
@@ -73,47 +77,71 @@ namespace Web.Controllers
             var instructorFromUsers = UserManager.FindByNameAsync(instructor.Name).Result;
             
 
-
             var InstructorToEdit = new EditInstructorViewModel
             {
+                Id = instructor.Id,
                 Name = instructor.Name,
                 Image = file,
                 Salary = instructor.Salary,
                 Address = instructor.Address,
-                Email = instructorFromUsers.Email
+                DeptId = instructor.DeptId,
+                CourseId = instructor.CourseId
             };
             
+            // Pass current image filename to ViewBag so it can be displayed
+            ViewBag.CurrentImage = instructor.Image;
             
             return View(InstructorToEdit);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Save(Instructor newInstructor)
+        public IActionResult Save(EditInstructorViewModel model)
         {
-            List<Instructor> instructors = InstructorRepository.Load();
-            var oldInstructor = InstructorRepository.Get(newInstructor.Id);
-            var selectedDept = DepartmentRepository.Get(newInstructor.DeptId);
-            var selectedCourse = CourseRepository.Get(newInstructor.CourseId);
 
-            oldInstructor.Department = selectedDept;
-            oldInstructor.Course = selectedCourse;
-            if (oldInstructor.Department is null)
-                Console.WriteLine("The department is still null");
-            else
-                Console.WriteLine("The Department is not null YAYAYAYAYA");
 
-            if (newInstructor is null)
-                return RedirectToAction("Edit");
+            if (ModelState.IsValid)
+            {
+                var oldInstructor = InstructorRepository.Get(model.Id);
+                
+                if (oldInstructor == null)
+                {
+                    ModelState.AddModelError("", "Instructor not found");
+                    return View("Edit", model);
+                }
 
-            if (newInstructor.Name == null || newInstructor.Image == null)
-                return RedirectToAction("Edit");
+                if (model.Image != null && model.Image.Length > 0)
+                {
+                    var saveLocation = Path.Combine(Directory.GetCurrentDirectory(), $"wwwroot\\images");
+                    ImageService.UploadImageToDirectory(model.Image, saveLocation, model.Image.FileName);
+                    oldInstructor.Image = model.Image.FileName;
+                }
 
-            InstructorRepository.Update(oldInstructor, newInstructor);
-            //InstructorRepository.Update(newInstructor.Id, oldInstructor);
+                oldInstructor.Name = model.Name;
+                oldInstructor.Salary = model.Salary;
+                oldInstructor.Address = model.Address;
+                oldInstructor.DeptId = model.DeptId;
+                oldInstructor.CourseId = model.CourseId;
+                
+                var department = DepartmentRepository.Get(model.DeptId);
+                oldInstructor.Department = department;
 
-            TempData["success-update"] = true;
-            return RedirectToAction("Index");
+                InstructorRepository.Update(model.Id, oldInstructor);
+
+                TempData["edit_success"] = true;
+                return RedirectToAction("Index");
+            }
+            
+            var depts = DepartmentRepository.LoadDeferred();
+            ViewBag.Departments = depts
+                .Select(i => new SelectListItem
+                {
+                    Value = i.Id.ToString(),
+                    Text = i.Name,
+                    Selected = i.Id == model.DeptId
+                }).ToList();
+            
+            return View("Edit", model);
         }
 
 
@@ -134,30 +162,6 @@ namespace Web.Controllers
         public async Task<IActionResult> SuccessAdd(InstructorViewModel newInstructorvm)
         {
 
-            //store image in directory before using it
-            var saveLocation = Path.Combine(Directory.GetCurrentDirectory(), $"wwwroot\\images");
-            ImageService.UploadImageToDirectory(newInstructorvm.Image, saveLocation,  newInstructorvm.Image.FileName);
-            
-            //adding instructor to instructors table
-            var newInstructor = new Instructor
-            {
-                Id = newInstructorvm.Id,
-                Name = newInstructorvm.Name,
-                Image = newInstructorvm.Image.FileName,
-                Salary = newInstructorvm.Salary,
-                Address = newInstructorvm.Address,
-                CourseId = newInstructorvm.CourseId,
-                DeptId = newInstructorvm.DeptId,
-            };
-
-
-            var department = DepartmentRepository.Get(newInstructor.DeptId);
-            newInstructor.Department = department;
-
-
-            InstructorRepository.Insert(newInstructor);
-            TempData["success"] = true;
-
             if (ModelState.IsValid)
             {
                 var applicationUser = new ApplicationUser
@@ -168,23 +172,53 @@ namespace Web.Controllers
                 };
 
                 var create = await UserManager.CreateAsync(applicationUser, applicationUser.PasswordHash);
-                if(create.Succeeded)
+                if (create.Succeeded)
                 {
                     await UserManager.AddToRoleAsync(applicationUser, "Instructor");
-                } else
+                }
+                else
                 {
                     var errors = create.Errors;
                     foreach (var error in errors)
                         ModelState.AddModelError("IE", error.Description);
                 }
 
-               
+                //store image in directory before using it
+                var saveLocation = Path.Combine(Directory.GetCurrentDirectory(), $"wwwroot\\images");
+                ImageService.UploadImageToDirectory(newInstructorvm.Image, saveLocation, newInstructorvm.Image.FileName);
+
+                //adding instructor to instructors table
+                var newInstructor = new Instructor
+                {
+                    Id = newInstructorvm.Id,
+                    Name = newInstructorvm.Name,
+                    Image = newInstructorvm.Image.FileName,
+                    Salary = newInstructorvm.Salary,
+                    Address = newInstructorvm.Address,
+                    CourseId = newInstructorvm.CourseId,
+                    DeptId = newInstructorvm.DeptId,
+                    User = applicationUser, 
+                };
+
+
+                var department = DepartmentRepository.Get(newInstructor.DeptId);
+                newInstructor.Department = department;
+
+
+                InstructorRepository.Insert(newInstructor);
+                TempData["success"] = true;
+
                 return RedirectToAction("Index");
-            } else
+            }
+            else
             {
                 ModelState.AddModelError("", "Something went wrong");
                 return View("addinstructor", newInstructorvm);
             }
+
+            
+
+            
         }
 
         //creating action to show the courses for that depeartment
@@ -214,7 +248,14 @@ namespace Web.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult DeleteConfirmed(int id)
         {
+            var instructor = InstructorRepository.Get(id);
+            var UID = instructor.UserId;
+            var appUser =  UserManager.FindByIdAsync(UID).Result;
             InstructorRepository.Delete(id);
+
+
+
+            UserManager.DeleteAsync(appUser);
             return RedirectToAction("Index");
         }
     }

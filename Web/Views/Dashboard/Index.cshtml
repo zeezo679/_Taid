@@ -16,16 +16,10 @@
         <div class="header-content">
             <div class="header-text">
                 <h1 class="dashboard-title">
-                    <i data-feather="activity" class="title-icon"></i>
+                    <i class="fa-solid fa-chart-line title-icon"></i>
                     Dashboard Overview
                 </h1>
                 <p class="dashboard-subtitle">Monitor your platform's key metrics and performance</p>
-            </div>
-            <div class="header-actions">
-                <span class="last-updated">
-                    <i data-feather="clock" class="update-icon"></i>
-                    Updated just now
-                </span>
             </div>
         </div>
     </div>
@@ -37,7 +31,7 @@
             <div class="stat-card-inner">
                 <div class="stat-icon-wrapper">
                     <div class="stat-icon">
-                        <i data-feather="book-open"></i>
+                        <i class="fa-solid fa-book-open"></i>
                     </div>
                 </div>
                 <div class="stat-content">
@@ -54,7 +48,7 @@
             <div class="stat-card-inner">
                 <div class="stat-icon-wrapper">
                     <div class="stat-icon">
-                        <i data-feather="users"></i>
+                        <i class="fa-solid fa-users"></i>
                     </div>
                 </div>
                 <div class="stat-content">
@@ -71,7 +65,7 @@
             <div class="stat-card-inner">
                 <div class="stat-icon-wrapper">
                     <div class="stat-icon">
-                        <i data-feather="user-check"></i>
+                        <i class="fa-solid fa-user-check"></i>
                     </div>
                 </div>
                 <div class="stat-content">
@@ -88,7 +82,7 @@
             <div class="stat-card-inner">
                 <div class="stat-icon-wrapper">
                     <div class="stat-icon">
-                        <i data-feather="briefcase"></i>
+                        <i class="fa-solid fa-briefcase"></i>
                     </div>
                 </div>
                 <div class="stat-content">
@@ -105,7 +99,7 @@
             <div class="stat-card-inner">
                 <div class="stat-icon-wrapper">
                     <div class="stat-icon">
-                        <i data-feather="trending-up"></i>
+                        <i class="fa-solid fa-chart-simple"></i>
                     </div>
                 </div>
                 <div class="stat-content">
@@ -126,7 +120,7 @@
             <div class="chart-card-header">
                 <div class="chart-header-content">
                     <h2 class="chart-title">
-                        <i data-feather="pie-chart" class="chart-title-icon"></i>
+                        <i class="fa-solid fa-chart-pie chart-title-icon"></i>
                         Course Distribution by Department
                     </h2>
                     <p class="chart-subtitle">Breakdown of courses across all departments</p>
@@ -154,7 +148,7 @@
                 else
                 {
                     <div class="chart-empty-state">
-                        <i data-feather="inbox" class="empty-icon"></i>
+                        <i class="fa-solid fa-inbox empty-icon"></i>
                         <p class="empty-text">No data available</p>
                     </div>
                 }
@@ -170,7 +164,7 @@
         <div class="activity-card">
             <div class="activity-card-header">
                 <h2 class="activity-title">
-                    <i data-feather="plus-circle" class="activity-icon"></i>
+                    <i class="fa-solid fa-circle-plus activity-icon"></i>
                     Recently Added Courses
                 </h2>
             </div>
@@ -182,23 +176,23 @@
                         {
                             <div class="activity-item">
                                 <div class="activity-item-icon">
-                                    <i data-feather="book"></i>
+                                    <i class="fa-solid fa-book"></i>
                                 </div>
                                 <div class="activity-item-content">
                                     <h4 class="activity-item-title">@course.Name</h4>
                                     <p class="activity-item-meta">
-                                        <i data-feather="user" class="meta-icon"></i>
+                                        <i class="fa-solid fa-user meta-icon"></i>
                                         @(course.Instructors?.FirstOrDefault()?.Name ?? "No instructor")
                                         <span class="meta-separator">•</span>
-                                        <i data-feather="folder" class="meta-icon"></i>
+                                        <i class="fa-solid fa-folder meta-icon"></i>
                                         @course.Department?.Name
                                     </p>
                                 </div>
                                 <div class="activity-item-action">
                                     <a asp-controller="Course" asp-action="ViewCourseDetails" asp-route-id="@course.Id" 
                                        class="view-btn">
-                                        <span>View</span>
-                                        <i data-feather="arrow-right" class="btn-arrow"></i>
+                                        <span>View Course</span>
+                                        <i class="fa-solid fa-arrow-right btn-arrow"></i>
                                     </a>
                                 </div>
                             </div>
@@ -208,7 +202,7 @@
                 else
                 {
                     <div class="activity-empty-state">
-                        <i data-feather="inbox" class="empty-icon"></i>
+                        <i class="fa-solid fa-inbox empty-icon"></i>
                         <p class="empty-text">No recent courses</p>
                     </div>
                 }
@@ -219,7 +213,7 @@
         <div class="activity-card">
             <div class="activity-card-header">
                 <h2 class="activity-title">
-                    <i data-feather="user-plus" class="activity-icon"></i>
+                    <i class="fa-solid fa-user-plus activity-icon"></i>
                     Recent Enrollments
                 </h2>
             </div>
@@ -227,28 +221,28 @@
                 @if (Model.RecentEnrollements != null && Model.RecentEnrollements.Any())
                 {
                     <div class="activity-list">
-                        @foreach (var course in Model.RecentEnrollements.Take(5))
+                        @foreach (var enrollment in Model.RecentEnrollements.Take(5))
                         {
-                            <div class="activity-item">
-                                <div class="activity-item-icon">
-                                    <i data-feather="check-circle"></i>
+                            <div class="activity-item enrollment-item">
+                                <div class="activity-item-icon enrollment-icon">
+                                    <i class="fa-solid fa-circle-check"></i>
                                 </div>
                                 <div class="activity-item-content">
-                                    <h4 class="activity-item-title">@course.Name</h4>
+                                    <h4 class="activity-item-title">@enrollment.Name</h4>
                                     <p class="activity-item-meta">
-                                        <i data-feather="user" class="meta-icon"></i>
-                                        @(course.Instructors?.FirstOrDefault()?.Name ?? "No instructor")
+                                        <i class="fa-solid fa-user meta-icon"></i>
+                                        <strong>@(enrollment.TraineeName ?? "Unknown Trainee")</strong>
                                         <span class="meta-separator">•</span>
-                                        <i data-feather="folder" class="meta-icon"></i>
-                                        @course.Department?.Name
+                                        <i class="fa-solid fa-calendar meta-icon"></i>
+                                        @enrollment.EnrollmentDate.ToString("MMM dd, yyyy")
                                     </p>
-                                </div>
-                                <div class="activity-item-action">
-                                    <a asp-controller="Course" asp-action="ViewCourseDetails" asp-route-id="@course.Id" 
-                                       class="view-btn">
-                                        <span>View</span>
-                                        <i data-feather="arrow-right" class="btn-arrow"></i>
-                                    </a>
+                                    <p class="activity-item-meta activity-item-secondary">
+                                        <i class="fa-solid fa-book meta-icon"></i>
+                                        @(enrollment.Instructors?.FirstOrDefault()?.Name ?? "No instructor")
+                                        <span class="meta-separator">•</span>
+                                        <i class="fa-solid fa-folder meta-icon"></i>
+                                        @enrollment.Department?.Name
+                                    </p>
                                 </div>
                             </div>
                         }
@@ -257,7 +251,7 @@
                 else
                 {
                     <div class="activity-empty-state">
-                        <i data-feather="inbox" class="empty-icon"></i>
+                        <i class="fa-solid fa-inbox empty-icon"></i>
                         <p class="empty-text">No recent enrollments</p>
                     </div>
                 }
@@ -273,10 +267,6 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js"></script>
     
     <script>
-        // Initialize Feather Icons
-        feather.replace();
-
-        // Pie Chart for Course Distribution
         @if (Model.CoursesByDept != null && Model.CoursesByDept.Any())
         {
             <text>
@@ -288,14 +278,14 @@
                     label: 'Courses',
                     data: [@string.Join(",", Model.CoursesByDept.Select(d => d.CourseCount))],
                     backgroundColor: [
-                        'rgba(59, 130, 246, 0.8)',   // Blue
-                        'rgba(139, 92, 246, 0.8)',   // Purple
-                        'rgba(16, 185, 129, 0.8)',   // Green
-                        'rgba(245, 158, 11, 0.8)',   // Orange
-                        'rgba(239, 68, 68, 0.8)',    // Red
-                        'rgba(236, 72, 153, 0.8)',   // Pink
-                        'rgba(20, 184, 166, 0.8)',   // Teal
-                        'rgba(251, 146, 60, 0.8)',   // Amber
+                        'rgba(59, 130, 246, 0.85)',   // Muted Blue
+                        'rgba(139, 92, 246, 0.85)',   // Muted Purple
+                        'rgba(16, 185, 129, 0.85)',   // Muted Green
+                        'rgba(245, 158, 11, 0.85)',   // Muted Amber
+                        'rgba(239, 68, 68, 0.85)',    // Muted Red
+                        'rgba(236, 72, 153, 0.85)',   // Muted Pink
+                        'rgba(20, 184, 166, 0.85)',   // Muted Teal
+                        'rgba(251, 146, 60, 0.85)',   // Muted Orange
                     ],
                     borderColor: [
                         'rgba(59, 130, 246, 1)',
@@ -322,12 +312,19 @@
                             display: false // Using custom legend
                         },
                         tooltip: {
-                            backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                            backgroundColor: 'rgba(31, 41, 55, 0.95)',
                             padding: 12,
                             titleColor: '#fff',
                             bodyColor: '#fff',
                             borderColor: 'rgba(255, 255, 255, 0.1)',
                             borderWidth: 1,
+                            titleFont: {
+                                size: 13,
+                                weight: '600'
+                            },
+                            bodyFont: {
+                                size: 12
+                            },
                             callbacks: {
                                 label: function(context) {
                                     let label = context.label || '';
@@ -360,14 +357,14 @@
             statCards.forEach((card, index) => {
                 setTimeout(() => {
                     card.style.opacity = '0';
-                    card.style.transform = 'translateY(20px)';
+                    card.style.transform = 'translateY(10px)';
                     
                     setTimeout(() => {
-                        card.style.transition = 'all 0.5s ease';
+                        card.style.transition = 'all 0.3s ease';
                         card.style.opacity = '1';
                         card.style.transform = 'translateY(0)';
                     }, 50);
-                }, index * 100);
+                }, index * 50);
             });
         });
     </script>

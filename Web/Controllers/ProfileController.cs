@@ -12,10 +12,12 @@ public class ProfileController : Controller
     
     private readonly UserManager<ApplicationUser> _userManager;
     private readonly ICrsResultRepository _crsResultRepository;
+    private readonly IInstructorRepository _instructorRepository;
     private readonly SignInManager<ApplicationUser> _signInManager;
     
-    public ProfileController(UserManager<ApplicationUser> userManager,  ICrsResultRepository crsResultRepository,  SignInManager<ApplicationUser> signInManager)
+    public ProfileController(IInstructorRepository instructorRepository,UserManager<ApplicationUser> userManager,  ICrsResultRepository crsResultRepository,  SignInManager<ApplicationUser> signInManager)
     {
+        _instructorRepository = instructorRepository;
         _userManager = userManager;
         _crsResultRepository = crsResultRepository;
         _signInManager = signInManager;
@@ -30,6 +32,8 @@ public class ProfileController : Controller
         var uid = applicationUser!.Id;
         
         var enrolledCourses = await _crsResultRepository.FilterCoursesByCurrentUserAsync(uid);
+        var assignedCourses = await _instructorRepository.FilterCoursesByCurrentInstructorAsync(uid);
+
         var imageFile = ImageService.ConvertToIFormFile(applicationUser.Image);
         
         var profileViewModel = new ProfileViewModel
@@ -38,7 +42,8 @@ public class ProfileController : Controller
             JoinDate = applicationUser!.RegistrationDate,
             Email = applicationUser.Email,
             Image = imageFile,
-            EnrolledCourses = enrolledCourses
+            EnrolledCourses = enrolledCourses,
+            AssignedCourses = assignedCourses,
         };
         
         return View(profileViewModel);
@@ -52,11 +57,21 @@ public class ProfileController : Controller
         var applicationUser = await _userManager.GetUserAsync(User);
         var uid = applicationUser!.Id;
         var enrolledCourses = await _crsResultRepository.FilterCoursesByCurrentUserAsync(uid);
-        
-        //save Image to local
+        var assignedCourses = await _instructorRepository.FilterCoursesByCurrentInstructorAsync(uid);
+
+        if (profileViewModel.Image is not null)
+        {
+            applicationUser.Image = profileViewModel.Image.FileName;
+        }
+       
         var saveLocation = Path.Combine(Directory.GetCurrentDirectory(), $"wwwroot\\images");
         if(profileViewModel.Image is not null)
             ImageService.UploadImageToDirectory(profileViewModel.Image, saveLocation,  profileViewModel.Image.FileName);
+        
+        var imageFile = ImageService.ConvertToIFormFile(applicationUser.Image);
+        profileViewModel.Image = imageFile;
+        
+        
         
         // Update properties
         applicationUser.UserName = profileViewModel.UserName;

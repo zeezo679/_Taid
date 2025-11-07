@@ -22,7 +22,7 @@
                 <!-- Logo -->
                 <div class="auth-logo-container">
                     <div class="auth-logo-icon">
-                        <i data-feather="graduation-cap"></i>
+                        <i class="fa-solid fa-graduation-cap"></i>
                     </div>
                 </div>
 
@@ -39,7 +39,7 @@
                     <div class="auth-form-group">
                         <label asp-for="Username" class="auth-form-label">Username</label>
                         <div class="auth-input-wrapper">
-                            <i data-feather="user" class="auth-input-icon"></i>
+                            <i class="fa-solid fa-user auth-input-icon"></i>
                             <input asp-for="Username" class="auth-form-input" placeholder="Enter your username" type="text" autocomplete="username" />
                         </div>
                         <span asp-validation-for="Username" class="auth-validation-error"></span>
@@ -49,7 +49,7 @@
                     <div class="auth-form-group">
                         <label asp-for="Password" class="auth-form-label">Password</label>
                         <div class="auth-input-wrapper">
-                            <i data-feather="lock" class="auth-input-icon"></i>
+                            <i class="fa-solid fa-lock auth-input-icon"></i>
                             <input asp-for="Password" class="auth-form-input" placeholder="Enter your password" type="password" autocomplete="current-password" />
                         </div>
                         <span asp-validation-for="Password" class="auth-validation-error"></span>
@@ -61,7 +61,6 @@
                             <input asp-for="RememberMe" type="checkbox" id="remember" name="RememberMe" />
                             <label asp-for="RememberMe">Remember me</label>
                         </div>
-                        <a href="#" class="auth-forgot-link">Forgot password?</a>
                     </div>
 
                     <a asp-controller="Account" asp-action="ExternalLogin" asp-route-provider="Google" asp-route-returnUrl="@Model.ReturnUrl"
@@ -87,9 +86,6 @@
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 
     <script>
-        // Initialize Feather Icons
-        feather.replace();
-
         // Handle validation summary display
         document.addEventListener('DOMContentLoaded', function() {
             const validationSummary = document.querySelector('[asp-validation-summary]');

@@ -2,6 +2,7 @@
 using Web.Infrastructure;
 using Web.Models.Entities;
 using Web.Models.Interfaces;
+using Web.ViewModel;
 
 namespace Web.Models.Repository
 {
@@ -22,7 +23,8 @@ namespace Web.Models.Repository
             {
                 Degree = trainee.Grade,
                 CourseId = crsId,
-                UserId = trainee.UserId
+                UserId = trainee.UserId,
+                EnrollmentDate = DateTime.Now
             };
 
             _context.crsResults.Add(crsResult);
@@ -34,6 +36,28 @@ namespace Web.Models.Repository
         {
             var enrollments = _context.crsResults.ToList();
             return enrollments;
+        }
+        
+        public List<EnrollmentViewModel> GetRecentEnrollments()
+        {
+            var topFiveEnrollments = _context.crsResults
+                .OrderByDescending(c => c.CourseId)
+                .Take(5)
+                .ToList();
+
+            var recentEnrolls = _context.crsResults.Select(c => new EnrollmentViewModel
+            {
+                Id = c.CourseId,
+                Name = c.Course.Name,
+                TraineeName = c.Trainee.Name,
+                EnrollmentDate = c.EnrollmentDate,
+                Department = c.Course.Department,
+                Instructors = c.Course.Instructors,
+            })
+                .AsEnumerable()
+                .ToList();
+            
+            return recentEnrolls;
         }
 
         public bool CheckEnrollStatus(int crsId, string uid)

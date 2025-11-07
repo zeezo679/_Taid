@@ -13,12 +13,13 @@ public static class ImageService
         
         //check if file is present or no
         var filePath = Path.Combine(Directory.GetCurrentDirectory(), $"wwwroot\\images\\{fileName}");
-        if (!File.Exists(filePath))
-            throw new FileNotFoundException("File not found", filePath);
 
-        var fileStream = new FileStream(filePath, FileMode.Open, FileAccess.Read);
+        //using memory stream to avoid locking
+        var bytes = File.ReadAllBytes(filePath);
+        var memoryStream = new MemoryStream(bytes);
+        
         //public FormFile(Stream baseStream, long baseStreamOffset, long length, string name, string fileName)
-        var ff = new FormFile(fileStream, 0, fileStream.Length, null, Path.GetFileName(filePath));
+        var ff = new FormFile(memoryStream, 0, memoryStream.Length, null, Path.GetFileName(filePath));
 
         return ff;
     }

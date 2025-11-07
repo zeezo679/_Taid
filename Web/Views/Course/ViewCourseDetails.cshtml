@@ -31,7 +31,7 @@
     <div class="course-hero-container">
         <!-- Back Button -->
         <a asp-action="Index" asp-route-deptId="@Model.DeptId" class="course-back-button">
-            <i data-feather="arrow-left" class="back-icon"></i>
+            <i class="fa-solid fa-arrow-left back-icon"></i>
             <span>Back to Courses</span>
         </a>
 
@@ -40,14 +40,14 @@
             <!-- Left Side - Icon and Course Info -->
             <div class="course-hero-left">
                 <div class="course-hero-icon">
-                    <i data-feather="book-open"></i>
+                    <i class="fa-solid fa-book-open"></i>
                 </div>
                 <div class="course-hero-info">
                     <div class="course-category-badge">@Model.Department.Name</div>
                     @if(isEnrolled)
                     {
                         <div class="course-enrolled-badge">
-                            <i data-feather="check-circle"></i>
+                            <i class="fa-solid fa-circle-check"></i>
                             <span>Enrolled</span>
                         </div>
                     }
@@ -76,7 +76,7 @@
             <!-- Department Info -->
             <div class="course-details-info-card">
                 <div class="info-card-header">
-                    <i data-feather="graduation-cap" class="info-card-icon department"></i>
+                    <i class="fa-solid fa-graduation-cap info-card-icon department"></i>
                     <span class="info-card-label">Department</span>
                 </div>
                 <div class="info-card-value">@Model.Department.Name</div>
@@ -85,7 +85,7 @@
             <!-- Max Degree -->
             <div class="course-details-info-card">
                 <div class="info-card-header">
-                    <i data-feather="trending-up" class="info-card-icon max-degree"></i>
+                    <i class="fa-solid fa-arrow-trend-up info-card-icon max-degree"></i>
                     <span class="info-card-label">Maximum Degree</span>
                 </div>
                 <div class="info-card-value degree-value max">@Model.Degree.ToString("F2")</div>
@@ -94,7 +94,7 @@
             <!-- Min Degree -->
             <div class="course-details-info-card">
                 <div class="info-card-header">
-                    <i data-feather="trending-down" class="info-card-icon min-degree"></i>
+                    <i class="fa-solid fa-arrow-trend-down info-card-icon min-degree"></i>
                     <span class="info-card-label">Minimum Degree</span>
                 </div>
                 <div class="info-card-value degree-value min">@Model.MinDegree.ToString("F2")</div>
@@ -104,7 +104,7 @@
         <!-- Instructors Section -->
         <div class="instructors-details-section">
             <div class="section-header">
-                <i data-feather="users" class="section-icon"></i>
+                <i class="fa-solid fa-users section-icon"></i>
                 <h3 class="section-title">Course Instructors</h3>
                 <span class="instructors-count-badge">@Model.Instructors.Count</span>
             </div>
@@ -131,11 +131,11 @@
                                 <h4 class="instructor-name">@instructor.Name</h4>
                                 <div class="instructor-meta">
                                     <div class="instructor-meta-item">
-                                        <i data-feather="briefcase" class="meta-icon"></i>
+                                        <i class="fa-solid fa-briefcase meta-icon"></i>
                                         <span>@instructor.Department.Name</span>
                                     </div>
                                     <div class="instructor-meta-item">
-                                        <i data-feather="map-pin" class="meta-icon"></i>
+                                        <i class="fa-solid fa-location-dot meta-icon"></i>
                                         <span>@instructor.Address</span>
                                     </div>
                                 </div>
@@ -147,7 +147,7 @@
             else
             {
                 <div class="no-instructors-message">
-                    <i data-feather="user-x" class="no-instructors-icon"></i>
+                    <i class="fa-solid fa-user-xmark no-instructors-icon"></i>
                     <p>No instructors assigned to this course yet.</p>
                 </div>
             }
@@ -158,7 +158,7 @@
         {
             <div class="course-details-actions">
                 <a asp-action="enroll" asp-route-id="@Model.Id" class="btn-course-details-enroll">
-                    <i data-feather="user-check" class="btn-icon"></i>
+                    <i class="fa-solid fa-user-check btn-icon"></i>
                     Enroll Now
                 </a>
             </div>
@@ -168,9 +168,6 @@
 
 @section Scripts {
     <script>
-        // Initialize Feather icons
-        feather.replace();
-        
         // Add animation on load
         document.addEventListener('DOMContentLoaded', function() {
             const heroSection = document.querySelector('.course-hero-section');
