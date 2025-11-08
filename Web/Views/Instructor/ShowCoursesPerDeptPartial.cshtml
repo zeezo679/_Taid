@@ -7,59 +7,63 @@
 
 @if (courses != null && courses.Any())
 {
-    <div class="assigned-courses-container">
+    <div class="dept-courses-container">
         <!-- Header Section -->
-        <div class="assigned-courses-header">
-            <div class="header-content-assigned">
-                <div class="header-icon-assigned">
-                    <i data-feather="book-open" class="icon-lg"></i>
-                </div>
-                <div class="header-text-assigned">
-                    <span class="header-label">Available Courses</span>
-                    <h3 class="header-title-assigned">Assigned Courses</h3>
-                </div>
+        <div class="dept-courses-header">
+            <div class="header-icon-wrapper">
+                <i class="fa-solid fa-book-open"></i>
+            </div>
+            <div class="header-text-wrapper">
+                <h3 class="dept-courses-title">Available Courses</h3>
+                <p class="dept-courses-subtitle">Select a course to assign to this instructor</p>
             </div>
             <div class="course-count-badge">
-                <i data-feather="layers" class="badge-icon"></i>
-                <span>@courses.Count Course(s)</span>
+                <i class="fa-solid fa-layer-group"></i>
+                <span>@courses.Count Course@(courses.Count != 1 ? "s" : "")</span>
             </div>
         </div>
         
         <!-- Course Selection Dropdown -->
-        <div class="course-selector-section">
-            <label class="selector-label">
-                <i data-feather="check-circle" class="label-icon"></i>
-                Select Course to Assign
+        <div class="course-selector-wrapper">
+            <label for="CourseId" class="selector-label">
+                <i class="fa-solid fa-circle-check"></i>
+                <span>Select Course</span>
             </label>
-            <div class="select-wrapper-assigned">
-                <select asp-for="CourseId" asp-items="selectItems" class="course-select-assigned">
+            <div class="select-input-wrapper">
+                <select asp-for="CourseId" asp-items="selectItems" class="course-select-modern" id="CourseId">
                     <option value="-1">Choose a course from the list below</option>
                 </select>
-                <i data-feather="chevron-down" class="select-arrow-assigned"></i>
+                <i class="fa-solid fa-chevron-down select-chevron"></i>
             </div>
         </div>
         
         <!-- Course Cards Grid -->
-        <div class="courses-grid-assigned">
+        <div class="dept-courses-grid">
             @foreach (var course in courses)
             {
-                <div class="course-card-assigned">
-                    <div class="course-card-header-assigned">
-                        <div class="course-icon-badge">
-                            <i data-feather="book" class="course-icon-small"></i>
+                <div class="dept-course-card">
+                    <div class="dept-course-card-header">
+                        <div class="dept-course-icon-badge">
+                            <i class="fa-solid fa-book"></i>
                         </div>
-                        <h4 class="course-card-title">@course.Name</h4>
+                        <h4 class="dept-course-name">@course.Name</h4>
                     </div>
-                    <div class="course-card-body-assigned">
-                        <div class="degree-info-row">
-                            <div class="degree-info-item">
-                                <span class="degree-label-small">Max Degree</span>
-                                <span class="degree-value-max">@course.Degree</span>
+                    <div class="dept-course-card-body">
+                        <div class="dept-course-degrees">
+                            <div class="dept-degree-item">
+                                <i class="fa-solid fa-arrow-trend-up degree-icon"></i>
+                                <div class="degree-content">
+                                    <span class="degree-label">Max Degree</span>
+                                    <span class="degree-value max">@course.Degree</span>
+                                </div>
                             </div>
-                            <div class="degree-divider-vertical"></div>
-                            <div class="degree-info-item">
-                                <span class="degree-label-small">Min Degree</span>
-                                <span class="degree-value-min">@course.MinDegree</span>
+                            <div class="degree-divider"></div>
+                            <div class="dept-degree-item">
+                                <i class="fa-solid fa-arrow-trend-down degree-icon"></i>
+                                <div class="degree-content">
+                                    <span class="degree-label">Min Degree</span>
+                                    <span class="degree-value min">@course.MinDegree</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -70,8 +74,11 @@
 }
 else
 {
-    <div class="no-courses-container">
+    <div class="no-courses-state">
         <div class="no-courses-icon">
+            <i class="fa-solid fa-inbox"></i>
         </div>
+        <h4 class="no-courses-title">No Courses Available</h4>
+        <p class="no-courses-text">There are currently no courses in this department.</p>
     </div>
 }

@@ -1,6 +1,10 @@
 ﻿@using Web.Models.Entities
 @model Web.ViewModel.EditInstructorViewModel
 
+@section Styles {
+    <link rel="stylesheet" href="~/css/instructor-dept-courses.css" />
+}
+
 <div class="container mt-4">
     <div class="instructor-form-container">
         <!-- Modern Header Section -->
@@ -34,6 +38,18 @@
                                placeholder="Enter full name" 
                                required />
                         <span asp-validation-for="Name" class="field-validation-error"></span>
+                    </div>
+                    
+                    <div class="form-field">
+                        <label class="field-label" asp-for="Email">
+                            <i data-feather="user" class="label-icon"></i>
+                            Instructor Email
+                        </label>
+                        <input type="text" asp-for="Email" 
+                               class="modern-input" 
+                               placeholder="Enter valid email" 
+                               readonly="@Model.Email"/>
+                        <span asp-validation-for="Email" class="field-validation-error"></span>
                     </div>
 
                     <!-- Monthly Salary -->
@@ -256,22 +272,26 @@
                 
                 <!-- Department Courses Section -->
                 <div class="courses-section d-none" id="CoursesPerDept">
-                    <div class="courses-header">
-                        <h6 class="courses-title">
-                            <i data-feather="list" class="courses-icon"></i>
-                            Courses in Selected Department
-                        </h6>
-                        <small class="courses-subtitle">View all courses available in this department</small>
-                    </div>
-                    <div class="courses-content" id="selectContainer">
-                        <!-- AJAX content will be loaded here -->
+                    <div class="courses-section-wrapper">
+                        <div class="courses-header">
+                            <div class="courses-header-icon">
+                                <i class="fa-solid fa-list"></i>
+                            </div>
+                            <div class="courses-header-text">
+                                <h6 class="courses-title">Courses in Selected Department</h6>
+                                <p class="courses-subtitle">View and assign courses available in this department</p>
+                            </div>
+                        </div>
+                        <div class="courses-content" id="selectContainer">
+                            <!-- AJAX content will be loaded here -->
+                        </div>
                     </div>
                 </div>
                 
                 <!-- Action Buttons -->
                 <div class="form-actions">
                     <button type="submit" class="btn-primary-modern">
-                        <i data-feather="save" class="btn-icon"></i>
+                        <i class="fa-solid fa-floppy-disk btn-icon"></i>
                         Save Changes
                     </button>
                     

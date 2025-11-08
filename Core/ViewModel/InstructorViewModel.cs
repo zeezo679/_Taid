@@ -15,6 +15,8 @@ namespace Web.ViewModel
         public string Name { get; set; } = null!;
         public IFormFile Image { get; set; }
         public decimal Salary { get; set; }
+        
+        public string? Email { get; set; }
         public string Address { get; set; } = null!;
         
         [DataType(DataType.Password)]

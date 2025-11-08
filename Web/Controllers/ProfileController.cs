@@ -32,7 +32,12 @@ public class ProfileController : Controller
         var uid = applicationUser!.Id;
         
         var enrolledCourses = await _crsResultRepository.FilterCoursesByCurrentUserAsync(uid);
-        var assignedCourses = await _instructorRepository.FilterCoursesByCurrentInstructorAsync(uid);
+
+        List<Course> assignedCourses = new List<Course>();
+        if (User.IsInRole("Instructor"))
+        {
+            assignedCourses = await _instructorRepository.FilterCoursesByCurrentInstructorAsync(uid);
+        }
 
         var imageFile = ImageService.ConvertToIFormFile(applicationUser.Image);
         
@@ -57,7 +62,11 @@ public class ProfileController : Controller
         var applicationUser = await _userManager.GetUserAsync(User);
         var uid = applicationUser!.Id;
         var enrolledCourses = await _crsResultRepository.FilterCoursesByCurrentUserAsync(uid);
-        var assignedCourses = await _instructorRepository.FilterCoursesByCurrentInstructorAsync(uid);
+        List<Course> assignedCourses = new List<Course>();
+        if (User.IsInRole("Instructor"))
+        {
+            assignedCourses = await _instructorRepository.FilterCoursesByCurrentInstructorAsync(uid);
+        }
 
         if (profileViewModel.Image is not null)
         {

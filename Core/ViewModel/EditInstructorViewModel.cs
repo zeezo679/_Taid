@@ -13,6 +13,8 @@ public class EditInstructorViewModel
     
     public IFormFile? Image { get; set; }  
     public decimal Salary { get; set; }
+
+    public string Email { get; set; }
     public string Address { get; set; } = null!;
     public int CourseId { get; set; }
     public int DeptId { get; set; }

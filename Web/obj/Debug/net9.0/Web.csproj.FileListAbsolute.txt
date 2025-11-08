@@ -405,5 +405,6 @@ C:\Users\PC\RiderProjects\_Taid\Web\bin\Debug\net9.0\Microsoft.CodeDom.Providers
 C:\Users\PC\RiderProjects\_Taid\Web\obj\Debug\net9.0\compressed\ynm9uvqszg-2w3pkyqc41.gz
 C:\Users\PC\RiderProjects\_Taid\Web\obj\Debug\net9.0\compressed\5zzjg2zug2-mjgoyvngla.gz
 C:\Users\PC\RiderProjects\_Taid\Web\obj\Debug\net9.0\compressed\ftb1us292t-u60dm5qo39.gz
-C:\Users\PC\RiderProjects\_Taid\Web\obj\Debug\net9.0\compressed\3zm6tytr2w-jhq682chk5.gz
 C:\Users\PC\RiderProjects\_Taid\web\obj\Debug\net9.0\compressed\f61f1xnw7n-s6lbrp081x.gz
+C:\Users\PC\RiderProjects\_Taid\Web\obj\Debug\net9.0\compressed\3zm6tytr2w-dh8tvhefrm.gz
+C:\Users\PC\RiderProjects\_Taid\web\obj\Debug\net9.0\compressed\8u2b4klhsx-hmngd1mq15.gz

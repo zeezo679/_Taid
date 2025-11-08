@@ -14,7 +14,7 @@ namespace Web.Models.Entities
         public decimal Salary { get; set; }
         public string Address { get; set; } = null!;
 
-
+        public string? Email { get; set; }
         public int CourseId { get; set; }
         [ForeignKey("Department")]
         public int DeptId { get; set; }

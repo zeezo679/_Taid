@@ -82,6 +82,7 @@ namespace Web.Controllers
                 Id = instructor.Id,
                 Name = instructor.Name,
                 Image = file,
+                Email = instructor.Email,
                 Salary = instructor.Salary,
                 Address = instructor.Address,
                 DeptId = instructor.DeptId,
@@ -122,6 +123,7 @@ namespace Web.Controllers
                 oldInstructor.Address = model.Address;
                 oldInstructor.DeptId = model.DeptId;
                 oldInstructor.CourseId = model.CourseId;
+                oldInstructor.Email = model.Email;
                 
                 var department = DepartmentRepository.Get(model.DeptId);
                 oldInstructor.Department = department;
@@ -168,7 +170,9 @@ namespace Web.Controllers
                 {
                     UserName = newInstructorvm.Name,
                     Address = newInstructorvm.Address,
-                    PasswordHash = newInstructorvm.Password
+                    PasswordHash = newInstructorvm.Password,
+                    Email = newInstructorvm.Email,
+                    Image = newInstructorvm.Image?.FileName
                 };
 
                 var create = await UserManager.CreateAsync(applicationUser, applicationUser.PasswordHash);
@@ -194,6 +198,7 @@ namespace Web.Controllers
                     Name = newInstructorvm.Name,
                     Image = newInstructorvm.Image.FileName,
                     Salary = newInstructorvm.Salary,
+                    Email = newInstructorvm.Email,
                     Address = newInstructorvm.Address,
                     CourseId = newInstructorvm.CourseId,
                     DeptId = newInstructorvm.DeptId,
@@ -246,16 +251,16 @@ namespace Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult DeleteConfirmed(int id)
+        public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var instructor = InstructorRepository.Get(id);
             var UID = instructor.UserId;
-            var appUser =  UserManager.FindByIdAsync(UID).Result;
+            var appUser = await UserManager.FindByIdAsync(UID);
+            
             InstructorRepository.Delete(id);
+            
 
-
-
-            UserManager.DeleteAsync(appUser);
+            await UserManager.DeleteAsync(appUser);
             return RedirectToAction("Index");
         }
     }
