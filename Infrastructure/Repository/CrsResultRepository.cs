@@ -80,6 +80,9 @@ namespace Web.Models.Repository
             var courses = await _context.crsResults
                 .AsNoTracking()
                 .Include(crsr => crsr.Course)
+                    .ThenInclude(crs => crs.Department)
+                .Include(crsr => crsr.Course)
+                    .ThenInclude(crs => crs.Instructors)
                 .Where(crsr => crsr.UserId == uid)
                 .ToListAsync();
 

@@ -48,7 +48,7 @@ public class ProfileController : Controller
             Email = applicationUser.Email,
             Image = imageFile,
             EnrolledCourses = enrolledCourses,
-            AssignedCourses = assignedCourses,
+            //AssignedCourses = assignedCourses,
         };
         
         return View(profileViewModel);
@@ -62,7 +62,7 @@ public class ProfileController : Controller
         var applicationUser = await _userManager.GetUserAsync(User);
         var uid = applicationUser!.Id;
         var enrolledCourses = await _crsResultRepository.FilterCoursesByCurrentUserAsync(uid);
-        List<Course> assignedCourses = new List<Course>();
+         List<Course> assignedCourses = new List<Course>();
         if (User.IsInRole("Instructor"))
         {
             assignedCourses = await _instructorRepository.FilterCoursesByCurrentInstructorAsync(uid);
