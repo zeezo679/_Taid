@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using Core.Models.Interfaces.Trainee;
 using Services;
 using Microsoft.EntityFrameworkCore;
 using Web.Models.Entities;
@@ -19,7 +20,8 @@ namespace Web.Controllers
         private UserManager<ApplicationUser> _userManager;
         private SignInManager<ApplicationUser> _signInManager;
         private IAccountService _accountService;
-        public TraineeController(SignInManager<ApplicationUser> signInManager,IAccountService accountService ,ITraineeRepository traineeRepository, IDepartmentRepository departmentRepository, ICrsResultRepository crsResultRepository, UserManager<ApplicationUser> userManager) 
+        private readonly ITraineeService _traineeService;
+        public TraineeController(ITraineeService traineeService,SignInManager<ApplicationUser> signInManager,IAccountService accountService ,ITraineeRepository traineeRepository, IDepartmentRepository departmentRepository, ICrsResultRepository crsResultRepository, UserManager<ApplicationUser> userManager) 
         {
             _traineeRepository = traineeRepository;
             _departmentRepository = departmentRepository;
@@ -27,6 +29,7 @@ namespace Web.Controllers
             _userManager = userManager;
             _accountService = accountService;   
             _signInManager = signInManager;
+            _traineeService = traineeService;
         }
 
 
@@ -57,43 +60,11 @@ namespace Web.Controllers
             if(!ModelState.IsValid)
                 return RedirectToAction("AddTrainee");
 
-
-            Department dept = _departmentRepository.Get(newTrainee.DeptId);
+            //Add trainee service must handle the logic
+            var result = await _traineeService.AddTraineeAsync(newTrainee);   
             
-            var applicationUser = new ApplicationUser
-            {
-                UserName = newTrainee.Name,
-                Address = newTrainee.Address,
-                Email =  newTrainee.Email,
-                PasswordHash = newTrainee.Password
-            };
-
-            //adding trainee to aspnetusers
-            var createResult = await  _userManager.CreateAsync(applicationUser, newTrainee.Password);
-            
-            if(!createResult.Succeeded)
+            if(!result)
                 return RedirectToAction("AddTrainee");
-            
-            await _userManager.AddToRoleAsync(applicationUser, "Trainee");
-
-            //store image in directory before using it
-            var saveLocation = Path.Combine(Directory.GetCurrentDirectory(), $"wwwroot\\images");
-            ImageService.UploadImageToDirectory(newTrainee.Image, saveLocation, newTrainee.Image.FileName);
-            
-            //adding trainee to trainees table
-            Trainee trainee = new Trainee
-            {
-                Name = newTrainee.Name,
-                Image = newTrainee.Image.FileName,
-                Address = newTrainee.Address,
-                Grade = newTrainee.Grade,
-                Department = dept,
-                UserId = applicationUser.Id,
-            };
-
-
-            _traineeRepository.Insert(trainee);
-
 
             return RedirectToAction("Index");
                 
@@ -160,17 +131,6 @@ namespace Web.Controllers
         }
 
 
-        //[HttpGet]
-        //public IActionResult Delete(Trainee trainee)
-        //{
-
-        //    return PartialView("_ConfirmDeletePartial",trainee);
-        //}
-
-
-        
-
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
@@ -188,4 +148,3 @@ namespace Web.Controllers
     }
 }
 
-//ui problems in trainee index

@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Runtime.Serialization;
 using System.Security.Claims;
+using Core.Models.Interfaces.Trainee;
 using Web.Models.Entities;
 using Web.Models.Interfaces;
 using Web.ViewModel;

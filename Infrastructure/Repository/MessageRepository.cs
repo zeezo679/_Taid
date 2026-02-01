@@ -1,4 +1,5 @@
-﻿using Web.Infrastructure;
+﻿using Core.Models.Interfaces.Messages;
+using Web.Infrastructure;
 using Web.Models.Entities;
 using Web.Models.Interfaces;
 

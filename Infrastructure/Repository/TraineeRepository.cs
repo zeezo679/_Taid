@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Core.Models.Interfaces.Trainee;
+using Microsoft.EntityFrameworkCore;
 using Web.Infrastructure;
 using Web.Models.Entities;
 using Web.Models.Interfaces;

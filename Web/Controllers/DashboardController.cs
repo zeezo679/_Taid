@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Core.Models.Interfaces.Trainee;
+using Microsoft.AspNetCore.Mvc;
 using Web.Models.Interfaces;
 using Web.ViewModel;
 

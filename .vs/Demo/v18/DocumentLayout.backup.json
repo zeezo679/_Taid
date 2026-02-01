@@ -1,0 +1,244 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\PC\\RiderProjects\\_Taid\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{792153E8-2036-4B6D-934A-662F2EC58C8C}|Services\\Services.csproj|c:\\users\\pc\\riderprojects\\_taid\\services\\dependencyinjection\\services.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{792153E8-2036-4B6D-934A-662F2EC58C8C}|Services\\Services.csproj|solutionrelative:services\\dependencyinjection\\services.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{109407DB-BFE3-44CB-8E1A-B5691E4D3C82}|Web\\Web.csproj|c:\\users\\pc\\riderprojects\\_taid\\web\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{109407DB-BFE3-44CB-8E1A-B5691E4D3C82}|Web\\Web.csproj|solutionrelative:web\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{792153E8-2036-4B6D-934A-662F2EC58C8C}|Services\\Services.csproj|c:\\users\\pc\\riderprojects\\_taid\\services\\services\\messagesaverservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{792153E8-2036-4B6D-934A-662F2EC58C8C}|Services\\Services.csproj|solutionrelative:services\\services\\messagesaverservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{109407DB-BFE3-44CB-8E1A-B5691E4D3C82}|Web\\Web.csproj|c:\\users\\pc\\riderprojects\\_taid\\web\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{109407DB-BFE3-44CB-8E1A-B5691E4D3C82}|Web\\Web.csproj|solutionrelative:web\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{792153E8-2036-4B6D-934A-662F2EC58C8C}|Services\\Services.csproj|c:\\users\\pc\\riderprojects\\_taid\\services\\services\\accountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{792153E8-2036-4B6D-934A-662F2EC58C8C}|Services\\Services.csproj|solutionrelative:services\\services\\accountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{792153E8-2036-4B6D-934A-662F2EC58C8C}|Services\\Services.csproj|c:\\users\\pc\\riderprojects\\_taid\\services\\services\\mapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{792153E8-2036-4B6D-934A-662F2EC58C8C}|Services\\Services.csproj|solutionrelative:services\\services\\mapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC28DC81-D747-4D36-BF6B-ABED994CB4D5}|Core\\Core.csproj|c:\\users\\pc\\riderprojects\\_taid\\core\\models\\interfaces\\imapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BC28DC81-D747-4D36-BF6B-ABED994CB4D5}|Core\\Core.csproj|solutionrelative:core\\models\\interfaces\\imapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{792153E8-2036-4B6D-934A-662F2EC58C8C}|Services\\Services.csproj|c:\\users\\pc\\riderprojects\\_taid\\services\\services.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{792153E8-2036-4B6D-934A-662F2EC58C8C}|Services\\Services.csproj|solutionrelative:services\\services.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC28DC81-D747-4D36-BF6B-ABED994CB4D5}|Core\\Core.csproj|c:\\users\\pc\\riderprojects\\_taid\\core\\models\\interfaces\\iinstructorrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BC28DC81-D747-4D36-BF6B-ABED994CB4D5}|Core\\Core.csproj|solutionrelative:core\\models\\interfaces\\iinstructorrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC28DC81-D747-4D36-BF6B-ABED994CB4D5}|Core\\Core.csproj|c:\\users\\pc\\riderprojects\\_taid\\core\\models\\interfaces\\iaccountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BC28DC81-D747-4D36-BF6B-ABED994CB4D5}|Core\\Core.csproj|solutionrelative:core\\models\\interfaces\\iaccountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{792153E8-2036-4B6D-934A-662F2EC58C8C}|Services\\Services.csproj|c:\\users\\pc\\riderprojects\\_taid\\services\\services\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{792153E8-2036-4B6D-934A-662F2EC58C8C}|Services\\Services.csproj|solutionrelative:services\\services\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{109407DB-BFE3-44CB-8E1A-B5691E4D3C82}|Web\\Web.csproj|c:\\users\\pc\\riderprojects\\_taid\\web\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{109407DB-BFE3-44CB-8E1A-B5691E4D3C82}|Web\\Web.csproj|solutionrelative:web\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC28DC81-D747-4D36-BF6B-ABED994CB4D5}|Core\\Core.csproj|c:\\users\\pc\\riderprojects\\_taid\\core\\models\\options\\emailoptions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BC28DC81-D747-4D36-BF6B-ABED994CB4D5}|Core\\Core.csproj|solutionrelative:core\\models\\options\\emailoptions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 224,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Services.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\RiderProjects\\_Taid\\Services\\DependencyInjection\\Services.cs",
+              "RelativeDocumentMoniker": "Services\\DependencyInjection\\Services.cs",
+              "ToolTip": "C:\\Users\\PC\\RiderProjects\\_Taid\\Services\\DependencyInjection\\Services.cs",
+              "RelativeToolTip": "Services\\DependencyInjection\\Services.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAABAwBkAAABiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-20T16:55:19.446Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\RiderProjects\\_Taid\\Web\\Program.cs",
+              "RelativeDocumentMoniker": "Web\\Program.cs",
+              "ToolTip": "C:\\Users\\PC\\RiderProjects\\_Taid\\Web\\Program.cs",
+              "RelativeToolTip": "Web\\Program.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAABYAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-20T16:55:11.398Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MessageSaverService.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\RiderProjects\\_Taid\\Services\\Services\\MessageSaverService.cs",
+              "RelativeDocumentMoniker": "Services\\Services\\MessageSaverService.cs",
+              "ToolTip": "C:\\Users\\PC\\RiderProjects\\_Taid\\Services\\Services\\MessageSaverService.cs",
+              "RelativeToolTip": "Services\\Services\\MessageSaverService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-20T16:44:42.794Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "IInstructorRepository.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\RiderProjects\\_Taid\\Core\\Models\\Interfaces\\IInstructorRepository.cs",
+              "RelativeDocumentMoniker": "Core\\Models\\Interfaces\\IInstructorRepository.cs",
+              "ToolTip": "C:\\Users\\PC\\RiderProjects\\_Taid\\Core\\Models\\Interfaces\\IInstructorRepository.cs",
+              "RelativeToolTip": "Core\\Models\\Interfaces\\IInstructorRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-20T16:40:55.014Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Services",
+              "DocumentMoniker": "C:\\Users\\PC\\RiderProjects\\_Taid\\Services\\Services.csproj",
+              "RelativeDocumentMoniker": "Services\\Services.csproj",
+              "ToolTip": "C:\\Users\\PC\\RiderProjects\\_Taid\\Services\\Services.csproj",
+              "RelativeToolTip": "Services\\Services.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-12-20T16:40:29.98Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "IMapper.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\RiderProjects\\_Taid\\Core\\Models\\Interfaces\\IMapper.cs",
+              "RelativeDocumentMoniker": "Core\\Models\\Interfaces\\IMapper.cs",
+              "ToolTip": "C:\\Users\\PC\\RiderProjects\\_Taid\\Core\\Models\\Interfaces\\IMapper.cs",
+              "RelativeToolTip": "Core\\Models\\Interfaces\\IMapper.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-20T16:37:58.44Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "IAccountService.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\RiderProjects\\_Taid\\Core\\Models\\Interfaces\\IAccountService.cs",
+              "RelativeDocumentMoniker": "Core\\Models\\Interfaces\\IAccountService.cs",
+              "ToolTip": "C:\\Users\\PC\\RiderProjects\\_Taid\\Core\\Models\\Interfaces\\IAccountService.cs",
+              "RelativeToolTip": "Core\\Models\\Interfaces\\IAccountService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-20T16:37:16.506Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Mapper.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\RiderProjects\\_Taid\\Services\\Services\\Mapper.cs",
+              "RelativeDocumentMoniker": "Services\\Services\\Mapper.cs",
+              "ToolTip": "C:\\Users\\PC\\RiderProjects\\_Taid\\Services\\Services\\Mapper.cs",
+              "RelativeToolTip": "Services\\Services\\Mapper.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-20T16:36:10.969Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\PC\\RiderProjects\\_Taid\\Web\\appsettings.json",
+              "RelativeDocumentMoniker": "Web\\appsettings.json",
+              "ToolTip": "C:\\Users\\PC\\RiderProjects\\_Taid\\Web\\appsettings.json",
+              "RelativeToolTip": "Web\\appsettings.json",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAnwBkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-11-30T01:08:16.62Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\RiderProjects\\_Taid\\Web\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "Web\\Controllers\\AccountController.cs",
+              "ToolTip": "C:\\Users\\PC\\RiderProjects\\_Taid\\Web\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "Web\\Controllers\\AccountController.cs",
+              "ViewState": "AgIAAF8AAAAAAAAAAAAywJkAAABsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-30T01:13:04.258Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "AccountService.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\RiderProjects\\_Taid\\Services\\Services\\AccountService.cs",
+              "RelativeDocumentMoniker": "Services\\Services\\AccountService.cs",
+              "ToolTip": "C:\\Users\\PC\\RiderProjects\\_Taid\\Services\\Services\\AccountService.cs",
+              "RelativeToolTip": "Services\\Services\\AccountService.cs",
+              "ViewState": "AgIAABwAAAAAAAAAAAAgwGEAAABTAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-30T01:12:36.459Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "EmailService.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\RiderProjects\\_Taid\\Services\\Services\\EmailService.cs",
+              "RelativeDocumentMoniker": "Services\\Services\\EmailService.cs",
+              "ToolTip": "C:\\Users\\PC\\RiderProjects\\_Taid\\Services\\Services\\EmailService.cs",
+              "RelativeToolTip": "Services\\Services\\EmailService.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAxwBEAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-30T01:09:04.703Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "EmailOptions.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\RiderProjects\\_Taid\\Core\\Models\\Options\\EmailOptions.cs",
+              "RelativeDocumentMoniker": "Core\\Models\\Options\\EmailOptions.cs",
+              "ToolTip": "C:\\Users\\PC\\RiderProjects\\_Taid\\Core\\Models\\Options\\EmailOptions.cs",
+              "RelativeToolTip": "Core\\Models\\Options\\EmailOptions.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-30T01:07:56.15Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+[
+  {
+    "Name": "New Profile",
+    "Projects": [
+      {
+        "Path": "Web\\Web.csproj",
+        "Action": "Start",
+        "DebugTarget": "https"
+      },
+      {
+        "Path": "Infrastructure\\Infrastructure.csproj",
+        "Action": "StartWithoutDebugging",
+        "DebugTarget": "Infrastructure"
+      },
+      {
+        "Path": "Services\\Services.csproj",
+        "Action": "StartWithoutDebugging",
+        "DebugTarget": "Services"
+      },
+      {
+        "Path": "Core\\Core.csproj",
+        "Action": "StartWithoutDebugging",
+        "DebugTarget": "Core"
+      }
+    ]
+  }
+]

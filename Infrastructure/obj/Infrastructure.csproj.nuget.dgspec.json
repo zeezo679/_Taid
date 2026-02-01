@@ -4,14 +4,14 @@
     "C:\\Users\\PC\\RiderProjects\\_Taid\\Infrastructure\\Infrastructure.csproj": {}
   },
   "projects": {
-    "C:\\Users\\PC\\RiderProjects\\_Taid\\Core\\Core.csproj": {
+    "C:\\Users\\PC\\RiderProjects\\_Taid\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\PC\\RiderProjects\\_Taid\\Core\\Core.csproj",
-        "projectName": "Core",
-        "projectPath": "C:\\Users\\PC\\RiderProjects\\_Taid\\Core\\Core.csproj",
+        "projectUniqueName": "C:\\Users\\PC\\RiderProjects\\_Taid\\Domain\\Domain.csproj",
+        "projectName": "Domain",
+        "projectPath": "C:\\Users\\PC\\RiderProjects\\_Taid\\Domain\\Domain.csproj",
         "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\PC\\RiderProjects\\_Taid\\Core\\obj\\",
+        "outputPath": "C:\\Users\\PC\\RiderProjects\\_Taid\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -44,7 +44,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.300"
+        "SdkAnalysisLevel": "10.0.100"
       },
       "frameworks": {
         "net9.0": {
@@ -83,7 +83,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.304/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.102/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
@@ -115,8 +115,8 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "C:\\Users\\PC\\RiderProjects\\_Taid\\Core\\Core.csproj": {
-                "projectPath": "C:\\Users\\PC\\RiderProjects\\_Taid\\Core\\Core.csproj"
+              "C:\\Users\\PC\\RiderProjects\\_Taid\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\PC\\RiderProjects\\_Taid\\Domain\\Domain.csproj"
               }
             }
           }
@@ -131,12 +131,16 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.300"
+        "SdkAnalysisLevel": "10.0.100"
       },
       "frameworks": {
         "net9.0": {
           "targetAlias": "net9.0",
           "dependencies": {
+            "MailKit": {
+              "target": "Package",
+              "version": "[4.14.1, )"
+            },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
               "version": "[9.0.8, )"
@@ -156,6 +160,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[9.0.8, )"
+            },
+            "MimeKit": {
+              "target": "Package",
+              "version": "[4.14.0, )"
             }
           },
           "imports": [
@@ -174,7 +182,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.304/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.102/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
