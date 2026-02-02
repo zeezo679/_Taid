@@ -6,5 +6,6 @@ namespace Core.Models.Interfaces.Messages
     {
         Task InsertAsync(Message message);
         Task<List<Message>> GetMessagesAsync();
+        Task SaveChangesAsync();
     }
 }

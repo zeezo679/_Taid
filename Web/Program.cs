@@ -1,7 +1,5 @@
-using Web.Infrastructure;
 using Web.Models.Entities;
 using Web.Models.Interfaces;
-using Web.Models.Repository;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Principal;

@@ -1,5 +1,4 @@
-﻿using Web.Infrastructure;
-using Web.Models.Entities;
+﻿using Web.Models.Entities;
 using Web.ViewModel;
 using Microsoft.AspNetCore.Mvc;
 

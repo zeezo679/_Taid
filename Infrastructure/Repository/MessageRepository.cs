@@ -1,4 +1,5 @@
 ﻿using Core.Models.Interfaces.Messages;
+using Microsoft.EntityFrameworkCore;
 using Web.Infrastructure;
 using Web.Models.Entities;
 using Web.Models.Interfaces;
@@ -14,11 +15,15 @@ namespace Web.Models.Repository
         public async Task InsertAsync(Message message)
         {
             await _appDbContext.Messages.AddAsync(message);
-            await _appDbContext.SaveChangesAsync();
         }
 
         public async Task<List<Message>> GetMessagesAsync() =>
 
-            _appDbContext.Messages.ToList();
+            await _appDbContext.Messages.ToListAsync();
+
+        public async Task SaveChangesAsync()
+        {
+            await _appDbContext.SaveChangesAsync();
+        }
     }
 }

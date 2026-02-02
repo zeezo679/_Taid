@@ -8,10 +8,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Services;
-using Web.Infrastructure;
 using Web.Models.Entities;
 using Web.Models.Interfaces;
-using Web.Models.Repository;
 
 namespace Web.DependencyInjection
 {

@@ -122,23 +122,6 @@
           }
         }
       },
-      "Microsoft.AspNetCore.Identity.EntityFrameworkCore/9.0.8": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.EntityFrameworkCore.Relational": "9.0.8",
-          "Microsoft.Extensions.Identity.Stores": "9.0.8"
-        },
-        "compile": {
-          "lib/net9.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net9.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll": {
-            "related": ".xml"
-          }
-        }
-      },
       "Microsoft.Bcl.AsyncInterfaces/1.1.1": {
         "type": "package",
         "compile": {
@@ -1184,23 +1167,6 @@
         "runtime": {
           "bin/placeholder/Domain.dll": {}
         }
-      },
-      "Infrastructure/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v9.0",
-        "dependencies": {
-          "Domain": "1.0.0",
-          "MailKit": "4.14.1",
-          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "9.0.8",
-          "Microsoft.EntityFrameworkCore": "9.0.8",
-          "MimeKit": "4.14.0"
-        },
-        "compile": {
-          "bin/placeholder/Infrastructure.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Infrastructure.dll": {}
-        }
       }
     }
   },
@@ -1354,21 +1320,6 @@
         "lib/netstandard2.0/Microsoft.AspNetCore.Cryptography.KeyDerivation.xml",
         "microsoft.aspnetcore.cryptography.keyderivation.9.0.8.nupkg.sha512",
         "microsoft.aspnetcore.cryptography.keyderivation.nuspec"
-      ]
-    },
-    "Microsoft.AspNetCore.Identity.EntityFrameworkCore/9.0.8": {
-      "sha512": "z4q9roxXMQePwFM5tXXZS5sKkU78yYXVkj56NYYx9xKe+mxGkJMV1MaO0GFE6HnnM8bE3Xxhs0hAPw2jKbse6w==",
-      "type": "package",
-      "path": "microsoft.aspnetcore.identity.entityframeworkcore/9.0.8",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "Icon.png",
-        "THIRD-PARTY-NOTICES.TXT",
-        "lib/net9.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll",
-        "lib/net9.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.xml",
-        "microsoft.aspnetcore.identity.entityframeworkcore.9.0.8.nupkg.sha512",
-        "microsoft.aspnetcore.identity.entityframeworkcore.nuspec"
       ]
     },
     "Microsoft.Bcl.AsyncInterfaces/1.1.1": {
@@ -3224,17 +3175,11 @@
       "type": "project",
       "path": "../Domain/Domain.csproj",
       "msbuildProject": "../Domain/Domain.csproj"
-    },
-    "Infrastructure/1.0.0": {
-      "type": "project",
-      "path": "../Infrastructure/Infrastructure.csproj",
-      "msbuildProject": "../Infrastructure/Infrastructure.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net9.0": [
       "Domain >= 1.0.0",
-      "Infrastructure >= 1.0.0",
       "MailKit >= 4.14.1",
       "Newtonsoft.Json >= 13.0.4"
     ]
@@ -3273,9 +3218,6 @@
           "projectReferences": {
             "C:\\Users\\PC\\RiderProjects\\_Taid\\Domain\\Domain.csproj": {
               "projectPath": "C:\\Users\\PC\\RiderProjects\\_Taid\\Domain\\Domain.csproj"
-            },
-            "C:\\Users\\PC\\RiderProjects\\_Taid\\Infrastructure\\Infrastructure.csproj": {
-              "projectPath": "C:\\Users\\PC\\RiderProjects\\_Taid\\Infrastructure\\Infrastructure.csproj"
             }
           }
         }

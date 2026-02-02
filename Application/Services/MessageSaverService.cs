@@ -1,7 +1,6 @@
-﻿
+﻿using Core.Models.Interfaces.Messages;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Web.Infrastructure;
 using Web.Models.Interfaces;
 
 namespace Services
@@ -24,10 +23,10 @@ namespace Services
                 if(_queue.TryDequeue(out var message)) //we use tryDeque for concurrency
                 {
                     using var scope = _scopeFactory.CreateScope();
-                    var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+                    var messageRepository = scope.ServiceProvider.GetRequiredService<IMessageRepository>();
 
-                    await db.Messages.AddAsync(message, stoppingToken);
-                    await db.SaveChangesAsync(stoppingToken);
+                    await messageRepository.InsertAsync(message);
+                    await messageRepository.SaveChangesAsync();
                 }
                 else
                 {

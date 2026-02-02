@@ -1,5 +1,4 @@
-﻿using Web.Infrastructure;
-using Web.Models;
+﻿using Web.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.SignalR;
 using System.Collections.Concurrent;
