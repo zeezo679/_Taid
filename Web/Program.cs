@@ -3,6 +3,7 @@ using Web.Models.Interfaces;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Principal;
+using Infrastructure;
 using Services;
 using Web.DependencyInjection;
 using Web.Hubs;
@@ -17,11 +18,10 @@ builder.Configuration
     .AddUserSecrets<Program>(optional: true)
     .AddEnvironmentVariables();
 
+builder.Services.AddApplicationServices(builder.Configuration);
+builder.Services.AddInfrastructure(builder.Configuration);
+builder.Services.RegisterRepositories();
 
-builder.Services.Register(builder);
-builder.Services.AddSingleton<IMessageQueue, MessageQueue>();
-builder.Services.AddHostedService<MessageSaverService>();
-builder.Services.AddSignalR();
 builder.Services.AddAuthentication()
     .AddGoogle(o =>
     {

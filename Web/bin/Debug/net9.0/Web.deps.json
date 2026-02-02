@@ -9,6 +9,7 @@
       "Web/1.0.0": {
         "dependencies": {
           "Application": "1.0.0",
+          "Infrastructure": "1.0.0",
           "MailKit": "4.14.1",
           "Microsoft.AspNetCore.Authentication.Google": "9.0.10",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "9.0.8",
@@ -2059,7 +2060,6 @@
       "Application/1.0.0": {
         "dependencies": {
           "Domain": "1.0.0",
-          "Infrastructure": "1.0.0",
           "MailKit": "4.14.1",
           "Newtonsoft.Json": "13.0.4"
         },
